@@ -317,7 +317,6 @@ public function UpdateVendor_post(){
     $StateId = $request['StateId'];
     $CountryId = $request['CountryId'];
     $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
-
     $NAICSCodes = $request["NAICSCodes"];
     $BusinessRegisteredInDistrict = $request["BusinessRegisteredInDistrict"];
     $BusinessIsFranchisee = $request["BusinessIsFranchisee"];
@@ -335,7 +334,6 @@ public function UpdateVendor_post(){
     $BusinessPhone = $request["BusinessPhone"];
 
     if($VendorTypeId == "B") {
-
          $LegalName = $request["LegalName"];
          $TradeName = $request["TradeName"];
          $AliasName = $request["AliasName"];
@@ -360,7 +358,6 @@ public function UpdateVendor_post(){
     var_dump($VendorId);
 
      $vendordata = array('VendorId'=>$VendorId,'VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName
-
      );
 
 
