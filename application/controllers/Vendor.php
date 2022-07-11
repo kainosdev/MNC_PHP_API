@@ -134,7 +134,7 @@ $UpdatedDate = date('Y-m-d');
 // insert into employee address
 $AddressTypeId = 'C';
 $AStartDate = $request["StartDate"];
-$EndDate = $request["EndDate"];
+$EndDate = $request["StartDate"];
 $Address1 = $request["Address1"];
 $Address2 = $request["Address2"];
 
@@ -196,13 +196,31 @@ $VendorTypeId = $request["VendorTypeId"];
 
 
 
-if($VendorTypeId == true) {
-$VendorTypeId = "B";
+if($VendorTypeId == "B") {
+//$VendorTypeId = "B";
 $BusinessSize = $request["BusinessSize"];
 $BEClassificationId = $request["BEClassificationId"];
 $BusinessRegisteredInDistrict = $request["BusinessRegisteredInDistrict"];
+if($BusinessRegisteredInDistrict == true){
+    $BusinessRegisteredInDistrict = 1;
+}
+else {
+    $BusinessRegisteredInDistrict = 0;
+}
 $BusinessRegisteredInSCC = $request["BusinessRegisteredInSCC"];
+if($BusinessRegisteredInSCC == true){
+    $BusinessRegisteredInSCC = 1;
+}
+else {
+    $BusinessRegisteredInSCC = 0;
+}
 $BusinessIsFranchisee = $request["BusinessIsFranchisee"];
+if($BusinessIsFranchisee == true){
+    $BusinessIsFranchisee = 1;
+}
+else {
+    $BusinessIsFranchisee = 0;
+}
 // $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
 $EIN_SSN = '';
 }
@@ -232,7 +250,7 @@ $UpdatedUserId = $request["UserId"];
 // address vendor
 $AddressTypeId = 'C';
 $StartDate = $request["StartDate"];
-$EndDate = $request["EndDate"];
+$EndDate = $request["StartDate"];
 $Address1 = $request["Address1"];
 $Address2 = $request["Address2"];
 
