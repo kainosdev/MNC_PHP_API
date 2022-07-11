@@ -196,8 +196,8 @@ $VendorTypeId = $request["VendorTypeId"];
 
 
 
-if($VendorTypeId == "B") {
-//$VendorTypeId = "B";
+if($VendorTypeId == true) {
+$VendorTypeId = "B";
 $BusinessSize = $request["BusinessSize"];
 $BEClassificationId = $request["BEClassificationId"];
 $BusinessRegisteredInDistrict = $request["BusinessRegisteredInDistrict"];
