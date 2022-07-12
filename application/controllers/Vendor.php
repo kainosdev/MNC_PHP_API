@@ -149,7 +149,7 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
 'CreatedUserId' => $UserId, 'UpdatedDate' => $UpdatedDate,
 'UpdatedUserid' => $UserId, 'AdminUser' => $AdminUser,'FirstName'=>$FirstName,'LastName'=>$LastName,'Phone'=>$Phone,
 'EmploymentTypeId'=>$EmploymentTypeId,'JobTitleId'=>$JobTitleId,'StartDate'=>$StartDate, 'AddressTypeId'=>$AddressTypeId,'AStartDate'=>$AStartDate,'Address1'=>$Address1,'StateId'=>$StateId,'Zipcode'=>$Zipcode,
-'CountryId'=>$CountryId  );
+'CountryId'=>$CountryId,'DistrictId'=>$DistrictId,'CityId'=>$CityId );
 
 
 
