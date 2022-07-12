@@ -152,10 +152,15 @@ return $query->result_array();
                 // print_r($params);
 
                 $result = $this->db->query($sp,$params);
-                $retVal($retVal);
+               // $retVal($retVal);
+                $retVal = $result->row_array();
                 foreach($retVal as $key=>$value)
                 {
-                    $firstproceduresuccess= $value;
+                    if($key=="ErrorCodeID") 
+                    {
+                        $firstproceduresuccess= $value;
+                    }
+                    
                 }
                 return $firstproceduresuccess;
 
