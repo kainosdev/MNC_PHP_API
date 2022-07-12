@@ -152,9 +152,10 @@ return $query->result_array();
                 // print_r($params);
 
                 $result = $this->db->query($sp,$params);
-                $retVal($retVal);
+               // $retVal($retVal);
                 foreach($retVal as $key=>$value)
                 {
+                    
                     $firstproceduresuccess= $value;
                 }
                 return $firstproceduresuccess;
