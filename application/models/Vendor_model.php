@@ -73,18 +73,18 @@ public function GetVendorAddressById($VendorId)
 
 }
 
-public function updatevendorDetails($vendordata){
+// public function updatevendorDetails($vendordata){
     // $this->db->trans_begin();
     
     
    
         //$sp = "sUpdateVendor ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; 
-        $sp = "sUpdateVendor ?,?,?,?"; 
-        $params =$vendordata;
+        // $sp = "sUpdateVendor ?,?,?,?"; 
+        // $params =$vendordata;
             
             // print_r($params);
 
-            $result = $this->db->query($sp,$params);
+            // $result = $this->db->query($sp,$params);
             // var_dump($this->db->trans_status());
             // if ($result) {
 
@@ -103,6 +103,30 @@ public function updatevendorDetails($vendordata){
 
             // }
 
-    }
+    // }
+
+
+    public function updatevendorDetails($data){
+
+
+        $sp = "sUpdateVendor ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+        //echo $sp;
+
+        //     //No @ needed.  Codeigniter gets it right either way
+        $params =$data;
+        
+            $result = $this->db->query($sp,$params);
+            
+            // var_dump($result);
+            //return $result;
+            // $retVal = $result->row_array();
+            // var_dump($retVal);
+            // foreach($retVal as $key=>$value)
+            // {
+            //     $firstprocedursuccess= $value;
+            // }
+            // return $firstprocedursuccess;
+
+   }
 
 }
