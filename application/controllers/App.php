@@ -893,4 +893,9 @@ public function Opportunity_get()
     $data['Opportunity']=$this->app_model->getOpportunity();
     $this->response($data);
 }
+public function ServiceType_get()
+{
+    $data['ServiceType']=$this->app_model->getServiceType();
+    $this->response($data);
+}
     }

@@ -693,4 +693,9 @@ public function getOpportunity()
 $query = $this->db->get('vSolicitationType');
 return $query->result_array();
 }
+public function getServiceType()
+{
+$query = $this->db->get('vServiceType');
+return $query->result_array();
+}
 }

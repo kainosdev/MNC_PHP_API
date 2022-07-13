@@ -277,6 +277,7 @@ $route['app/getCountryByState']='app/getCountryByState';
 $route['app/selectAllDistricts']='app/selectAllDistricts';
 
 $route['app/SetAsideType']='app/SetAsideType';
+$route['app/ServiceType']='app/ServiceType';
 $route['app/ContractVehicle']='app/ContractVehicle';
 $route['app/BidStatus']='app/BidStatus';
 $route['app/BitDBEGoal']='app/BitDBEGoal';
