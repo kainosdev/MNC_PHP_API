@@ -275,3 +275,9 @@ $route['app/selectBEClassification']='app/selectBEClassification';
 $route['app/selectAllCountry']='app/selectAllCountry';
 $route['app/getCountryByState']='app/getCountryByState';
 $route['app/selectAllDistricts']='app/selectAllDistricts';
+
+$route['app/SetAsideType']='app/SetAsideType';
+$route['app/ContractVehicle']='app/ContractVehicle';
+$route['app/BidStatus']='app/BidStatus';
+$route['app/BitDBEGoal']='app/BitDBEGoal';
+$route['app/Opportunity']='app/Opportunity';

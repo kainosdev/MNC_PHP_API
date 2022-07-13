@@ -868,4 +868,29 @@ public function getCityByZipcode_get()
     $this->response($data);
 
 }
+public function SetAsideType_get()
+{
+    $data['SetAsideType']=$this->app_model->getSetAsideType();
+    $this->response($data);
+}
+public function ContractVehicle_get()
+{
+    $data['ContractVehicle']=$this->app_model->getContractVehicle();
+    $this->response($data);
+}
+public function BidStatus_get()
+{
+    $data['BidStatus']=$this->app_model->getBidStatus();
+    $this->response($data);
+}
+public function BitDBEGoal_get()
+{
+    $data['DBEGoal']=$this->app_model->getBitDBEGoal();
+    $this->response($data);
+}
+public function Opportunity_get()
+{
+    $data['Opportunity']=$this->app_model->getOpportunity();
+    $this->response($data);
+}
     }
