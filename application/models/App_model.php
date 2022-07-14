@@ -668,4 +668,40 @@ public function getCityByZipcode($zipcode)
     return $query->result_array();
 
 }
+public function getSetAsideType()
+{
+$query = $this->db->get('vSetAsideType');
+return $query->result_array();
+}
+public function getContractVehicle()
+{
+$query = $this->db->get('vContractVehicle');
+return $query->result_array();
+}
+public function getBidStatus()
+{
+$query = $this->db->get('vBidStatus');
+return $query->result_array();
+}
+public function getBitDBEGoal()
+{
+$query = $this->db->get('vBidBEGoal');
+return $query->result_array();
+}
+public function getOpportunity()
+{
+$query = $this->db->get('vSolicitationType');
+return $query->result_array();
+}
+public function getServiceType()
+{
+$query = $this->db->get('vServiceType');
+return $query->result_array();
+}
+public function GetContractingofficerByJobtitle($JobTitleDesc)
+{
+    $query = $this->db->query("sGetContractingofficerByJobtitle @JobTitleDesc='$ $jobtitle'");
+    return $query->result_array();
+
+}
 }

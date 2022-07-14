@@ -277,3 +277,16 @@ $route['app/selectBEClassification']='app/selectBEClassification';
 $route['app/selectAllCountry']='app/selectAllCountry';
 $route['app/getCountryByState']='app/getCountryByState';
 $route['app/selectAllDistricts']='app/selectAllDistricts';
+
+$route['app/SetAsideType']='app/SetAsideType';
+$route['app/ServiceType']='app/ServiceType';
+$route['app/ContractVehicle']='app/ContractVehicle';
+$route['app/BidStatus']='app/BidStatus';
+$route['app/BitDBEGoal']='app/BitDBEGoal';
+$route['app/Opportunity']='app/Opportunity';
+$route['app/ContractingofficerByJobtitle']='app/ContractingofficerByJobtitle';
+
+//
+$route['bid/GetBidByNumber']='bid/GetBidByNumber';
+$route['bid/GetBidClinByNumber']='bid/GetBidClinByNumber';
+$route['bid/BuyingEntity']='bid/BuyingEntity';
