@@ -109,7 +109,7 @@ public function GetVendorAddressById($VendorId)
     public function updatevendorDetails($data){
 
 
-        $sp = "sUpdateVendor ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+        $sp = "sUpdateVendor ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
         //echo $sp;
 
         //     //No @ needed.  Codeigniter gets it right either way
@@ -117,16 +117,38 @@ public function GetVendorAddressById($VendorId)
         
             $result = $this->db->query($sp,$params);
             
-            // var_dump($result);
-            //return $result;
-            // $retVal = $result->row_array();
-            // var_dump($retVal);
-            // foreach($retVal as $key=>$value)
-            // {
-            //     $firstprocedursuccess= $value;
-            // }
-            // return $firstprocedursuccess;
+            // $sp1 = "sUpdateVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+        //echo $sp;
+
+        //     //No @ needed.  Codeigniter gets it right either way
+        // $params1 =$data1;
+        
+            // $result = $this->db->query($sp1,$params1);
 
    }
+
+   public function GetVendorContactById($VendorId,$VendorContactPrimary)
+{
+    $query = $this->db->query("sVendorContactById @VendorId='$VendorId', @VendorContactPrimary='$VendorContactPrimary'");
+    return $query->result_array();
+
+} 
+
+
+
+public function insertVendorContact($data){
+
+
+    $sp = "sAddVendorContact ?,?,?,?,?,?,?"; //No exec or call needed
+    //echo $sp;
+
+    //     //No @ needed.  Codeigniter gets it right either way
+    $params =$data;
+    
+        $result = $this->db->query($sp,$params);
+        
+        
+
+}
 
 }

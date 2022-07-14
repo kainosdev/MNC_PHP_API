@@ -359,14 +359,14 @@ public function UpdateVendor_post(){
          $LegalName = $request["LegalName"];
          $TradeName = $request["TradeName"];
          $AliasName = $request["AliasName"];
-         $EIN_SSN = $request["EIN_SSN"];
+         $EIN_SSN = $request["Federal"];
          $OutreachEmailOptIn = false;
 
      }
     else {
 
-        $TradeName = $request["FirstName"];
-        $LegalName = $request["LastName"];
+        $TradeName = $request["LastName"];
+        $LegalName = $request["FirstName"];
         $AliasName = $request["MiddleName"];
         $EIN_SSN = $request["EIN_SSN"];
         $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
@@ -374,32 +374,125 @@ public function UpdateVendor_post(){
       }
 
 
+      if($VendorTypeId == "B") {
+        $MAddress1 = $request["BMAddress1"];
+      $MAddress2 = $request['BMAddress2'];
+      $MCityId = $request['BMCityId'];
+      $MZipcode = $request['BMZipcode'];
+      $MDistrictId = $request['BMDistrictId'];
+      $MStateId = $request['BMStateId'];
+      $MCountryId = $request['BMCountryId'];
+      $MStartDate = $request['BMStartDate'];
+      $MEndDate = $request['BMEndDate'];
+  
+  
+      $PAddress1 = $request["BPAddress1"];
+      $PAddress2 = $request['BPAddress2'];
+      $PCityId = $request['BPCityId'];
+      $PZipcode = $request['BPZipcode'];
+      $PDistrictId = $request['BPDistrictId'];
+      $PStateId = $request['BPStateId'];
+      $PCountryId = $request['BPCountryId'];
+      $PStartDate = $request['BPStartDate'];
+      $PEndDate = $request['BPEndDate'];
 
 
+
+      
+     
+        }
+        else {
+          $MAddress1 = $request["IMAddress1"];
+      $MAddress2 = $request['IMAddress2'];
+      $MCityId = $request['IMCityId'];
+      $MZipcode = $request['IMZipcode'];
+      $MDistrictId = $request['IMDistrictId'];
+      $MStateId = $request['IMStateId'];
+      $MCountryId = $request['IMCountryId'];
+      $MStartDate = $request['IMStartDate'];
+      $MEndDate = $request['IMEndDate'];
+  
+      $PAddress1 = $request["IPAddress1"];
+      $PAddress2 = $request['IPAddress2'];
+      $PCityId = $request['IPCityId'];
+      $PZipcode = $request['IPZipcode'];
+      $PDistrictId = $request['IPDistrictId'];
+      $PStateId = $request['IPStateId'];
+      $PCountryId = $request['IPCountryId'];
+      $PStartDate = $request['IPStartDate'];
+      $PEndDate = $request['IPEndDate'];
+  
+  
+      
+     
+        }
+
+        $ContactName = $request['ContactName'];
+      $BusinessPhone = $request['BusinessPhone'];
+      $JobTitle = $request['JobTitle'];
+      $BusinessEmail = $request['BusinessEmail'];
+      $VendorContactActive = $request['VendorContactActive'];
+      if($VendorContactActive== NULL){
+        $VendorContactActive = 0;
+      }
+      $VendorContactPrimary = $request['VendorContactPrimary'];
+      if($VendorContactPrimary== NULL){
+        $VendorContactPrimary = 0;
+      }
 
    
       if($VendorTypeId == "B") {
       $vendordata = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,
-      'EIN_SSN'=>'','DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>"",'NAICSCodes'=>$NAICSCodes,'CommodityCodes'=>$CommodityCodes, 
+      'EIN_SSN'=>$EIN_SSN,'DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>"",'NAICSCodes'=>$NAICSCodes,'CommodityCodes'=>$CommodityCodes, 
       'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,
         'BusinessIsFranchisee'=>$BusinessIsFranchisee,'Website'=>$Website,'Phone'=>'','Email'=>'','OutreachEmailOptIn'=>$OutreachEmailOptIn,
         'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
 
         'AddressTypeId'=>"C",'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,
-        'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
+        'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId,
+
+        'MAddressTypeId'=>"M",'MStartDate'=>$MStartDate,'MEndDate'=>$MEndDate,'MAddress1'=>$MAddress1,
+    'MAddress2'=>$MAddress2,'MStateId'=>$MStateId,'MDistrictId'=>$MDistrictId,'MCityId'=>$MCityId,
+    'MZipcode'=>$MZipcode,'MCountryId'=>$MCountryId,'MCreatedDate'=>date('Y-m-d'),'MCreatedUserId'=>$CreatedUserId,
+    'MUpdatedDate'=>date('Y-m-d'),'MUpdatedUserId'=>$CreatedUserId,
+
+    'PAddressTypeId'=>"P",'PStartDate'=>$PStartDate,'PEndDate'=>$PEndDate,'PAddress1'=>$PAddress1,
+    'PAddress2'=>$PAddress2,'PStateId'=>$PStateId,'PDistrictId'=>$PDistrictId,'PCityId'=>$PCityId,
+    'PZipcode'=>$PZipcode,'PCountryId'=>$PCountryId,'PCreatedDate'=>date('Y-m-d'),'PCreatedUserId'=>$CreatedUserId,
+    'PUpdatedDate'=>date('Y-m-d'),'PUpdatedUserId'=>$CreatedUserId,
+
+ 'ContactName'=>$ContactName,'BusinessPhone'=>$BusinessPhone,'BusinessEmail'=>$BusinessEmail,'VendorContactActive'=>$VendorContactActive,'VendorContactPrimary'=>$VendorContactPrimary,
+'JobTitle'=>$JobTitle
+ //,'Title'=>$Title
+    // 
+
      );
     }
 
 
     else {
-        $vendordata = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,
-      'EIN_SSN'=>$EIN_SSN,'DUNS'=>'','BusinessSize'=>'','BEClassificationId'=>"",'NAICSCodes'=>"",'CommodityCodes'=>"", 
-      'BusinessRegisteredInDistrict'=>"",'BusinessRegisteredInSCC'=>"",
-        'BusinessIsFranchisee'=>'','Website'=>'','Phone'=>$Phone,'Email'=>$Email,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
+        $vendordata = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,'EIN_SSN'=>$EIN_SSN,
+        'DUNS'=>'','BusinessSize'=>'','BEClassificationId'=>"",'NAICSCodes'=>"",
+        'CommodityCodes'=>"", 'BusinessRegisteredInDistrict'=>"",'BusinessRegisteredInSCC'=>"",'BusinessIsFranchisee'=>'',
+        'Website'=>'','Phone'=>$Phone,'Email'=>$Email,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
         'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
 
         'AddressTypeId'=>"C",'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,
-        'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
+        'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,
+        'Zipcode'=>$Zipcode,'CountryId'=>$CountryId,
+
+        'MAddressTypeId'=>"M",'MStartDate'=>$MStartDate,'MEndDate'=>$MEndDate,'MAddress1'=>$MAddress1,
+    'MAddress2'=>$MAddress2,'MStateId'=>$MStateId,'MDistrictId'=>$MDistrictId,'MCityId'=>$MCityId,
+    'MZipcode'=>$MZipcode,'MCountryId'=>$MCountryId,'MCreatedDate'=>date('Y-m-d'),'MCreatedUserId'=>$CreatedUserId,
+    'MUpdatedDate'=>date('Y-m-d'),'MUpdatedUserId'=>$CreatedUserId,
+
+    'PAddressTypeId'=>"P",'PStartDate'=>$PStartDate,'PEndDate'=>$PEndDate,'PAddress1'=>$PAddress1,
+    'PAddress2'=>$PAddress2,'PStateId'=>$PStateId,'PDistrictId'=>$PDistrictId,'PCityId'=>$PCityId,
+    'PZipcode'=>$PZipcode,'PCountryId'=>$PCountryId,'PCreatedDate'=>date('Y-m-d'),'PCreatedUserId'=>$CreatedUserId,
+    'PUpdatedDate'=>date('Y-m-d'),'PUpdatedUserId'=>$CreatedUserId,
+
+    'ContactName'=>$ContactName,'BusinessPhone'=>$BusinessPhone,'BusinessEmail'=>$BusinessEmail,'VendorContactActive'=>$VendorContactActive,'VendorContactPrimary'=>$VendorContactPrimary,
+'JobTitle'=>$JobTitle
      );
     }
 
@@ -410,63 +503,63 @@ public function UpdateVendor_post(){
     
 
 
-      $result = $this->vendor_model->updatevendorDetails($vendordata);
-      //var_dump($result);
-      $data['success'] = $result;
+    //   $result = $this->vendor_model->updatevendorDetails($vendordata);
+    //   //var_dump($result);
+    //   $data['success'] = $result;
 
-      if($VendorTypeId == "B") {
-      $MAddress1 = $request["BMAddress1"];
-    $MAddress2 = $request['BMAddress2'];
-    $MCityId = $request['BMCityId'];
-    $MZipcode = $request['BMZipcode'];
-    $MDistrictId = $request['BMDistrictId'];
-    $MStateId = $request['BMStateId'];
-    $MCountryId = $request['BMCountryId'];
-    $MStartDate = $request['BMStartDate'];
-    $MEndDate = $request['BMEndDate'];
-
-
-    $PAddress1 = $request["BPAddress1"];
-    $PAddress2 = $request['BPAddress2'];
-    $PCityId = $request['BPCityId'];
-    $PZipcode = $request['BPZipcode'];
-    $PDistrictId = $request['BPDistrictId'];
-    $PStateId = $request['BPStateId'];
-    $PCountryId = $request['BPCountryId'];
-    $PStartDate = $request['BPStartDate'];
-    $PEndDate = $request['BPEndDate'];
-      }
-      else {
-        $MAddress1 = $request["IMAddress1"];
-    $MAddress2 = $request['IMAddress2'];
-    $MCityId = $request['IMCityId'];
-    $MZipcode = $request['IMZipcode'];
-    $MDistrictId = $request['IMDistrictId'];
-    $MStateId = $request['IMStateId'];
-    $MCountryId = $request['IMCountryId'];
-    $MStartDate = $request['IMStartDate'];
-    $MEndDate = $request['IMEndDate'];
-
-    $MAddress1 = $request["IPAddress1"];
-    $MAddress2 = $request['IPAddress2'];
-    $MCityId = $request['IPCityId'];
-    $MZipcode = $request['IPZipcode'];
-    $MDistrictId = $request['IPDistrictId'];
-    $MStateId = $request['IPStateId'];
-    $MCountryId = $request['IPCountryId'];
-    $MStartDate = $request['IPStartDate'];
-    $MEndDate = $request['IPEndDate'];
-      }
+      
     // $this->response('', 404, 'fail', $request["FirstName"]);
 
-    //  $vendordata1 = array('VendorId'=>$VendorId,'AddressTypeId'=>"C",'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,
-    //     'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
-    //  );
+//     $vendordata1 = array('VendorId'=>$VendorId,'AddressTypeId'=>"M",'StartDate'=>$MStartDate,'EndDate'=>$MEndDate,'Address1'=>$MAddress1,
+//     'Address2'=>$MAddress2,'StateId'=>$MStateId,'DistrictId'=>$MDistrictId,'CityId'=>$MCityId,'Zipcode'=>$MZipcode,'CountryId'=>$MCountryId,
+//     'MCreatedDate'=>date('Y-m-d'),'MCreatedUserId'=>$CreatedUserId,'MUpdatedDate'=>date('Y-m-d'),'MCreatedUserId'=>$CreatedUserId,
+//     'AddressTypeId'=>"P",'StartDate'=>$PStartDate,'EndDate'=>$PEndDate,'Address1'=>$PAddress1,
+//     'Address2'=>$PAddress2,'StateId'=>$PStateId,'DistrictId'=>$PDistrictId,'CityId'=>$PCityId,'Zipcode'=>$PZipcode,'CountryId'=>$PCountryId,
+//    'MCreatedDate'=>date('Y-m-d'),'MCreatedUserId'=>$CreatedUserId,'MUpdatedDate'=>date('Y-m-d'),'MCreatedUserId'=>$CreatedUserId
+//  );
+
+    $result = $this->vendor_model->updatevendorDetails($vendordata);
+//       //var_dump($result);
+      $data['success'] = $result;
     
 
 
     // $result = $this->vendor_model->updatevendorDetails($vendordata1);
 
+}
+
+
+
+public function GetVendorContactById_get()
+{
+    $VendorId=$_GET['VendorId'];
+    $VendorContactPrimary=$_GET['VendorContactPrimary'];
+    $data['SingleVendorContactDetails']=$this->vendor_model->GetVendorContactById($VendorId,$VendorContactPrimary);
+    $this->response($data);
+
+}
+
+
+public function AddVendorContact_post(){
+
+    $json = file_get_contents('php://input');
+    $request = json_decode($json,true);
+    // $vendorMgmt = $request->vendorMgmt;
+
+    $VendorId = $request["VendorId"];
+    $VendorId = $request["VendorId"];
+    $VendorId = $request["VendorId"];
+    $VendorId = $request["VendorId"];
+    $VendorId = $request["VendorId"];
+    $VendorId = $request["VendorId"];
+    $VendorId = $request["VendorId"];
+
+    $vendorAddress = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,
+      'EIN_SSN'=>$EIN_SSN,'DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>"");
+
+      $result = $this->vendor_model->insertVendorContact($vendorAddress);
+      //       //var_dump($result);
+            $data['success'] = $result; 
 }
 
 }
