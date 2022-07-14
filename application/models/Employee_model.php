@@ -151,18 +151,20 @@ return $query->result_array();
                 // $params = array($data);
                 // print_r($params);
 
-                $result = $this->db->query($sp,$params);
-               // $retVal($retVal);
-                $retVal = $result->row_array();
-                foreach($retVal as $key=>$value)
-                {
-                    if($key=="ErrorCodeID")
-                    {
-                        $firstproceduresuccess= $value;
-                    }
+                //$result = $this->db->query($sp,$params);
+                $query = $this->db->query($sp,$params);
+                return $query->result_array();
+            //    // $retVal($retVal);
+            //     $retVal = $result->row_array();
+            //     foreach($retVal as $key=>$value)
+            //     {
+            //         if($key=="ErrorCodeID")
+            //         {
+            //             $firstproceduresuccess= $value;
+            //         }
 
-                }
-                return $firstproceduresuccess;
+            //     }
+            //     return $firstproceduresuccess;
 
         }
 
