@@ -160,7 +160,7 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
                'ErrorCode' => $result
         ];
 
-        return $this->response($data);
+        $this->response($data);
 
             }
 //                 // insert vendor
@@ -275,6 +275,7 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
 
 
              $result = $this->employee_model->AdduserDetailsVendor($data);
+             var_dump($result);
             //  if($result)
             //  {
             //     $this->response('', 200, 'success')
@@ -289,7 +290,7 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
                 'ErrorCode' => $result
          ];
 
-         return $this->response($data);
+         $this->response($data);
 }
 
 
@@ -336,7 +337,7 @@ public function UpdateVendor_post(){
     $CountryId = $request['CountryId'];
     $StartDate = $request['StartDate'];
     $EndDate = $request['EndDate'];
-  
+
     $NAICSCodes = $request["NAICSCodes"];
     $BusinessRegisteredInDistrict = $request["BusinessRegisteredInDistrict"];
     $BusinessIsFranchisee = $request["BusinessIsFranchisee"];
@@ -377,10 +378,10 @@ public function UpdateVendor_post(){
 
 
 
-   
+
       if($VendorTypeId == "B") {
       $vendordata = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,
-      'EIN_SSN'=>'','DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>"",'NAICSCodes'=>$NAICSCodes,'CommodityCodes'=>$CommodityCodes, 
+      'EIN_SSN'=>'','DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>"",'NAICSCodes'=>$NAICSCodes,'CommodityCodes'=>$CommodityCodes,
       'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,
         'BusinessIsFranchisee'=>$BusinessIsFranchisee,'Website'=>$Website,'Phone'=>'','Email'=>'','OutreachEmailOptIn'=>$OutreachEmailOptIn,
         'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
@@ -393,7 +394,7 @@ public function UpdateVendor_post(){
 
     else {
         $vendordata = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,
-      'EIN_SSN'=>$EIN_SSN,'DUNS'=>'','BusinessSize'=>'','BEClassificationId'=>"",'NAICSCodes'=>"",'CommodityCodes'=>"", 
+      'EIN_SSN'=>$EIN_SSN,'DUNS'=>'','BusinessSize'=>'','BEClassificationId'=>"",'NAICSCodes'=>"",'CommodityCodes'=>"",
       'BusinessRegisteredInDistrict'=>"",'BusinessRegisteredInSCC'=>"",
         'BusinessIsFranchisee'=>'','Website'=>'','Phone'=>$Phone,'Email'=>$Email,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
         'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
@@ -407,7 +408,7 @@ public function UpdateVendor_post(){
     //  $vendordata1 = array('VendorId'=>$VendorId,'AddressTypeId'=>"C",'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,
     //     'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
     //  );
-    
+
 
 
       $result = $this->vendor_model->updatevendorDetails($vendordata);
@@ -462,7 +463,7 @@ public function UpdateVendor_post(){
     //  $vendordata1 = array('VendorId'=>$VendorId,'AddressTypeId'=>"C",'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,
     //     'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
     //  );
-    
+
 
 
     // $result = $this->vendor_model->updatevendorDetails($vendordata1);

@@ -283,3 +283,7 @@ $route['app/BidStatus']='app/BidStatus';
 $route['app/BitDBEGoal']='app/BitDBEGoal';
 $route['app/Opportunity']='app/Opportunity';
 $route['app/ContractingofficerByJobtitle']='app/ContractingofficerByJobtitle';
+
+//
+$route['bid/GetBidByNumber']='bid/GetBidByNumber';
+$route['bid/GetBidClinByNumber']='bid/GetBidClinByNumber';

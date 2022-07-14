@@ -128,7 +128,7 @@ return $query->result_array();
         $params =$data;
             $result = $this->db->query($sp,$params);
             $retVal = $result->row_array();
-            var_dump($retVal);
+           // var_dump($retVal);
             foreach($retVal as $key=>$value)
             {
                 $firstprocedursuccess= $value;
