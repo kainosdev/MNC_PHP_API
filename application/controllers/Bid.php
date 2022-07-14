@@ -49,5 +49,11 @@ public function BuyingEntity_get()
     $data['BuyingEntity']=$this->bid_model->getBuyingEntity();
     $this->response($data);
 }
+public function GetViewBid_get()
+{
+    $data['ViewBid']=$this->bid_model->GetViewBidList();
+    $this->response($data);
+
+}
 
     }

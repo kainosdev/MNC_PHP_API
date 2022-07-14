@@ -36,5 +36,11 @@ public function getBuyingEntity()
 $query = $this->db->get('vBuyingEntity');
 return $query->result_array();
 }
+public function GetViewBidList()
+{
+    $query = $this->db->query("sGetViewBid");
+    return $query->result_array();
+
+}
 
 }
