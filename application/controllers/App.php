@@ -898,4 +898,10 @@ public function ServiceType_get()
     $data['ServiceType']=$this->app_model->getServiceType();
     $this->response($data);
 }
-    }
+public function ContractingofficerByJobtitle_get()
+{
+    $jobtitle=$_GET['JobTitleDesc'];
+    $data['contractingofficer']=$this->app_model->GetContractingofficerByJobtitle( $jobtitle);
+    $this->response($data);
+}
+}
