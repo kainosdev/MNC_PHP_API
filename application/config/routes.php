@@ -248,6 +248,8 @@ $route['vendor/GetAllVendors']='vendor/GetAllVendors';
 $route['vendor/GetVendorById']='vendor/GetVendorById';
 $route['vendor/GetVendorAddressById']='vendor/GetVendorAddressById';
 $route['vendor/UpdateVendor']='vendor/UpdateVendor';
+$route['vendor/GetVendorContactById']='vendor/GetVendorContactById';
+$route['vendor/AddVendorContact']='vendor/AddVendorContact';
 
 //login
 $route['login/insertVendor']='login/insertVendor';
