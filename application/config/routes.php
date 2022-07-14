@@ -287,3 +287,4 @@ $route['app/ContractingofficerByJobtitle']='app/ContractingofficerByJobtitle';
 //
 $route['bid/GetBidByNumber']='bid/GetBidByNumber';
 $route['bid/GetBidClinByNumber']='bid/GetBidClinByNumber';
+$route['bid/BuyingEntity']='bid/BuyingEntity';

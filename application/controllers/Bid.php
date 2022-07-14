@@ -44,6 +44,10 @@ public function GetBidClinByNumber_get()
     $this->response($data);
 
 }
-
+public function BuyingEntity_get()
+{
+    $data['BuyingEntity']=$this->bid_model->getBuyingEntity();
+    $this->response($data);
+}
 
     }

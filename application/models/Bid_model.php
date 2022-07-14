@@ -31,5 +31,10 @@ public function GetBidClinByNumber($BidNumber)
     return $query->result_array();
 
 }
+public function getBuyingEntity()
+{
+$query = $this->db->get('vBuyingEntity');
+return $query->result_array();
+}
 
 }
