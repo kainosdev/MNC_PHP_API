@@ -8,6 +8,7 @@
 //error_reporting(-1);
 //ini_set('display_errors', 'On');
 require APPPATH . '/libraries/JWT.php';
+
 class Applib
 {
 
