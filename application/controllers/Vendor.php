@@ -385,8 +385,8 @@ public function UpdateVendor_post(){
       $MCountryId = $request['BMCountryId'];
       $MStartDate = $request['BMStartDate'];
       $MEndDate = $request['BMEndDate'];
-  
-  
+
+
       $PAddress1 = $request["BPAddress1"];
       $PAddress2 = $request['BPAddress2'];
       $PCityId = $request['BPCityId'];
@@ -399,8 +399,8 @@ public function UpdateVendor_post(){
 
 
 
-      
-     
+
+
         }
         else {
           $MAddress1 = $request["IMAddress1"];
@@ -412,7 +412,7 @@ public function UpdateVendor_post(){
       $MCountryId = $request['IMCountryId'];
       $MStartDate = $request['IMStartDate'];
       $MEndDate = $request['IMEndDate'];
-  
+
       $PAddress1 = $request["IPAddress1"];
       $PAddress2 = $request['IPAddress2'];
       $PCityId = $request['IPCityId'];
@@ -422,10 +422,10 @@ public function UpdateVendor_post(){
       $PCountryId = $request['IPCountryId'];
       $PStartDate = $request['IPStartDate'];
       $PEndDate = $request['IPEndDate'];
-  
-  
-      
-     
+
+
+
+
         }
 
         $ContactName = $request['ContactName'];
@@ -441,10 +441,10 @@ public function UpdateVendor_post(){
         $VendorContactPrimary = 0;
       }
 
-   
+
       if($VendorTypeId == "B") {
       $vendordata = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,
-      'EIN_SSN'=>$EIN_SSN,'DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>"",'NAICSCodes'=>$NAICSCodes,'CommodityCodes'=>$CommodityCodes, 
+      'EIN_SSN'=>$EIN_SSN,'DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>"",'NAICSCodes'=>$NAICSCodes,'CommodityCodes'=>$CommodityCodes,
       'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,
         'BusinessIsFranchisee'=>$BusinessIsFranchisee,'Website'=>$Website,'Phone'=>'','Email'=>'','OutreachEmailOptIn'=>$OutreachEmailOptIn,
         'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
@@ -465,7 +465,7 @@ public function UpdateVendor_post(){
  'ContactName'=>$ContactName,'BusinessPhone'=>$BusinessPhone,'BusinessEmail'=>$BusinessEmail,'VendorContactActive'=>$VendorContactActive,'VendorContactPrimary'=>$VendorContactPrimary,
 'JobTitle'=>$JobTitle
  //,'Title'=>$Title
-    // 
+    //
 
      );
     }
@@ -508,7 +508,7 @@ public function UpdateVendor_post(){
     //   //var_dump($result);
     //   $data['success'] = $result;
 
-      
+
     // $this->response('', 404, 'fail', $request["FirstName"]);
 
 //     $vendordata1 = array('VendorId'=>$VendorId,'AddressTypeId'=>"M",'StartDate'=>$MStartDate,'EndDate'=>$MEndDate,'Address1'=>$MAddress1,
@@ -522,7 +522,7 @@ public function UpdateVendor_post(){
     $result = $this->vendor_model->updatevendorDetails($vendordata);
 //       //var_dump($result);
       $data['success'] = $result;
-    
+
 
 
     // $result = $this->vendor_model->updatevendorDetails($vendordata1);
@@ -560,8 +560,27 @@ public function AddVendorContact_post(){
 
       $result = $this->vendor_model->insertVendorContact($vendorAddress);
       //       //var_dump($result);
-            $data['success'] = $result; 
+            $data['success'] = $result;
 }
+public function UpdateVendorContact_post()
+    $VendorId = $request["VendorId"];
+    $ContactId = $request["ContactId"];
+    $JobTitle=$request["JobTitle"];
+    $Phone=$request["Phone"];
+    $Email= $request["Email"];
+    $VendorContactActive=$request["VendorContactActive"];
+    $VendorContactPrimay=$request["VendorContactPrimary"];
+    $ContactName=$request["ContactName"];
+    $vendorcontact=array('VendorId'=>$VendorId,'ContactName'=>$ContactName,'JobTitle'=>$JobTitle,
+    'Phone'=$Phone,'Email'=$Email,'VendorContactActive'=$VendorContactActive,
+    'VendorContactPrimay'=$VendorContactPrimay,'ContactId'=>$ContactId);
+
+    $result = $this->vendor_model->UpdateVendorContact($data);
+      $data = [
+       'ErrorCode' => $result
+      ];
+
+$this->response($data);
 
 }
 
