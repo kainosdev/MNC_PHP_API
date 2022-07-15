@@ -250,6 +250,7 @@ $route['vendor/GetVendorAddressById']='vendor/GetVendorAddressById';
 $route['vendor/UpdateVendor']='vendor/UpdateVendor';
 $route['vendor/GetVendorContactById']='vendor/GetVendorContactById';
 $route['vendor/AddVendorContact']='vendor/AddVendorContact';
+$route['vendor/UpdateVendorContact']='vendor/UpdateVendorContact';
 
 //login
 $route['login/insertVendor']='login/insertVendor';
