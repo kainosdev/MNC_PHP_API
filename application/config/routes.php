@@ -292,3 +292,5 @@ $route['bid/GetBidByNumber']='bid/GetBidByNumber';
 $route['bid/GetBidClinByNumber']='bid/GetBidClinByNumber';
 $route['bid/BuyingEntity']='bid/BuyingEntity';
 $route['bid/GetViewBid']='bid/GetViewBid';
+$route['bid/UpdateBid']='bid/UpdateBid';
+$route['bid/UpdateClin']='bid/UpdateClin';

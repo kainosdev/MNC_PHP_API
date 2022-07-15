@@ -275,7 +275,7 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
 
 
              $result = $this->employee_model->AdduserDetailsVendor($data);
-             
+
             //  if($result)
             //  {
             //     $this->response('', 200, 'success')
@@ -286,7 +286,7 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
             //        $this->response('', 404, 'Notsuccess')
 
             //  }
-         
+
 
          $this->response($result,200);
 }
@@ -570,8 +570,8 @@ public function UpdateVendorContact_post()
     $VendorContactPrimay=$request["VendorContactPrimary"];
     $ContactName=$request["ContactName"];
     $vendorcontact=array('VendorId'=>$VendorId,'ContactName'=>$ContactName,'JobTitle'=>$JobTitle,
-    'Phone'=$Phone,'Email'=$Email,'VendorContactActive'=$VendorContactActive,
-    'VendorContactPrimay'=$VendorContactPrimay,'ContactId'=>$ContactId);
+    'Phone'=>$Phone,'Email'=>$Email,'VendorContactActive'=>$VendorContactActive,
+    'VendorContactPrimay'=>$VendorContactPrimay,'ContactId'=>$ContactId);
 
     $result = $this->vendor_model->UpdateVendorContact($data);
       $data = [
