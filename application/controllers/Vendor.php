@@ -275,7 +275,7 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
 
 
              $result = $this->employee_model->AdduserDetailsVendor($data);
-             var_dump($result);
+             
             //  if($result)
             //  {
             //     $this->response('', 200, 'success')
@@ -286,11 +286,9 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
             //        $this->response('', 404, 'Notsuccess')
 
             //  }
-            $data = [
-                'ErrorCode' => $result
-         ];
+         
 
-         $this->response($data);
+         $this->response($result,200);
 }
 
 
