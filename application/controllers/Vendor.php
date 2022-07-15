@@ -534,7 +534,13 @@ public function GetVendorContactById_get()
     $VendorId=$_GET['VendorId'];
     $VendorContactPrimary=$_GET['VendorContactPrimary'];
     $data['SingleVendorContactDetails']=$this->vendor_model->GetVendorContactById($VendorId,$VendorContactPrimary);
-    $this->response($data);
+    // if($VendorId == 0) {
+    //     $this->response(array($data));
+    // }
+    // else {
+        $this->response(($data));
+    // }
+    
 
 }
 
@@ -544,20 +550,24 @@ public function AddVendorContact_post(){
     $json = file_get_contents('php://input');
     $request = json_decode($json,true);
     // $vendorMgmt = $request->vendorMgmt;
+    var_dump("test");
+    // var_dump($request);
+    $AddtionalName = $request["AddtionalName"];
+    $AddtionalTitle = $request["AddtionalTitle"];
+    $AddtionalBusinessMail = $request["AddtionalBusinessMail"];
+    $AddtionalBusinessPhone = $request["AddtionalBusinessPhone"];
+    $AddtionalContactActive = $request["AddtionalContactActive"];
+    if($AddtionalContactActive == NULL){
+        $AddtionalContactActive = 0;
+    }
+    $VendorIdContact = $request["VendorIdContact"];
+    // $VendorId = $request["VendorId"];
 
-    $VendorId = $request["VendorId"];
-    $VendorId = $request["VendorId"];
-    $VendorId = $request["VendorId"];
-    $VendorId = $request["VendorId"];
-    $VendorId = $request["VendorId"];
-    $VendorId = $request["VendorId"];
-    $VendorId = $request["VendorId"];
+    $vendorContact = array('VendorId'=>$VendorIdContact,'ContactName'=>$AddtionalName,'Phone'=>$AddtionalBusinessPhone,
+      'Email'=>$AddtionalBusinessMail,'VendorContactActive'=>$AddtionalContactActive,'VendorContactPrimary'=>0,'JobTitle'=>$AddtionalTitle);
 
-    $vendorAddress = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,
-      'EIN_SSN'=>$EIN_SSN,'DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>"");
-
-      $result = $this->vendor_model->insertVendorContact($vendorAddress);
-      //       //var_dump($result);
+      $result = $this->vendor_model->insertVendorContact($vendorContact);
+    //   //       //var_dump($result);
             $data['success'] = $result; 
 }
 
