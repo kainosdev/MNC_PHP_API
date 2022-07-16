@@ -570,16 +570,16 @@ class App_model extends CI_Model
 
 //     }
 
-//     public function getcustomerByCityId($cityid)
-//     {
+    public function getVContactNotPrimary($VendorId,$VendorContactPrimary)
+    {
 
-//         $this->db->select('*');
-//         $this->db->from('customers');
+        $this->db->select('*');
+        $this->db->from('tVendorContact');
+        $this->db->where('VendorId', $VendorId);
+        $this->db->where('VendorContactPrimary', $VendorContactPrimary);
+        return $this->db->get()->result_array();
 
-//         $this->db->where('city', $cityid);
-//         return $this->db->get()->result_array();
-
-//     }
+    }
 
 
 //     public function getCarDetailsByIdShopOnlineBooking($customer_id)
