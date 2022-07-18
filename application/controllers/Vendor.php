@@ -319,6 +319,19 @@ public function GetVendorAddressById_get()
 
 }
 public function UpdateVendor_post(){
+//     define('DEBUG', true);
+// error_reporting(E_ALL);
+
+// if(DEBUG == true)
+// {
+//        display_errors(true);
+//        log_errors(false);
+// }
+// else
+// {
+//       display_errors(false);
+//        log_errors(true);
+// }
 
     $json = file_get_contents('php://input');
     $request = json_decode($json,true);
@@ -359,7 +372,67 @@ public function UpdateVendor_post(){
          $TradeName = $request["TradeName"];
          $AliasName = $request["AliasName"];
          $EIN_SSN = $request["Federal"];
+        //  var_dump("before>>>$EIN_SSN");
+        //  $EIN_SSN = str_replace("-","",$EIN_SSN);
+        //  var_dump("after>>>$EIN_SSN");
          $OutreachEmailOptIn = false;
+         $Newcontact = $request["Newcontact"];
+         
+        
+        //  $Newcontact = json_decode($json,true);
+         $Newcontact1 = json_encode($request["Newcontact"],true);
+
+         $Newcontact2 = json_decode($Newcontact1,true);
+         var_dump($Newcontact2);
+         foreach ($Newcontact2 as $object)
+        
+{
+    //var_dump($object["AddtionalName"]);
+    if($object["AddtionalContactActive"] == NULL){
+        $object["AddtionalContactActive"] = 0;
+    }
+    var_dump($object["ContactId"]);
+
+if($object["ContactId"] == 0){
+
+    $data2 = array('VendorId' => $request["VendorId"], 'ContactName' => $object["AddtionalName"], 'BusinessPhone' => $object["AddtionalBusinessPhone"],
+'BusinessEmail' => $object["AddtionalBusinessMail"], 'VendorContactActive' => $object["AddtionalContactActive"], 'VendorContactPrimary' => 0, 'JobTitle' => $object["AddtionalTitle"]);
+// var_dump($data2);
+    $result = $this->vendor_model->AddMultiVendorContact($data2);
+}
+else {
+
+    $data3 = array('VendorId' => $request["VendorId"], 'ContactName' => $object["AddtionalName"], 'JobTitle' => $object["AddtionalTitle"], 'BusinessPhone' => $object["AddtionalBusinessPhone"],
+'BusinessEmail' => $object["AddtionalBusinessMail"], 'VendorContactActive' => $object["AddtionalContactActive"], 'VendorContactPrimary' => 0, 'ContactId' => $object["ContactId"] );
+// var_dump($data2);
+    $result = $this->vendor_model->UpdateMultiVendorContact($data3);
+}
+//   foreach ($object as $property=>$value)
+//    {
+//      var_dump( $property." has the value ". $value);
+//     //  var_dump
+   } 
+// }
+
+         
+        // 
+// foreach($Newcontact1 as $item) { //foreach element in $arr
+//     $uses = $item; //etc
+// //     var_dump($uses);
+// var_dump("i>>>>$item");
+// }
+        
+
+        
+
+        //  $array = json_decode( $Newcontact1, true );
+
+         //$json  = '[{"var1":"9","var2":"16","var3":"16"},{"var1":"8","var2":"15","var3":"15"}]';
+//$array = json_decode( $json, true );
+        //   foreach ($Newcontact1 as $value) {
+        //     echo "$value <br>";
+        //   }
+        //  var_dump($Newcontact1['AddtionalName']);
 
      }
     else {
@@ -592,6 +665,20 @@ $json = file_get_contents('php://input');
 
 $this->response($data);
 
+}
+
+
+public function DeleteVendorContact_post() {
+    $json = file_get_contents('php://input');
+    // $Newcontact2 = json_encode($Newcontact1,true);
+        //  var_dump($Newcontact2);
+
+    $request = json_decode($json,true);
+    // var_dump($request["ContactId"]);
+
+    $data = array('VendorId'=>$request["VendorId"],'ContactId'=>$request["ContactId"]);
+
+      $result = $this->vendor_model->DeleteVendorContact($data);
 }
 }
 
