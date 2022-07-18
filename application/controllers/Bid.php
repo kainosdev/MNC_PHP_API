@@ -55,5 +55,28 @@ public function GetViewBid_get()
     $this->response($data);
 
 }
+public function UpdateBid_post()
+{
+    $json = file_get_contents('php://input');
+    $request = json_decode($json,true);
+    $VendorId = $request["VendorId"];
+    $ContactId = $request["ContactId"];
+    $JobTitle=$request["JobTitle"];
+    $Phone=$request["Phone"];
+    $Email= $request["Email"];
+    $VendorContactActive=$request["VendorContactActive"];
+    $VendorContactPrimay=$request["VendorContactPrimary"];
+    $ContactName=$request["ContactName"];
+    $BidDetails=array('VendorId'=>$VendorId,'ContactName'=>$ContactName,'JobTitle'=>$JobTitle,
+    'Phone'=>$Phone,'Email'=>$Email,'VendorContactActive'=>$VendorContactActive,
+    'VendorContactPrimay'=>$VendorContactPrimay,'ContactId'=>$ContactId);
+
+    $result = $this->vendor_model->UpdateBid($BidDetails);
+      $data = [
+       'ErrorCode' => $result
+      ];
+
+$this->response($data);
+}
 
     }
