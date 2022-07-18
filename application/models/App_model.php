@@ -683,9 +683,9 @@ public function getBidStatus()
 $query = $this->db->get('vBidStatus');
 return $query->result_array();
 }
-public function getBitDBEGoal()
+public function getBidBEGoalTYpe()
 {
-$query = $this->db->get('vBidBEGoal');
+$query = $this->db->get('vBEGoalType');
 return $query->result_array();
 }
 public function getOpportunity()

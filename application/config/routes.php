@@ -282,7 +282,8 @@ $route['app/SetAsideType']='app/SetAsideType';
 $route['app/ServiceType']='app/ServiceType';
 $route['app/ContractVehicle']='app/ContractVehicle';
 $route['app/BidStatus']='app/BidStatus';
-$route['app/BitDBEGoal']='app/BitDBEGoal';
+$route['app/BidBEGoalTYpe']='app/BidBEGoalType';
+
 $route['app/Opportunity']='app/Opportunity';
 $route['app/ContractingofficerByJobtitle']='app/ContractingofficerByJobtitle';
 
