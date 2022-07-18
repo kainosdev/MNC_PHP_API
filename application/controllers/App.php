@@ -905,4 +905,14 @@ public function ContractingofficerByJobtitle_get()
     $data['contractingofficer']=$this->app_model->GetContractingofficerByJobtitle( $jobtitle);
     $this->response($data);
 }
+
+public function getVContactNotPrimary_get()
+{
+    $VendorId=$_GET['VendorId'];
+    $VendorContactPrimary=$_GET['VendorContactPrimary'];
+    $data['VendorContact']=$this->app_model->getVContactNotPrimary($VendorId,$VendorContactPrimary);
+    // echo json_encode(data);
+    $this->response($data);
+
+}
 }
