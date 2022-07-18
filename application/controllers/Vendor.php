@@ -223,6 +223,7 @@ else {
 }
 // $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
 $EIN_SSN = '';
+
 }
 else {
 $VendorTypeId = "I";
@@ -234,6 +235,9 @@ $BusinessIsFranchisee = '';
 // $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
 // $OutreachEmailOptIn = 1;
 $EIN_SSN = $request["EIN_SSN"];
+var_dump("before>>>$EIN_SSN");
+$EIN_SSN = str_replace("-","",$EIN_SSN);
+var_dump("after>>>$EIN_SSN");
 }
 ;
 // $Email = $request["Email"];
@@ -372,9 +376,7 @@ public function UpdateVendor_post(){
          $TradeName = $request["TradeName"];
          $AliasName = $request["AliasName"];
          $EIN_SSN = $request["Federal"];
-        //  var_dump("before>>>$EIN_SSN");
-        //  $EIN_SSN = str_replace("-","",$EIN_SSN);
-        //  var_dump("after>>>$EIN_SSN");
+      
          $OutreachEmailOptIn = false;
          $Newcontact = $request["Newcontact"];
          
