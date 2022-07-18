@@ -538,7 +538,7 @@ public function GetVendorContactById_get()
     //     $this->response(array($data));
     // }
     // else {
-        $this->response(($data));
+        $this->response($data);
     // }
     
 

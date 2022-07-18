@@ -270,6 +270,7 @@ $route['app/getdistrictstatebycity']='app/getdistrictstatebycity';
 $route['app/getZipCode']='app/getZipCode';
 $route['app/selectUserType']='app/selectUserType';
 $route['app/getCityByZipcode']='app/getCityByZipcode';
+$route['app/getVContactNotPrimary']='app/getVContactNotPrimary';
 
 $route['employee/selectEmployeeType']='employee/selectEmployeeType';
 $route['employee/selectJobTitle']='employee/selectJobTitle';
