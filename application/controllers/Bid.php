@@ -59,6 +59,35 @@ public function UpdateBid_post()
 {
     $json = file_get_contents('php://input');
     $request = json_decode($json,true);
+    $BidNumber=$request["BidNumber"];
+$Title=$request["Title"];
+$SolicitationTypeId=$request["SolicitationTypeId"];
+$BidStatusId=$request["BidStatusId"];
+$FundingSourceId=$request["FundingSourceId"];
+$ContractVehicleId=$request["ContractVehicleId"];
+$Descritpion=$request["Descritpion"];
+$BidBudgetAmount=$request["BidBudgetAmount"];
+$BidPostedDate=$request["BidPostedDate"];
+$BuyingEntityTypeId=$request["BuyingEntityTypeId"];
+$BidResponseDueDate=$request["BidResponseDueDate"];
+$QandADueDate=$request["QandADueDate"];
+$ContractingOfficer=$request["ContractingOfficer"];
+DepartmentId
+ContractVehicleId
+SetAsideTypeId
+
+
+BidNotes
+ContractNumber
+ComtractVendorId
+CreatedDate
+CreatedUserId
+UpdatedDate
+UpdatedUserId
+Descritpion
+
+
+
     $VendorId = $request["VendorId"];
     $ContactId = $request["ContactId"];
     $JobTitle=$request["JobTitle"];
