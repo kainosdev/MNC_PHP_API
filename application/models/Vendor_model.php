@@ -172,7 +172,7 @@ public function UpdateVendorContact($data){
 public function AddMultiVendorContact($data){
 
 
-        $sp = "sAddVendorContact ?,?,?,?,?,?,?"; //No exec or call needed
+        $sp = "sAddVendorContact ?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
@@ -186,7 +186,7 @@ public function AddMultiVendorContact($data){
     public function UpdateMultiVendorContact($data){
 
 
-        $sp = "sUpdateVendorContact ?,?,?,?,?,?,?,?"; //No exec or call needed
+        $sp = "sUpdateVendorContact ?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;

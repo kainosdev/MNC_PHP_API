@@ -376,6 +376,10 @@ public function UpdateVendor_post(){
          $TradeName = $request["TradeName"];
          $AliasName = $request["AliasName"];
          $EIN_SSN = $request["Federal"];
+         
+        //  var_dump("before>>>$EIN_SSN");
+         //$EIN_SSN = str_replace("-","",$EIN_SSN);
+        //  var_dump("after>>>$EIN_SSN");
       
          $OutreachEmailOptIn = false;
          $Newcontact = $request["Newcontact"];
@@ -398,14 +402,18 @@ public function UpdateVendor_post(){
 if($object["ContactId"] == 0){
 
     $data2 = array('VendorId' => $request["VendorId"], 'ContactName' => $object["AddtionalName"], 'BusinessPhone' => $object["AddtionalBusinessPhone"],
-'BusinessEmail' => $object["AddtionalBusinessMail"], 'VendorContactActive' => $object["AddtionalContactActive"], 'VendorContactPrimary' => 0, 'JobTitle' => $object["AddtionalTitle"]);
+'BusinessEmail' => $object["AddtionalBusinessMail"], 'VendorContactActive' => $object["AddtionalContactActive"], 'VendorContactPrimary' => 0, 'JobTitle' => $object["AddtionalTitle"]
+,'CreatedDate' => date('Y-m-d'),'CreatedUserId' => $CreatedUserId,'UpdatedDate' => date('Y-m-d'),'UpdatedUserId' => $CreatedUserId
+);
 // var_dump($data2);
     $result = $this->vendor_model->AddMultiVendorContact($data2);
 }
 else {
 
     $data3 = array('VendorId' => $request["VendorId"], 'ContactName' => $object["AddtionalName"], 'JobTitle' => $object["AddtionalTitle"], 'BusinessPhone' => $object["AddtionalBusinessPhone"],
-'BusinessEmail' => $object["AddtionalBusinessMail"], 'VendorContactActive' => $object["AddtionalContactActive"], 'VendorContactPrimary' => 0, 'ContactId' => $object["ContactId"] );
+'BusinessEmail' => $object["AddtionalBusinessMail"], 'VendorContactActive' => $object["AddtionalContactActive"], 'VendorContactPrimary' => 0, 'ContactId' => $object["ContactId"]
+,'UpdatedDate' => date('Y-m-d'),'UpdatedUserId' => $CreatedUserId 
+);
 // var_dump($data2);
     $result = $this->vendor_model->UpdateMultiVendorContact($data3);
 }
@@ -443,6 +451,10 @@ else {
         $LegalName = $request["FirstName"];
         $AliasName = $request["MiddleName"];
         $EIN_SSN = $request["EIN_SSN"];
+        
+        //  var_dump("before>>>$EIN_SSN");
+         $EIN_SSN = str_replace("-","",$EIN_SSN);
+        //  var_dump("after>>>$EIN_SSN");
         $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
 
       }
@@ -452,9 +464,9 @@ else {
         $MAddress1 = $request["BMAddress1"];
       $MAddress2 = $request['BMAddress2'];
       $MCityId = $request['BMCityId'];
-      $MZipcode = $request['BMZipcode'];
+      $MZipcode = $request['BMZipcode1'];
       $MDistrictId = $request['BMDistrictId'];
-      $MStateId = $request['BMStateId'];
+      $MStateId = $request['BMStateId1'];
       $MCountryId = $request['BMCountryId'];
       $MStartDate = $request['BMStartDate'];
       $MEndDate = $request['BMEndDate'];
@@ -570,7 +582,7 @@ else {
      );
     }
 
-// var_dump($vendordata);
+var_dump($vendordata);
     //  $vendordata1 = array('VendorId'=>$VendorId,'AddressTypeId'=>"C",'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,
     //     'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId
     //  );
