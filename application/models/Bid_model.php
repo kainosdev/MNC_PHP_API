@@ -42,15 +42,15 @@ public function GetViewBidList()
     return $query->result_array();
 
 }
-public function GetBidOpenList($BidStatusId)
+public function GetBidOpenandDraft($BidStatusId)
 {
-    $query = $this->db->query("[sGetBidOpenandDraft @BidStatusId='$BidStatusId']");
+    $query = $this->db->query("sGetBidOpenandDraft @BidStatusId='$BidStatusId'");
     return $query->result_array();
 
 }
-public function GetContractALl($CurrentUserid)
+public function GetConAwardByUser($CurrentUserid)
 {
-    $query = $this->db->query("[sGetConAwardByUser] @CurrentUserid='$CurrentUserid']");
+    $query = $this->db->query("sGetConAwardByUser @CurrentUserid='$CurrentUserid'");
     return $query->result_array();
 
 }

@@ -55,17 +55,18 @@ public function GetViewBid_get()
     $this->response($data);
 
 }
-public function GetBidOpen_get()
+public function GetBidOpenandDraft_get()
 {
+    // var_dump("hi");
     $BidStatusId=$_GET['BidStatusId'];
-    $data['BidOpen']=$this->bid_model->GetBidOpenList($BidStatusId);
+    $data['BidOpen']=$this->bid_model->GetBidOpenandDraft($BidStatusId);
     $this->response($data);
 
 }
-public function GetContractlist_get()
+public function GetConAwardByUser_get()
 {
     $CurrentUserid=$_GET['CurrentUserid'];
-    $data['currentuserid']=$this->bid_model->GetContractALl($CurrentUserid);
+    $data['currentuserid']=$this->bid_model->GetConAwardByUser($CurrentUserid);
     $this->response($data);
 
 }
