@@ -122,18 +122,23 @@ return $query->result_array();
     public function AdduserDetailsEmployee($data){
 
 
-        $sp = "sAddEmployee ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+        $sp = "sAddEmployee ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
             $result = $this->db->query($sp,$params);
-            $retVal = $result->row_array();
-           // var_dump($retVal);
-            foreach($retVal as $key=>$value)
-            {
-                $firstprocedursuccess= $value;
-            }
-            return $firstprocedursuccess;
+            $retVal = $result->result_array();
+        //    var_dump($retVal);
+            // foreach($retVal as $key=>$value)
+            // {
+               
+            //     // $firstprocedursuccess= $key;
+            // }
+            // if($key=="ErrorCodeID")
+            // {
+            // $firstprocedursuccess= $value;
+            // }
+            return $retVal;
 
    }
 
@@ -144,7 +149,7 @@ return $query->result_array();
 
         // echo $data["UserId"];
 
-            $sp = "sAddVendor ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+            $sp = "sAddVendor ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
             //     //No @ needed.  Codeigniter gets it right either way
             $params =$data;
@@ -152,23 +157,30 @@ return $query->result_array();
                 // print_r($params);
 
                 //$result = $this->db->query($sp,$params);
-                $query = $this->db->query($sp,$params);
-                return $query->result_array();
+                $result = $this->db->query($sp,$params);
+                $retVal = $result->result_array();
             //    // $retVal($retVal);
             //     $retVal = $result->row_array();
             //     foreach($retVal as $key=>$value)
             //     {
-            //         if($key=="ErrorCodeID")
-            //         {
-            //             $firstproceduresuccess= $value;
-            //         }
-
-            //     }
-            //     return $firstproceduresuccess;
-
+                    // if($key=="ErrorCodeID")
+                    // {
+                    //     $firstproceduresuccess= $value;
+                    // }
+var_dump($retVal);
+      echo   $this->db->last_query();   //     }
+                // return $firstproceduresuccess;
+            return $retVal;
+            
         }
 
-
+        public function GetDirectReportList()
+        {
+            $query = $this->db->query("sGetDirectReport @EmployeeId_Supervisor='$employeeSupervisor'");
+            return $query->result_array();
+        
+        }
+        
 
 
 }

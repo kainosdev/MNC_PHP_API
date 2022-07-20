@@ -137,7 +137,6 @@ $AStartDate = $request["StartDate"];
 $EndDate = $request["StartDate"];
 $Address1 = $request["Address1"];
 $Address2 = $request["Address2"];
-
 $DistrictId = $request["DistrictId"];
 $CityId = $request["CityId"];
 $StateId = $request["StateId"];
@@ -148,7 +147,7 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
 'UserPassword' => $UserPassword, 'EmployeeId' => $EmployeeId, 'VendorId' => $VendorId,'CreatedDate' => $CreatedDate,
 'CreatedUserId' => $UserId, 'UpdatedDate' => $UpdatedDate,
 'UpdatedUserid' => $UserId, 'AdminUser' => $AdminUser,'FirstName'=>$FirstName,'LastName'=>$LastName,'Phone'=>$Phone,
-'EmploymentTypeId'=>$EmploymentTypeId,'JobTitleId'=>$JobTitleId,'StartDate'=>$StartDate, 'AddressTypeId'=>$AddressTypeId,'AStartDate'=>$AStartDate,'Address1'=>$Address1,'StateId'=>$StateId,'Zipcode'=>$Zipcode,
+'EmploymentTypeId'=>$EmploymentTypeId,'JobTitleId'=>$JobTitleId,'StartDate'=>$StartDate, 'AddressTypeId'=>$AddressTypeId,'AStartDate'=>$AStartDate,'Address1'=>$Address1,'Address2'=>$Address2,'StateId'=>$StateId,'Zipcode'=>$Zipcode,
 'CountryId'=>$CountryId,'DistrictId'=>$DistrictId,'CityId'=>$CityId );
 
 
@@ -156,13 +155,13 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
 
 
              $result = $this->employee_model->AdduserDetailsEmployee($data);
-             $data = [
-               'ErrorCode' => $result
-        ];
+        //      $data = [
+        //        'ErrorCode' => $result
+        // ];
+        // var_dump($data);
 
-        $this->response($data);
-
-            }
+        $this->response($result,200);
+}
 //                 // insert vendor
 else if($request["UserTypeId"]=="VENDOR")
  {
@@ -271,8 +270,8 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
 'UpdatedUserid' => $UserId, 'AdminUser' => $AdminUser,'VendorTypeId'=>$VendorTypeId,'LegalName'=>$LastName,'TradeName'=>$FirstName,'EIN_SSN'=>$EIN_SSN,
 'BusinessSize'=>$BusinessSize,'BEClassificationId'=>$BEClassificationId,'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,
 'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,'BusinessIsFranchisee'=>$BusinessIsFranchisee,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
-'AddressTypeId'=>$AddressTypeId,'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId);
-
+'AddressTypeId'=>$AddressTypeId,'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId);
+// var_dump($data);
 
              $result = $this->employee_model->AdduserDetailsVendor($data);
              
@@ -283,11 +282,12 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
             //  else
             //  {
 
-            //        $this->response('', 404, 'Notsuccess')
+                $data = [
+                    'ErrorCode' => $result
+             ]; //        $this->response('', 404, 'Notsuccess')
 
-            //  }
-         
-
+            
+// var_dump($result);
          $this->response($result,200);
 }
 
