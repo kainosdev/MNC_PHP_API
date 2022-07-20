@@ -50,7 +50,7 @@ public function GetBidOpenList($BidStatusId)
 }
 public function GetContractALl($CurrentUserid)
 {
-    $query = $this->db->query("[[sGetContractList] @CurrentUserid='$CurrentUserid']");
+    $query = $this->db->query("[sGetConAwardByUser] @CurrentUserid='$CurrentUserid']");
     return $query->result_array();
 
 }
