@@ -55,5 +55,19 @@ public function GetViewBid_get()
     $this->response($data);
 
 }
+public function GetBidOpen_get()
+{
+    $BidStatusId=$_GET['BidStatusId'];
+    $data['BidOpen']=$this->bid_model->GetBidOpenList($BidStatusId);
+    $this->response($data);
+
+}
+public function GetContractlist_get()
+{
+    $CurrentUserid=$_GET['CurrentUserid'];
+    $data['currentuserid']=$this->bid_model->GetContractALl($CurrentUserid);
+    $this->response($data);
+
+}
 
     }

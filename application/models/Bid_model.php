@@ -42,5 +42,17 @@ public function GetViewBidList()
     return $query->result_array();
 
 }
+public function GetBidOpenList($BidStatusId)
+{
+    $query = $this->db->query("[sGetBidOpenandDraft @BidStatusId='$BidStatusId']");
+    return $query->result_array();
+
+}
+public function GetContractALl($CurrentUserid)
+{
+    $query = $this->db->query("[[sGetContractList] @CurrentUserid='$CurrentUserid']");
+    return $query->result_array();
+
+}
 
 }
