@@ -297,6 +297,7 @@ $route['bid/BuyingEntity']='bid/BuyingEntity';
 $route['bid/GetViewBid']='bid/GetViewBid';
 
 $route['employee/GetDirectReport']='employee/GetDirectReport';
+$route['employee/GetApprovalForEmployee']='employee/GetApprovalForEmployee';
 $route['bid/GetBidOpenandDraft']='bid/GetBidOpenandDraft';
 $route['bid/GetConAwardByUser']='bid/GetConAwardByUser';
 

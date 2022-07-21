@@ -176,7 +176,13 @@ var_dump($retVal);
 
         public function GetDirectReportList()
         {
-            $query = $this->db->query("sGetDirectReport @EmployeeId_Supervisor='$employeeSupervisor'");
+            $query = $this->db->query("sGetDirectReport @EmployeeIdSupervisor='$EmployeeIdSupervisor'");
+            return $query->result_array();
+        
+        }
+        public function GetApprovalForEmployeeList()
+        {
+            $query = $this->db->query("sGetEmployeeApprovalForEmployee @UserTypeId=' $UserTypeId',@UserStatusId='$UserStatusId'");
             return $query->result_array();
         
         }
