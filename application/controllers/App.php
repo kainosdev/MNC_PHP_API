@@ -899,6 +899,13 @@ public function ServiceType_get()
     $data['ServiceType']=$this->app_model->getServiceType();
     $this->response($data);
 }
+
+public function AddressType_get()
+{
+    $data['AddressType']=$this->app_model->getAddressType();
+    $this->response($data);
+}
+
 public function ContractingofficerByJobtitle_get()
 {
     $jobtitle=$_GET['JobTitleDesc'];

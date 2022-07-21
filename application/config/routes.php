@@ -280,7 +280,7 @@ $route['app/selectBEClassification']='app/selectBEClassification';
 $route['app/selectAllCountry']='app/selectAllCountry';
 $route['app/getCountryByState']='app/getCountryByState';
 $route['app/selectAllDistricts']='app/selectAllDistricts';
-
+$route['app/AddressType']='app/AddressType';
 $route['app/SetAsideType']='app/SetAsideType';
 $route['app/ServiceType']='app/ServiceType';
 $route['app/ContractVehicle']='app/ContractVehicle';
