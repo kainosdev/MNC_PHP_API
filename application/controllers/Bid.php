@@ -63,49 +63,53 @@ public function UpdateBid_post()
 $Title=$request["Title"];
 $SolicitationTypeId=$request["SolicitationTypeId"];
 $BidStatusId=$request["BidStatusId"];
+//$SectorId=$request["SectorId"];
+//$DivisionId=$request["DivisionId"];
+//$DepartmentId=$request["DepartmentId"];
+$BuyingEntityTypeId=$request["BuyingEntityTypeId"];
+$SetAsideTypeId=$request["SetAsideTypeId"];
 $FundingSourceId=$request["FundingSourceId"];
+$BidBudgetAmount=$request["BidBudgetAmount"];
 $ContractVehicleId=$request["ContractVehicleId"];
 $Descritpion=$request["Descritpion"];
-$BidBudgetAmount=$request["BidBudgetAmount"];
-$BidPostedDate=$request["BidPostedDate"];
-$BuyingEntityTypeId=$request["BuyingEntityTypeId"];
-$BidResponseDueDate=$request["BidResponseDueDate"];
-$QandADueDate=$request["QandADueDate"];
 $ContractingOfficer=$request["ContractingOfficer"];
-DepartmentId
-ContractVehicleId
-SetAsideTypeId
+$BidPostedDate=$request["BidPostedDate"];
+$QandADueDate=$request["QandADueDate"];
+$BidResponseDueDate=$request["BidResponseDueDate"];
+$BidNotes=$request["BidNotes"];
+$UpdatedDate=date('Y-m-d')
+$UpdatedUserId=$request["UpdateUserId"];
+$Phone=$request["Phone"];
+$Email=$request["Email"];
 
+$BidDetails=array('BidNumber'=>$BidNumber,'Title'=>$Title,'SolicitationTypeId'=>$SolicitationTypeId,'BidStatusId'=>$BidStatusId,
+	'BuyingEntityTypeId'=>$BuyingEntityTypeId,'SetAsideTypeId'=>$SetAsideTypeId,'FundingSourceId'=>$FundingSourceId,
+	'BidBudgetAmount'=>$BidBudgetAmount,'ContractVehicleId'=>$ContractVehicleId,'BidPostedDate'=>$BidPostedDate,
+	'BidResponseDueDate'=>$BidResponseDueDate,'QandADueDate'=>$QandADueDate,'BidNotes'=>$BidNotes,
+	'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UpdatedUserId,'Descritpion'=>$Descritpion,
+	'ContractingOfficer'=>$ContractingOfficer,'Phone'=>$Phone,'Email'=>$Email);
 
-BidNotes
-ContractNumber
-ComtractVendorId
-CreatedDate
-CreatedUserId
-UpdatedDate
-UpdatedUserId
-Descritpion
+    $result = $this->bid_model->UpdateBid($BidDetails);
 
+$this->response($result,'200');
+}
 
+public function UpdateClin_post()
+{
+    $json = file_get_contents('php://input');
+    $request = json_decode($json,true);
+    $BidNumber=$request["BidNumber"];
+    $ClinId = $request["ClinId"],
+    $BidClinCustomDesc=$request["BidClinCustomDesc"];
+    $ServiceTypeId=$request["ServiceTypeId"];
+    $BEGoalTypeId=$request["BEGoalTypeId"];
+    $DBEGoalPercent=$request["DBEGoalPercent"];
+    $ClinDetails=array('BidNumber'=>$BidNumber,'ClinId'=>$ClinId,'BidClinCustomDesc'=>$BidClinCustomDesc,
+                       'ServiceTypeId'=>$ServiceTypeId,'BEGoalTypeId'=>$BEGoalTypeId,'DBEGoalPercent'=>$DBEGoalPercent);
 
-    $VendorId = $request["VendorId"];
-    $ContactId = $request["ContactId"];
-    $JobTitle=$request["JobTitle"];
-    $Phone=$request["Phone"];
-    $Email= $request["Email"];
-    $VendorContactActive=$request["VendorContactActive"];
-    $VendorContactPrimay=$request["VendorContactPrimary"];
-    $ContactName=$request["ContactName"];
-    $BidDetails=array('VendorId'=>$VendorId,'ContactName'=>$ContactName,'JobTitle'=>$JobTitle,
-    'Phone'=>$Phone,'Email'=>$Email,'VendorContactActive'=>$VendorContactActive,
-    'VendorContactPrimay'=>$VendorContactPrimay,'ContactId'=>$ContactId);
+    $result = $this->bid_model->UpdateClin($ClinDetails);
 
-    $result = $this->vendor_model->UpdateBid($BidDetails);
-      $data = [
-       'ErrorCode' => $result
-      ];
-
-$this->response($data);
+$this->response($result,'200');
 }
 
     }

@@ -251,6 +251,7 @@ $route['vendor/UpdateVendor']='vendor/UpdateVendor';
 $route['vendor/GetVendorContactById']='vendor/GetVendorContactById';
 $route['vendor/AddVendorContact']='vendor/AddVendorContact';
 $route['vendor/UpdateVendorContact']='vendor/UpdateVendorContact';
+$route['vendor/DeleteVendorContact']='vendor/DeleteVendorContact';
 
 //login
 $route['login/insertVendor']='login/insertVendor';
@@ -284,7 +285,8 @@ $route['app/SetAsideType']='app/SetAsideType';
 $route['app/ServiceType']='app/ServiceType';
 $route['app/ContractVehicle']='app/ContractVehicle';
 $route['app/BidStatus']='app/BidStatus';
-$route['app/BitDBEGoal']='app/BitDBEGoal';
+$route['app/BidBEGoalTYpe']='app/BidBEGoalType';
+
 $route['app/Opportunity']='app/Opportunity';
 $route['app/ContractingofficerByJobtitle']='app/ContractingofficerByJobtitle';
 

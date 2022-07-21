@@ -883,11 +883,12 @@ public function BidStatus_get()
     $data['BidStatus']=$this->app_model->getBidStatus();
     $this->response($data);
 }
-public function BitDBEGoal_get()
+public function BidBEGoalTYpe_get()
 {
-    $data['DBEGoal']=$this->app_model->getBitDBEGoal();
+    $data['BidBEGoalType']=$this->app_model->getBidBEGoalTYpe();
     $this->response($data);
 }
+
 public function Opportunity_get()
 {
     $data['Opportunity']=$this->app_model->getOpportunity();
