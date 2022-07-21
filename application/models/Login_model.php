@@ -157,6 +157,7 @@ return $query->result_array();
             );
 
             $result = $this->db->query($sp,$params);
+            // return "test";
 
 
     }
@@ -189,6 +190,8 @@ return $query->result_array();
                         );
 
             $result = $this->db->query($sp,$params);
+
+            // return "test upd";
                     }
     public function addUser($UserId,$UserTypeId,$UserStatusId,$UserPassword,$EmployeeId,$VendorId,$CreatedDate,$CreatedUserId,$UpdatedDate,$UpdatedUserId,
                             $firstname,$lastname,$phone,$email,$postalcode,$jobtitle)

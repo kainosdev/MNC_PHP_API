@@ -298,3 +298,5 @@ $route['bid/GetViewBid']='bid/GetViewBid';
 $route['bid/GetBidOpenandDraft']='bid/GetBidOpenandDraft';
 $route['bid/GetConAwardByUser']='bid/GetConAwardByUser';
 
+$route['bid/GetBidResponseSubmittedByVendor']='bid/GetBidResponseSubmittedByVendor';
+

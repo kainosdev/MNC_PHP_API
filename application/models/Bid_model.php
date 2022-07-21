@@ -55,4 +55,11 @@ public function GetConAwardByUser($CurrentUserid)
 
 }
 
+public function GetBidResponseSubmittedByVendor($VendorId)
+{
+    $query = $this->db->query("sGetBidResponseSubmittedByVendor @VendorId='$VendorId'");
+    return $query->result_array();
+
+}
+
 }

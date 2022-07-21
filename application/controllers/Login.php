@@ -74,6 +74,8 @@ class Login extends REST_Controller
 
                             // $this->response('', 200, 'success', $dealerData);
 
+                            // var_dump($dealerData);
+
                             $checkUserLogin = $this->login_model->checkUserLoginDetails($UserId);
     // var_dump($checkUserLogin);
     if($checkUserLogin == 0){
@@ -115,23 +117,52 @@ else {
 );
                 $data['success'] = $result;
 }
+// echo "$jwtToken";
 
-$this->response('', 200, 'success', $dealerData);
+$data = $jwtToken."VERTEX-LMS".$UserId."VERTEX-LMS".$UserTypeId;
+
+$this->response($data);
+
+// $this->response('', 200, 'success', "test");
 
 
+                        }
+                        else if($retpassword == $password &&  $UserStatusId == "N"){
+                            $this->response("Waiting For Approval");
+                        }
+                        else if($retpassword != $password &&  $UserStatusId == "N"){
+                            $this->response("Incorrect Password");
                         }
                         else if($retpassword == $password &&  $UserStatusId != "A")
                         {
-                            $this->response('', 404, 'fail', "Inactive User");
+                            // echo "Inactive User";
+                            // $data = [
+                            //     'ErrorCode' => "Inactive User"
+                            //    ];
+                            $this->response($data);
+                            // $this->response('', 404, 'fail', "Inactive User");
                         }
                         else if($retpassword != $password &&  $UserStatusId == "A")
                         {
-                            $this->response('', 404, 'fail', "Incorrect Password");
+                            // $this->response('', 404, 'fail', "Incorrect Password");
+                            // $data = [
+                            //     'ErrorCode' => "Incorrect Password"
+                            //    ];
+                            // $this->response($data);
+                            $this->response("Incorrect Password");
                         }
+                        
+
+                       
                     }
                     else
                     {
-                            $this->response('', 404, 'fail', "Invalid User");
+                            // $this->response('', 404, 'fail', "Invalid User");
+                            // $data = [
+                            //     'ErrorCode' => "Invalid User"
+                            //    ];
+                            // $this->response($data);
+                            $this->response("Invalid User");
                     }
 
 

@@ -71,4 +71,13 @@ public function GetConAwardByUser_get()
 
 }
 
+
+public function GetBidResponseSubmittedByVendor_get()
+{
+    $VendorId=$_GET['VendorId'];
+    $data['BidResponseSubmitted']=$this->bid_model->GetBidResponseSubmittedByVendor($VendorId);
+    $this->response($data);
+
+}
+
     }
