@@ -263,4 +263,22 @@ return $query->result_array();
     
         }
 
+
+        public function get_EmployeeDetails($UserId)
+        {
+            $this->db->select('*');
+            $this->db->from('tEmployee');
+            $this->db->where('CreatedUserId', $UserId);
+            return $this->db->get()->row_array();
+        }
+
+
+        public function get_VendorDetails($UserId)
+        {
+            $this->db->select('*');
+            $this->db->from('tVendor');
+            $this->db->where('CreatedUserId', $UserId);
+            return $this->db->get()->row_array();
+        }
+
 }

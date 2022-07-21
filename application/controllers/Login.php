@@ -55,6 +55,29 @@ class Login extends REST_Controller
                        $retpassword = $userdetails['UserPassword'];
                        $UserTypeId = $userdetails['UserTypeId'];
 
+                       $firstname;
+                        $lasttname;
+                        $Middlename;
+
+                       if($UserTypeId == 'EMPLOY'){
+                        $Empdetails = $this->login_model->get_EmployeeDetails($UserId);
+                        $firstname = $Empdetails['FirstName'];
+                        $lasttname = $Empdetails['LastName'];
+                        $Middlename = $Empdetails['MiddleName'];
+                       }
+                       if($UserTypeId  == 'VENDOR'){
+                       $Vendordetails = $this->login_model->get_VendorDetails($UserId);
+                       $firstname = $Vendordetails['LegalName'];
+                       $lasttname = $Vendordetails['TradeName'];
+                       $Middlename = $Vendordetails['AliasName'];
+                       }
+                    //    echo $firstname;
+                    //    echo $lasttname;
+                    //    echo $Middlename;
+                    //    $UserTypeId = $userdetails['UserTypeId'];
+                    //    $UserTypeId = $userdetails['UserTypeId'];
+                    //    $UserTypeId = $userdetails['UserTypeId'];
+
                        $UserStatusId = $userdetails['UserStatusId'];
 
                         if($retpassword == $password &&  $UserStatusId == "A")
@@ -119,7 +142,9 @@ else {
 }
 // echo "$jwtToken";
 
-$data = $jwtToken."VERTEX-LMS".$UserId."VERTEX-LMS".$UserTypeId;
+$data = $jwtToken."VERTEX-LMS".$UserId."VERTEX-LMS".$UserTypeId."VERTEX-LMS".$firstname
+."VERTEX-LMS".$lasttname;
+// ."VERTEX-LMS".$Middlename;
 
 $this->response($data);
 
