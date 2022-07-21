@@ -251,6 +251,7 @@ $route['vendor/UpdateVendor']='vendor/UpdateVendor';
 $route['vendor/GetVendorContactById']='vendor/GetVendorContactById';
 $route['vendor/AddVendorContact']='vendor/AddVendorContact';
 $route['vendor/UpdateVendorContact']='vendor/UpdateVendorContact';
+$route['vendor/DeleteVendorContact']='vendor/DeleteVendorContact';
 
 //login
 $route['login/insertVendor']='login/insertVendor';
@@ -296,3 +297,6 @@ $route['bid/BuyingEntity']='bid/BuyingEntity';
 $route['bid/GetViewBid']='bid/GetViewBid';
 
 $route['employee/GetDirectReport']='employee/GetDirectReport';
+$route['bid/GetBidOpenandDraft']='bid/GetBidOpenandDraft';
+$route['bid/GetConAwardByUser']='bid/GetConAwardByUser';
+

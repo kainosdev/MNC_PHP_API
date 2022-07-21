@@ -168,4 +168,46 @@ public function UpdateVendorContact($data){
 
 }
 
+
+public function AddMultiVendorContact($data){
+
+
+        $sp = "sAddVendorContact ?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+
+        //     //No @ needed.  Codeigniter gets it right either way
+        $params =$data;
+            
+            $query = $this->db->query($sp,$params);
+            return $query->result_array();
+        
+    }
+
+
+    public function UpdateMultiVendorContact($data){
+
+
+        $sp = "sUpdateVendorContact ?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+
+        //     //No @ needed.  Codeigniter gets it right either way
+        $params =$data;
+            
+            $query = $this->db->query($sp,$params);
+            return $query->result_array();
+        
+    }
+
+
+    public function DeleteVendorContact($data){
+
+
+        $sp = "sDeleteVendorContact ?,?"; //No exec or call needed
+
+        //     //No @ needed.  Codeigniter gets it right either way
+        $params =$data;
+            
+            $query = $this->db->query($sp,$params);
+            return $query->result_array();
+        
+    }
+
 }
