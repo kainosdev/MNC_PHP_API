@@ -86,6 +86,16 @@ public function AddUserEmployee($UserId,
 
 
     }
+    public function GetDirectReport_get()
+{
+    $employeeSupervisor=$_GET['EmployeeId_Supervisor'];
+    $data['DirectReport']=$this->employee_model->GetDirectReportList($employeeSupervisor);
+    $this->response($data);
 
 }
+
+    }
+
+
+
 
