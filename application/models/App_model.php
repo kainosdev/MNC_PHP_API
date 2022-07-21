@@ -700,7 +700,7 @@ return $query->result_array();
 }
 public function GetContractingofficerByJobtitle($JobTitleDesc)
 {
-    $query = $this->db->query("sGetContractingofficerByJobtitle @JobTitleDesc='$ $jobtitle'");
+    $query = $this->db->query("sGetContractingofficerByJobtitle @JobTitleDesc='$jobtitle'");
     return $query->result_array();
 
 }

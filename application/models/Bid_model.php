@@ -60,5 +60,17 @@ public function UpdateClin($data)
         $retVal = $result->row_array();
         return $retVal;
 }
+public function GetBidOpenandDraft($BidStatusId)
+{
+    $query = $this->db->query("sGetBidOpenandDraft @BidStatusId='$BidStatusId'");
+    return $query->result_array();
+
+}
+public function GetConAwardByUser($CurrentUserid)
+{
+    $query = $this->db->query("sGetConAwardByUser @CurrentUserid='$CurrentUserid'");
+    return $query->result_array();
+
+}
 
 }
