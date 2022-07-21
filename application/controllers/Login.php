@@ -55,6 +55,29 @@ class Login extends REST_Controller
                        $retpassword = $userdetails['UserPassword'];
                        $UserTypeId = $userdetails['UserTypeId'];
 
+                       $firstname;
+                        $lasttname;
+                        $Middlename;
+
+                       if($UserTypeId == 'EMPLOY'){
+                        $Empdetails = $this->login_model->get_EmployeeDetails($UserId);
+                        $firstname = $Empdetails['FirstName'];
+                        $lasttname = $Empdetails['LastName'];
+                        $Middlename = $Empdetails['MiddleName'];
+                       }
+                       if($UserTypeId  == 'VENDOR'){
+                       $Vendordetails = $this->login_model->get_VendorDetails($UserId);
+                       $firstname = $Vendordetails['LegalName'];
+                       $lasttname = $Vendordetails['TradeName'];
+                       $Middlename = $Vendordetails['AliasName'];
+                       }
+                    //    echo $firstname;
+                    //    echo $lasttname;
+                    //    echo $Middlename;
+                    //    $UserTypeId = $userdetails['UserTypeId'];
+                    //    $UserTypeId = $userdetails['UserTypeId'];
+                    //    $UserTypeId = $userdetails['UserTypeId'];
+
                        $UserStatusId = $userdetails['UserStatusId'];
 
                         if($retpassword == $password &&  $UserStatusId == "A")
@@ -73,6 +96,8 @@ class Login extends REST_Controller
                             // );
 
                             // $this->response('', 200, 'success', $dealerData);
+
+                            // var_dump($dealerData);
 
                             $checkUserLogin = $this->login_model->checkUserLoginDetails($UserId);
     // var_dump($checkUserLogin);
@@ -115,23 +140,54 @@ else {
 );
                 $data['success'] = $result;
 }
+// echo "$jwtToken";
 
-$this->response('', 200, 'success', $dealerData);
+$data = $jwtToken."VERTEX-LMS".$UserId."VERTEX-LMS".$UserTypeId."VERTEX-LMS".$firstname
+."VERTEX-LMS".$lasttname;
+// ."VERTEX-LMS".$Middlename;
+
+$this->response($data);
+
+// $this->response('', 200, 'success', "test");
 
 
+                        }
+                        else if($retpassword == $password &&  $UserStatusId == "N"){
+                            $this->response("Waiting For Approval");
+                        }
+                        else if($retpassword != $password &&  $UserStatusId == "N"){
+                            $this->response("Incorrect Password");
                         }
                         else if($retpassword == $password &&  $UserStatusId != "A")
                         {
-                            $this->response('', 404, 'fail', "Inactive User");
+                            // echo "Inactive User";
+                            // $data = [
+                            //     'ErrorCode' => "Inactive User"
+                            //    ];
+                            $this->response($data);
+                            // $this->response('', 404, 'fail', "Inactive User");
                         }
                         else if($retpassword != $password &&  $UserStatusId == "A")
                         {
-                            $this->response('', 404, 'fail', "Incorrect Password");
+                            // $this->response('', 404, 'fail', "Incorrect Password");
+                            // $data = [
+                            //     'ErrorCode' => "Incorrect Password"
+                            //    ];
+                            // $this->response($data);
+                            $this->response("Incorrect Password");
                         }
+                        
+
+                       
                     }
                     else
                     {
-                            $this->response('', 404, 'fail', "Invalid User");
+                            // $this->response('', 404, 'fail', "Invalid User");
+                            // $data = [
+                            //     'ErrorCode' => "Invalid User"
+                            //    ];
+                            // $this->response($data);
+                            $this->response("Invalid User");
                     }
 
 

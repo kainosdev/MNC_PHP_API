@@ -157,6 +157,7 @@ return $query->result_array();
             );
 
             $result = $this->db->query($sp,$params);
+            // return "test";
 
 
     }
@@ -189,6 +190,8 @@ return $query->result_array();
                         );
 
             $result = $this->db->query($sp,$params);
+
+            // return "test upd";
                     }
     public function addUser($UserId,$UserTypeId,$UserStatusId,$UserPassword,$EmployeeId,$VendorId,$CreatedDate,$CreatedUserId,$UpdatedDate,$UpdatedUserId,
                             $firstname,$lastname,$phone,$email,$postalcode,$jobtitle)
@@ -258,6 +261,24 @@ return $query->result_array();
 //  print_r($pro_id);
             return $query->row_array();
     
+        }
+
+
+        public function get_EmployeeDetails($UserId)
+        {
+            $this->db->select('*');
+            $this->db->from('tEmployee');
+            $this->db->where('CreatedUserId', $UserId);
+            return $this->db->get()->row_array();
+        }
+
+
+        public function get_VendorDetails($UserId)
+        {
+            $this->db->select('*');
+            $this->db->from('tVendor');
+            $this->db->where('CreatedUserId', $UserId);
+            return $this->db->get()->row_array();
         }
 
 }

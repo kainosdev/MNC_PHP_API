@@ -55,6 +55,62 @@ public function GetViewBid_get()
     $this->response($data);
 
 }
+public function UpdateBid_post()
+{
+    $json = file_get_contents('php://input');
+    $request = json_decode($json,true);
+    $BidNumber=$request["BidNumber"];
+$Title=$request["Title"];
+$SolicitationTypeId=$request["SolicitationTypeId"];
+$BidStatusId=$request["BidStatusId"];
+//$SectorId=$request["SectorId"];
+//$DivisionId=$request["DivisionId"];
+//$DepartmentId=$request["DepartmentId"];
+$BuyingEntityTypeId=$request["BuyingEntityTypeId"];
+$SetAsideTypeId=$request["SetAsideTypeId"];
+$FundingSourceId=$request["FundingSourceId"];
+$BidBudgetAmount=$request["BidBudgetAmount"];
+$ContractVehicleId=$request["ContractVehicleId"];
+$Descritpion=$request["Descritpion"];
+$ContractingOfficer=$request["ContractingOfficer"];
+$BidPostedDate=$request["BidPostedDate"];
+$QandADueDate=$request["QandADueDate"];
+$BidResponseDueDate=$request["BidResponseDueDate"];
+$BidNotes=$request["BidNotes"];
+$UpdatedDate=date('Y-m-d')
+$UpdatedUserId=$request["UpdateUserId"];
+$Phone=$request["Phone"];
+$Email=$request["Email"];
+
+$BidDetails=array('BidNumber'=>$BidNumber,'Title'=>$Title,'SolicitationTypeId'=>$SolicitationTypeId,'BidStatusId'=>$BidStatusId,
+	'BuyingEntityTypeId'=>$BuyingEntityTypeId,'SetAsideTypeId'=>$SetAsideTypeId,'FundingSourceId'=>$FundingSourceId,
+	'BidBudgetAmount'=>$BidBudgetAmount,'ContractVehicleId'=>$ContractVehicleId,'BidPostedDate'=>$BidPostedDate,
+	'BidResponseDueDate'=>$BidResponseDueDate,'QandADueDate'=>$QandADueDate,'BidNotes'=>$BidNotes,
+	'UpdatedDate'=>$UpdatedDate,'UpdatedUserId'=>$UpdatedUserId,'Descritpion'=>$Descritpion,
+	'ContractingOfficer'=>$ContractingOfficer,'Phone'=>$Phone,'Email'=>$Email);
+
+    $result = $this->bid_model->UpdateBid($BidDetails);
+
+$this->response($result,'200');
+}
+
+public function UpdateClin_post()
+{
+    $json = file_get_contents('php://input');
+    $request = json_decode($json,true);
+    $BidNumber=$request["BidNumber"];
+    $ClinId = $request["ClinId"],
+    $BidClinCustomDesc=$request["BidClinCustomDesc"];
+    $ServiceTypeId=$request["ServiceTypeId"];
+    $BEGoalTypeId=$request["BEGoalTypeId"];
+    $DBEGoalPercent=$request["DBEGoalPercent"];
+    $ClinDetails=array('BidNumber'=>$BidNumber,'ClinId'=>$ClinId,'BidClinCustomDesc'=>$BidClinCustomDesc,
+                       'ServiceTypeId'=>$ServiceTypeId,'BEGoalTypeId'=>$BEGoalTypeId,'DBEGoalPercent'=>$DBEGoalPercent);
+
+    $result = $this->bid_model->UpdateClin($ClinDetails);
+
+$this->response($result,'200');
+}
 public function GetBidOpenandDraft_get()
 {
     // var_dump("hi");
@@ -67,6 +123,15 @@ public function GetConAwardByUser_get()
 {
     $CurrentUserid=$_GET['CurrentUserid'];
     $data['currentuserid']=$this->bid_model->GetConAwardByUser($CurrentUserid);
+    $this->response($data);
+
+}
+
+
+public function GetBidResponseSubmittedByVendor_get()
+{
+    $VendorId=$_GET['VendorId'];
+    $data['BidResponseSubmitted']=$this->bid_model->GetBidResponseSubmittedByVendor($VendorId);
     $this->response($data);
 
 }
