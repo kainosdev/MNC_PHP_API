@@ -304,3 +304,4 @@ $route['bid/GetConAwardByUser']='bid/GetConAwardByUser';
 
 $route['bid/GetBidResponseSubmittedByVendor']='bid/GetBidResponseSubmittedByVendor';
 
+$route['contract/GetVendorActiveContracts']='contract/GetVendorActiveContracts';
