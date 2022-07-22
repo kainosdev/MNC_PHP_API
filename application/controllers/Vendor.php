@@ -349,7 +349,8 @@ public function GetVendorById_get()
 public function GetVendorAddressById_get()
 {
     $VendorId=$_GET['VendorId'];
-    $data=$this->vendor_model->GetVendorAddressById($VendorId);
+    // $data=$this->vendor_model->GetVendorAddressById($VendorId);
+    $data['SingleVendorAddressDetails']=$this->vendor_model->GetVendorAddressById($VendorId);
 // var_dump($data);
 
 // $test = json_decode($data, true);
