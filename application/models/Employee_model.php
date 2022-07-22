@@ -159,7 +159,7 @@ return $query->result_array();
                 //$result = $this->db->query($sp,$params);
                 $result = $this->db->query($sp,$params);
                 $retVal = $result->result_array();
-                //var_dump($retVal);
+               // echo $retVal;
 
             return $retVal;
 
