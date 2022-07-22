@@ -668,6 +668,14 @@ public function getCityByZipcode($zipcode)
     return $query->result_array();
 
 }
+
+public function getCityDistrictStateByZipcode($zipcode)
+{
+    $query = $this->db->query("sGetCityDistrictStateByZipcode @Zipcode='$zipcode'");
+    return $query->result_array();
+
+}
+
 public function getSetAsideType()
 {
 $query = $this->db->get('vSetAsideType');
@@ -700,7 +708,7 @@ return $query->result_array();
 }
 public function GetContractingofficerByJobtitle($JobTitleDesc)
 {
-    $query = $this->db->query("sGetContractingofficerByJobtitle @JobTitleDesc='$ $jobtitle'");
+    $query = $this->db->query("sGetContractingofficerByJobtitle @JobTitleDesc='$JobTitleDesc'");
     return $query->result_array();
 
 }
