@@ -253,6 +253,8 @@ $route['vendor/AddVendorContact']='vendor/AddVendorContact';
 $route['vendor/UpdateVendorContact']='vendor/UpdateVendorContact';
 $route['vendor/DeleteVendorContact']='vendor/DeleteVendorContact';
 
+$route['vendor/UpdVendorNew']='vendor/UpdVendorNew';
+
 //login
 $route['login/insertVendor']='login/insertVendor';
 $route['login/insert']='login/insert';
