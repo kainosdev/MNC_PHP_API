@@ -77,7 +77,7 @@ $BidPostedDate=$request["BidPostedDate"];
 $QandADueDate=$request["QandADueDate"];
 $BidResponseDueDate=$request["BidResponseDueDate"];
 $BidNotes=$request["BidNotes"];
-$UpdatedDate=date('Y-m-d')
+$UpdatedDate=date('Y-m-d');
 $UpdatedUserId=$request["UpdateUserId"];
 $Phone=$request["Phone"];
 $Email=$request["Email"];
@@ -99,7 +99,7 @@ public function UpdateClin_post()
     $json = file_get_contents('php://input');
     $request = json_decode($json,true);
     $BidNumber=$request["BidNumber"];
-    $ClinId = $request["ClinId"],
+    $ClinId = $request["ClinId"];
     $BidClinCustomDesc=$request["BidClinCustomDesc"];
     $ServiceTypeId=$request["ServiceTypeId"];
     $BEGoalTypeId=$request["BEGoalTypeId"];

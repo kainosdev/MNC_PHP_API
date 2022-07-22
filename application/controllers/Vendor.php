@@ -694,5 +694,18 @@ public function DeleteVendorContact_post() {
 
       $result = $this->vendor_model->DeleteVendorContact($data);
 }
+
+public function GetVendorApproval_get()
+{
+    $UserTypeId=$_GET['UserTypeId'];
+    $UserStatusId=$_GET['UserStatusId'];
+    $data['GetVendorApproval']=$this->vendor_model->GetVendorApprovalList($UserTypeId, $UserStatusId);
+     $this->response($data);
+  
+
+
+}
+
+
 }
 

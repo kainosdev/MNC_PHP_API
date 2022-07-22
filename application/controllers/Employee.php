@@ -88,16 +88,16 @@ public function AddUserEmployee($UserId,
     }
     public function GetDirectReport_get()
 {
-    $EmployeeId_Supervisor=$_GET['EmployeeIdSupervisor'];
-    $data['DirectReport']=$this->employee_model->GetDirectReportList($EmployeeId_Supervisor);
+    $EmployeeIdSupervisor=$_GET['EmployeeIdSupervisor'];
+    $data['DirectReport']=$this->employee_model->GetDirectReportList($EmployeeIdSupervisor);
     $this->response($data);
 
 }
-public function GetApprovalForEmployee_get()
+public function GetEmployeeApproval_get()
 {
     $UserTypeId=$_GET['UserTypeId'];
-    $UserStatusId=$_GET['UserTypeId'];
-    $data['GetApprovalForEmployee']=$this->employee_model->GetApprovalForEmployeeList($UserTypeId,   $UserStatusId);
+    $UserStatusId=$_GET['UserStatusId'];
+    $data['GetApprovalForEmployee']=$this->employee_model->GetEmployeeApprovalList($UserTypeId,   $UserStatusId);
     $this->response($data);
 
 }

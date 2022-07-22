@@ -174,15 +174,15 @@ var_dump($retVal);
             
         }
 
-        public function GetDirectReportList()
+        public function GetDirectReportList($EmployeeIdSupervisor)
         {
             $query = $this->db->query("sGetDirectReport @EmployeeIdSupervisor='$EmployeeIdSupervisor'");
             return $query->result_array();
         
         }
-        public function GetApprovalForEmployeeList()
+        public function GetEmployeeApprovalList($UserTypeId,$UserStatusId)
         {
-            $query = $this->db->query("sGetEmployeeApprovalForEmployee @UserTypeId=' $UserTypeId',@UserStatusId='$UserStatusId'");
+            $query = $this->db->query("sGetEmployeeApproval @UserTypeId='$UserTypeId',@UserStatusId='$UserStatusId'");
             return $query->result_array();
         
         }
