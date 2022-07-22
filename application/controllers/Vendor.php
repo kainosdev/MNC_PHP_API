@@ -318,7 +318,30 @@ public function GetVendorById_get()
 public function GetVendorAddressById_get()
 {
     $VendorId=$_GET['VendorId'];
-    $data['SingleVendorAddressDetails']=$this->vendor_model->GetVendorAddressById($VendorId);
+    $data=$this->vendor_model->GetVendorAddressById($VendorId);
+// var_dump($data);
+
+// $test = json_decode($data, true);
+// var_dump($test);
+// foreach($array as $values) {
+//    echo $values[0];
+   
+// }
+    //$jsondatastdclass = json_decode($data);
+//print_r($jsondataarray);
+
+// foreach ($jsondatastdclass as $object)
+// {
+//   foreach ($object as $property=>$value)
+//    {
+//      echo $property." has the value ". $value;
+//    } 
+// }
+//  $data = json_decode($data);
+// var_dump(json_decode($data));
+
+
+
     $this->response($data);
 
 }
