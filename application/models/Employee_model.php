@@ -122,7 +122,7 @@ return $query->result_array();
     public function AdduserDetailsEmployee($data){
 
 
-        $sp = "sAddEmployee ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+        $sp = "sAddEmployee ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
@@ -149,7 +149,7 @@ return $query->result_array();
 
         // echo $data["UserId"];
 
-            $sp = "sAddVendor ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+            $sp = "sAddVendor ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
             //     //No @ needed.  Codeigniter gets it right either way
             $params =$data;
@@ -159,30 +159,21 @@ return $query->result_array();
                 //$result = $this->db->query($sp,$params);
                 $result = $this->db->query($sp,$params);
                 $retVal = $result->result_array();
-            //    // $retVal($retVal);
-            //     $retVal = $result->row_array();
-            //     foreach($retVal as $key=>$value)
-            //     {
-                    // if($key=="ErrorCodeID")
-                    // {
-                    //     $firstproceduresuccess= $value;
-                    // }
-//var_dump($retVal);
-  //    echo   $this->db->last_query();   //     }
-                // return $firstproceduresuccess;
+                //var_dump($retVal);
+
             return $retVal;
 
         }
 
-        public function GetDirectReportList()
+        public function GetDirectReportList($EmployeeIdSupervisor)
         {
             $query = $this->db->query("sGetDirectReport @EmployeeIdSupervisor='$EmployeeIdSupervisor'");
             return $query->result_array();
-        
+
         }
-        public function GetApprovalForEmployeeList()
+        public function GetEmployeeApprovalList($UserTypeId,$UserStatusId)
         {
-            $query = $this->db->query("sGetEmployeeApprovalForEmployee @UserTypeId=' $UserTypeId',@UserStatusId='$UserStatusId'");
+            $query = $this->db->query("sGetEmployeeApproval @UserTypeId='$UserTypeId',@UserStatusId='$UserStatusId'");
             return $query->result_array();
 
         }

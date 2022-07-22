@@ -129,7 +129,7 @@ public function GetVendorAddressById($VendorId)
 
    public function GetVendorContactById($VendorId,$VendorContactPrimary)
 {
-    $query = $this->db->query("sGetVendorContactById @VendorId='$VendorId', @VendorContactPrimary='$VendorContactPrimary'");
+    $query = $this->db->query("sGetVendorContactById @VendorId='$VendorId'");
     return $query->result_array();
 
 }
@@ -209,6 +209,12 @@ public function AddMultiVendorContact($data){
             return $query->result_array();
         
     }
+    public function GetVendorApprovalList($UserTypeId, $UserStatusId)
+{
+    $query = $this->db->query("sGetVendorApproval @UserTypeId='$UserTypeId', @UserStatusId='$UserStatusId'");
+    return $query->result_array();
+
+}
 
 
     public function updatevendorDetailsNew($data){
