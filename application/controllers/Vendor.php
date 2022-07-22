@@ -96,19 +96,16 @@ public function AdduserDetails_post()
             $registercontactinformation = $request->registercontactinformation;
             // var_dump($MasterserviceForm);
             $UserTypeId = $registercontactinformation->UserTypeId;
+           // var_dump($UserTypeId);
 if($request["UserTypeId"]=="EMPLOY")
 {
-    $UserId = $request["UserId"];
+    //USer table
+$UserId = $request["UserId"];
 $UserTypeId = $request["UserTypeId"];
 $UserStatusId = $request["UserStatusId"];
 $UserPassword = $request["UserPassword"];
-$EmployeeId = NULL;
+//$EmployeeId = NULL;
 $VendorId = NULL;
-$CreatedDate = date('Y-m-d');
-// $CreatedUserId = $request["UserId"];
-$UpdatedDate = date('Y-m-d');
-// $UpdatedUserid = $request["UserId"];
-// var_dump($UpdatedUserid);
 $AdminUser = $request["AdminUser"];
 if($AdminUser == true){
     $AdminUser = 1;
@@ -120,21 +117,24 @@ else {
 // employee tbl insert
 $FirstName = $request["FirstName"];
 $LastName = $request["LastName"];
+$MiddleName = $request["MiddleName"];
 $Phone = $request["Phone"];
 $EmploymentTypeId = $request["EmploymentTypeId"];
 $JobTitleId = $request["JobTitleId"];
 $StartDate = $request["JobStartDate"];
-$CreatedDate = date('Y-m-d');
+
 // $CreatedUserId = $request["CreatedUserId"];
-$UpdatedDate = date('Y-m-d');
+$Email = $request["Email"];
+$CreatedDate = date('Y-m-d  H:i:s');
+$UpdatedDate = date('Y-m-d  H:i:s');
 // $UpdatedUserId = $request["UpdatedUserId"];
 
 
 
 // insert into employee address
 $AddressTypeId = 'C';
-$AStartDate = $request["StartDate"];
-$EndDate = $request["StartDate"];
+$AStartDate = date('Y-m-d');
+//$EndDate = $request["StartDate"];
 $Address1 = $request["Address1"];
 $Address2 = $request["Address2"];
 $DistrictId = $request["DistrictId"];
@@ -144,10 +144,13 @@ $Zipcode = $request["Zipcode"];
 $CountryId = $request["CountryId"];
 
 $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' => $UserStatusId,
-'UserPassword' => $UserPassword, 'EmployeeId' => $EmployeeId, 'VendorId' => $VendorId,'CreatedDate' => $CreatedDate,
+'UserPassword' => $UserPassword,'VendorId' => $VendorId,'CreatedDate' => $CreatedDate,
 'CreatedUserId' => $UserId, 'UpdatedDate' => $UpdatedDate,
-'UpdatedUserid' => $UserId, 'AdminUser' => $AdminUser,'FirstName'=>$FirstName,'LastName'=>$LastName,'Phone'=>$Phone,
-'EmploymentTypeId'=>$EmploymentTypeId,'JobTitleId'=>$JobTitleId,'StartDate'=>$StartDate, 'AddressTypeId'=>$AddressTypeId,'AStartDate'=>$AStartDate,'Address1'=>$Address1,'Address2'=>$Address2,'StateId'=>$StateId,'Zipcode'=>$Zipcode,
+'UpdatedUserid' => $UserId, 'AdminUser' => $AdminUser,
+'FirstName'=>$FirstName,'LastName'=>$LastName,'MiddleName'=>$MiddleName,
+'Phone'=>$Phone,'Email'=>$Email,'EmploymentTypeId'=>$EmploymentTypeId,'JobTitleId'=>$JobTitleId,'StartDate'=>$StartDate,
+ 'AddressTypeId'=>$AddressTypeId,
+'AStartDate'=>$AStartDate,'Address1'=>$Address1,'Address2'=>$Address2,'StateId'=>$StateId,'Zipcode'=>$Zipcode,
 'CountryId'=>$CountryId,'DistrictId'=>$DistrictId,'CityId'=>$CityId );
 
 
@@ -155,56 +158,48 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
 
 
              $result = $this->employee_model->AdduserDetailsEmployee($data);
-        //      $data = [
-        //        'ErrorCode' => $result
-        // ];
-        // var_dump($data);
+
 
         $this->response($result,200);
 }
 //                 // insert vendor
-else if($request["UserTypeId"]=="VENDOR")
+elseif($request["UserTypeId"]=="BUSINE")
  {
-
+//var_dump("ss");
 $UserId = $request["UserId"];
 $UserTypeId = $request["UserTypeId"];
 $UserStatusId = $request["UserStatusId"];
 $UserPassword = $request["UserPassword"];
 $EmployeeId = NULL;
-$VendorId = NULL;
-$CreatedDate = date('Y-m-d');
-// $CreatedUserId = $request["UserId"];
-$UpdatedDate = date('Y-m-d');
-// $UpdatedUserid = $request["UserId"];
-// var_dump($UpdatedUserid);
+$CreatedDate = date('Y-m-d  H:i:s');
+$UpdatedDate = date('Y-m-d  H:i:s');
 $AdminUser = NULL;
+$AStartDate = date('Y-m-d');
+$FirstName = $request["FirstName"];
+$LastName = $request["LastName"];
+$AliasName = $request["AllasName"];
+$VendorTypeId = 'B';
+$AddressTypeId = 'C';
+$Address1 = $request["Address1"];
+$Address2 = $request["Address2"];
+$DistrictId = $request["county_name"];
+$CityId = $request["CityId"];
+$StateId = $request["StateId"];
+$Zipcode = $request["Zipcode"];
+$CountryId = $request["CountryId"];
 
+$EIN_SSN = $request["business_ssn"];
+//var_dump("before>>>$EIN_SSN");
+$EIN_SSN = str_replace("-","",$EIN_SSN);
+$BusinessSize = $request["BusinessSize"];
+$BEClassificationId = $request["BEClassificationId"];
 $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
+$Email=$request["Mailbusiness"];
 if($OutreachEmailOptIn == true){
     $OutreachEmailOptIn = 1;
 }
 else {
     $OutreachEmailOptIn = 0;
-}
-
-// vendor tbl insert
-$FirstName = $request["FirstName"];
-$LastName = $request["LastName"];
-// $Phone = $request["Phone"];
-$VendorTypeId = $request["VendorTypeId"];
-
-
-
-if($VendorTypeId == true) {
-$VendorTypeId = "B";
-$BusinessSize = $request["BusinessSize"];
-$BEClassificationId = $request["BEClassificationId"];
-$BusinessRegisteredInDistrict = $request["BusinessRegisteredInDistrict"];
-if($BusinessRegisteredInDistrict == true){
-    $BusinessRegisteredInDistrict = 1;
-}
-else {
-    $BusinessRegisteredInDistrict = 0;
 }
 $BusinessRegisteredInSCC = $request["BusinessRegisteredInSCC"];
 if($BusinessRegisteredInSCC == true){
@@ -220,84 +215,120 @@ if($BusinessIsFranchisee == true){
 else {
     $BusinessIsFranchisee = 0;
 }
-// $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
-$EIN_SSN = '';
-
+$BusinessRegisteredInDistrict = $request["BusinessRegisteredInDistrict"];
+if($BusinessRegisteredInDistrict == true){
+    $BusinessRegisteredInDistrict = 1;
 }
 else {
-$VendorTypeId = "I";
-$BusinessSize = '';
-$BEClassificationId = '';
-$BusinessRegisteredInDistrict = '';
-$BusinessRegisteredInSCC = '';
-$BusinessIsFranchisee = '';
-// $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
-// $OutreachEmailOptIn = 1;
-$EIN_SSN = $request["EIN_SSN"];
-var_dump("before>>>$EIN_SSN");
-$EIN_SSN = str_replace("-","",$EIN_SSN);
-var_dump("after>>>$EIN_SSN");
+    $BusinessRegisteredInDistrict = 0;
 }
-;
-// $Email = $request["Email"];
-
-
-
-$CreatedDate = date('Y-m-d');
-
-$UpdatedDate = date('Y-m-d');
-$CreatedUserId = $request["UserId"];
-$UpdatedUserId = $request["UserId"];
-
-
-// address vendor
-$AddressTypeId = 'C';
-$StartDate = $request["StartDate"];
-$EndDate = $request["StartDate"];
-$Address1 = $request["Address1"];
-$Address2 = $request["Address2"];
-
-$DistrictId = $request["DistrictId"];
-$CityId =  1; //$request["CityId"];
-$StateId = $request["StateId"];
-$Zipcode = $request["Zipcode"];
-$CountryId = $request["CountryId"];
-// $EndDate = $request["EndDate"];
-
-
-
-
 
 $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' => $UserStatusId,
-'UserPassword' => $UserPassword, 'EmployeeId' => $EmployeeId, 'VendorId' => $VendorId,'CreatedDate' => $CreatedDate,
+'UserPassword' => $UserPassword, 'EmployeeId' => $EmployeeId,'CreatedDate' => $CreatedDate,
 'CreatedUserId' => $UserId, 'UpdatedDate' => $UpdatedDate,
-'UpdatedUserid' => $UserId, 'AdminUser' => $AdminUser,'VendorTypeId'=>$VendorTypeId,'LegalName'=>$LastName,'TradeName'=>$FirstName,'EIN_SSN'=>$EIN_SSN,
+'UpdatedUserid' => $UserId, 'AdminUser' => $AdminUser,
+'VendorTypeId'=>$VendorTypeId,'LegalName'=>$LastName,'TradeName'=>$FirstName,'AliasName'=>$AliasName,'EIN_SSN'=>$EIN_SSN,
 'BusinessSize'=>$BusinessSize,'BEClassificationId'=>$BEClassificationId,'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,
 'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,'BusinessIsFranchisee'=>$BusinessIsFranchisee,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
-'AddressTypeId'=>$AddressTypeId,'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId);
-// var_dump($data);
+'Email'=>$Email,
+'AddressTypeId'=>$AddressTypeId,'StartDate'=>$AStartDate,'EndDate'=>$AStartDate,'Address1'=>$Address1,'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId);
+//var_dump($data);
 
              $result = $this->employee_model->AdduserDetailsVendor($data);
 
-            //  if($result)
-            //  {
-            //     $this->response('', 200, 'success')
-            //  }
-            //  else
-            //  {
-
-                $data = [
+                           $data = [
                     'ErrorCode' => $result
              ]; //        $this->response('', 404, 'Notsuccess')
 
-
-// var_dump($result);
          $this->response($result,200);
+       // $this->response($data,200);
+ }
+else
+{
+}// else {
+// $VendorTypeId = "B";
+
+
+
+
+// // $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
+// $EIN_SSN = '';
+
+
+// $VendorTypeId = "I";
+// $BusinessSize = '';
+// $BEClassificationId = '';
+// $BusinessRegisteredInDistrict = '';
+// $BusinessRegisteredInSCC = '';
+// $BusinessIsFranchisee = '';
+// // $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
+// // $OutreachEmailOptIn = 1;
+// $EIN_SSN = $request["EIN_SSN"];
+// var_dump("before>>>$EIN_SSN");
+// $EIN_SSN = str_replace("-","",$EIN_SSN);
+// var_dump("after>>>$EIN_SSN");
+// }
+// ;
+// // $Email = $request["Email"];
+
+
+
+// $CreatedDate = date('Y-m-d');
+
+// $UpdatedDate = date('Y-m-d');
+// $CreatedUserId = $request["UserId"];
+// $UpdatedUserId = $request["UserId"];
+
+
+// // address vendor
+// $AddressTypeId = 'C';
+// $StartDate = $request["StartDate"];
+// $EndDate = $request["StartDate"];
+// $Address1 = $request["Address1"];
+// $Address2 = $request["Address2"];
+
+// $DistrictId = $request["DistrictId"];
+// $CityId =  1; //$request["CityId"];
+// $StateId = $request["StateId"];
+// $Zipcode = $request["Zipcode"];
+// $CountryId = $request["CountryId"];
+// // $EndDate = $request["EndDate"];
+
+
+
+
+
+// $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' => $UserStatusId,
+// 'UserPassword' => $UserPassword, 'EmployeeId' => $EmployeeId,'CreatedDate' => $CreatedDate,
+// 'CreatedUserId' => $UserId, 'UpdatedDate' => $UpdatedDate,
+// 'UpdatedUserid' => $UserId, 'AdminUser' => $AdminUser,
+// 'VendorTypeId'=>$VendorTypeId,'LegalName'=>$LastName,'TradeName'=>$FirstName,'EIN_SSN'=>$EIN_SSN,
+// 'BusinessSize'=>$BusinessSize,'BEClassificationId'=>$BEClassificationId,'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,
+// 'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,'BusinessIsFranchisee'=>$BusinessIsFranchisee,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
+// 'AddressTypeId'=>$AddressTypeId,'StartDate'=>$StartDate,'EndDate'=>$EndDate,'Address1'=>$Address1,'Address2'=>$Address2,'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId);
+// // var_dump($data);
+
+//              $result = $this->employee_model->AdduserDetailsVendor($data);
+
+//             //  if($result)
+//             //  {
+//             //     $this->response('', 200, 'success')
+//             //  }
+//             //  else
+//             //  {
+
+//                 $data = [
+//                     'ErrorCode' => $result
+//              ]; //        $this->response('', 404, 'Notsuccess')
+
+
+// // var_dump($result);
+//          $this->response($result,200);
 }
 
 
 
-}
+
 
 public function GetAllVendors_get()
 {
