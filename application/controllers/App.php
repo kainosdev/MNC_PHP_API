@@ -868,6 +868,16 @@ public function getCityByZipcode_get()
     $this->response($data);
 
 }
+
+public function getCityDistrictStateByZipcode_get()
+{
+    $zipcode=$_GET['zipcode'];
+    $data['cityDistststatedata']=$this->app_model->getCityDistrictStateByZipcode($zipcode);
+    $this->response($data);
+
+}
+
+
 public function SetAsideType_get()
 {
     $data['SetAsideType']=$this->app_model->getSetAsideType();

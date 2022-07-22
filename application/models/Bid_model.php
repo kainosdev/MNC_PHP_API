@@ -80,4 +80,12 @@ public function GetBidResponseSubmittedByVendor($VendorId)
 
 }
 
+public function GetBidResponseNotSubmittedByVendor($VendorId)
+{
+    $query = $this->db->query("sGetBidResponseNotSubmittedByVendor @VendorId='$VendorId'");
+    return $query->result_array();
+
+}
+
+
 }
