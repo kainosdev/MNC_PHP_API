@@ -20,7 +20,7 @@ class Contract_model extends CI_Model
      */
 public function GetVendorActiveContracts($VendorId)
 {
-    $query = $this->db->query("sVendorActiveContracts @VendorId='$VendorId'");
+    $query = $this->db->query("sGetVendorActiveContracts @VendorId='$VendorId'");
     return $query->result_array();
 
 }

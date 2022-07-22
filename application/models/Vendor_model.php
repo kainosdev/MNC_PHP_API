@@ -129,7 +129,7 @@ public function GetVendorAddressById($VendorId)
 
    public function GetVendorContactById($VendorId,$VendorContactPrimary)
 {
-    $query = $this->db->query("sGetVendorContactById @VendorId='$VendorId', @VendorContactPrimary='$VendorContactPrimary'");
+    $query = $this->db->query("sGetVendorContactById @VendorId='$VendorId'");
     return $query->result_array();
 
 }

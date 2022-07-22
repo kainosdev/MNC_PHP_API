@@ -131,7 +131,7 @@ return $query->result_array();
         //    var_dump($retVal);
             // foreach($retVal as $key=>$value)
             // {
-               
+
             //     // $firstprocedursuccess= $key;
             // }
             // if($key=="ErrorCodeID")
@@ -167,11 +167,11 @@ return $query->result_array();
                     // {
                     //     $firstproceduresuccess= $value;
                     // }
-var_dump($retVal);
-      echo   $this->db->last_query();   //     }
+//var_dump($retVal);
+  //    echo   $this->db->last_query();   //     }
                 // return $firstproceduresuccess;
             return $retVal;
-            
+
         }
 
         public function GetDirectReportList($EmployeeIdSupervisor)
@@ -184,9 +184,9 @@ var_dump($retVal);
         {
             $query = $this->db->query("sGetEmployeeApproval @UserTypeId='$UserTypeId',@UserStatusId='$UserStatusId'");
             return $query->result_array();
-        
+
         }
-        
+
 
 
 }

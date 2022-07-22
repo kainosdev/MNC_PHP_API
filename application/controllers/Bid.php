@@ -136,4 +136,12 @@ public function GetBidResponseSubmittedByVendor_get()
 
 }
 
+public function GetBidResponseNotSubmittedByVendor_get()
+{
+    $VendorId=$_GET['VendorId'];
+    $data['BidResponseNotSubmitted']=$this->bid_model->GetBidResponseNotSubmittedByVendor($VendorId);
+    $this->response($data);
+
+}
+
     }
