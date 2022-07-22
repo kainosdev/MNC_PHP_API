@@ -706,6 +706,11 @@ public function getServiceType()
 $query = $this->db->get('vServiceType');
 return $query->result_array();
 }
+public function getAddressType()
+{
+$query = $this->db->get('vAddressType');
+return $query->result_array();
+}
 public function GetContractingofficerByJobtitle($JobTitleDesc)
 {
     $query = $this->db->query("sGetContractingofficerByJobtitle @JobTitleDesc='$JobTitleDesc'");

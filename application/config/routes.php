@@ -252,6 +252,7 @@ $route['vendor/GetVendorContactById']='vendor/GetVendorContactById';
 $route['vendor/AddVendorContact']='vendor/AddVendorContact';
 $route['vendor/UpdateVendorContact']='vendor/UpdateVendorContact';
 $route['vendor/DeleteVendorContact']='vendor/DeleteVendorContact';
+$route['vendor/GetVendorApproval']='vendor/GetVendorApproval';
 
 //login
 $route['login/insertVendor']='login/insertVendor';
@@ -282,7 +283,7 @@ $route['app/selectBEClassification']='app/selectBEClassification';
 $route['app/selectAllCountry']='app/selectAllCountry';
 $route['app/getCountryByState']='app/getCountryByState';
 $route['app/selectAllDistricts']='app/selectAllDistricts';
-
+$route['app/AddressType']='app/AddressType';
 $route['app/SetAsideType']='app/SetAsideType';
 $route['app/ServiceType']='app/ServiceType';
 $route['app/ContractVehicle']='app/ContractVehicle';
@@ -297,6 +298,15 @@ $route['bid/GetBidByNumber']='bid/GetBidByNumber';
 $route['bid/GetBidClinByNumber']='bid/GetBidClinByNumber';
 $route['bid/BuyingEntity']='bid/BuyingEntity';
 $route['bid/GetViewBid']='bid/GetViewBid';
+$route['bid/UpdateBid']='bid/UpdateBid';
+$route['bid/UpdateClin']='bid/UpdateClin';
+
+$route['employee/GetDirectReport']='employee/GetDirectReport';
+$route['employee/GetEmployeeApproval']='employee/GetEmployeeApproval';
 $route['bid/GetBidOpenandDraft']='bid/GetBidOpenandDraft';
 $route['bid/GetConAwardByUser']='bid/GetConAwardByUser';
 
+$route['bid/GetBidResponseSubmittedByVendor']='bid/GetBidResponseSubmittedByVendor';
+$route['bid/GetBidResponseNotSubmittedByVendor']='bid/GetBidResponseNotSubmittedByVendor';
+
+$route['contract/GetVendorActiveContracts']='contract/GetVendorActiveContracts';

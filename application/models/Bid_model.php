@@ -42,6 +42,24 @@ public function GetViewBidList()
     return $query->result_array();
 
 }
+public function UpdateBid($data)
+{
+    $sp = "sUpdateBid ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+
+    //     //No @ needed.  Codeigniter gets it right either way
+    $params =$data;
+        $result = $this->db->query($sp,$params);
+        $retVal = $result->row_array();
+        return $retVal;
+}
+public function UpdateClin($data)
+{
+    $sp = "sUpdateClin ?,?,?,?,?,?";
+    $params =$data;
+        $result = $this->db->query($sp,$params);
+        $retVal = $result->row_array();
+        return $retVal;
+}
 public function GetBidOpenandDraft($BidStatusId)
 {
     $query = $this->db->query("sGetBidOpenandDraft @BidStatusId='$BidStatusId'");
@@ -54,5 +72,20 @@ public function GetConAwardByUser($CurrentUserid)
     return $query->result_array();
 
 }
+
+public function GetBidResponseSubmittedByVendor($VendorId)
+{
+    $query = $this->db->query("sGetBidResponseSubmittedByVendor @VendorId='$VendorId'");
+    return $query->result_array();
+
+}
+
+public function GetBidResponseNotSubmittedByVendor($VendorId)
+{
+    $query = $this->db->query("sGetBidResponseNotSubmittedByVendor @VendorId='$VendorId'");
+    return $query->result_array();
+
+}
+
 
 }
