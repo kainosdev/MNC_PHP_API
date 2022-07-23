@@ -65,12 +65,18 @@ class Login extends REST_Controller
                         $lasttname = $Empdetails['LastName'];
                         $Middlename = $Empdetails['MiddleName'];
                        }
-                       if($UserTypeId  == 'VENDOR'){
+                       if($UserTypeId  == 'BUSINE' ){
                        $Vendordetails = $this->login_model->get_VendorDetails($UserId);
                        $firstname = $Vendordetails['LegalName'];
                        $lasttname = $Vendordetails['TradeName'];
                        $Middlename = $Vendordetails['AliasName'];
                        }
+                       if($UserTypeId  == 'INDIVI' ){
+                        $Vendordetails = $this->login_model->get_VendorDetails($UserId);
+                        $firstname = $Vendordetails['LegalName'];
+                        $lasttname = $Vendordetails['TradeName'];
+                        $Middlename = $Vendordetails['AliasName'];
+                        }
                     //    echo $firstname;
                     //    echo $lasttname;
                     //    echo $Middlename;
@@ -176,9 +182,9 @@ $this->response($data);
                             // $this->response($data);
                             $this->response("Incorrect Password");
                         }
-                        
 
-                       
+
+
                     }
                     else
                     {

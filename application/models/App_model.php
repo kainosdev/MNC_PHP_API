@@ -666,6 +666,7 @@ public function getCityByZipcode($zipcode)
 {
     $query = $this->db->query("sGetCityByZipcode @Zipcode='$zipcode'");
     return $query->result_array();
+    
 
 }
 
