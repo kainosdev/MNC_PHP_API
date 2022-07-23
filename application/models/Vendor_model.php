@@ -242,7 +242,7 @@ public function AddMultiVendorContact($data){
    public function AddVendorAddress($data){
 
 
-    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
     //     //No @ needed.  Codeigniter gets it right either way
     $params =$data;

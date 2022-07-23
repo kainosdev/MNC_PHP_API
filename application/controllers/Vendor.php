@@ -767,20 +767,20 @@ $json = file_get_contents('php://input');
 
     $NAICSCodes = $request["NAICSCodes"];
     $BusinessRegisteredInDistrict = $request["BusinessRegisteredInDistrict"];
-    if($BusinessRegisteredInDistrict = ""){
-        $BusinessRegisteredInDistrict = false;
-    }
+    // if($BusinessRegisteredInDistrict = ""){
+    //     $BusinessRegisteredInDistrict = false;
+    // }
     $BusinessIsFranchisee = $request["BusinessIsFranchisee"];
-    if($BusinessIsFranchisee = ""){
-        $BusinessIsFranchisee = false;
-    }
+    // if($BusinessIsFranchisee = ""){
+    //     $BusinessIsFranchisee = false;
+    // }
     $DUNS = $request["DUNS"];
     $CommodityCodes = $request["CommodityCodes"];
     $Website = $request["Website"];
     $BusinessRegisteredInSCC = $request["BusinessRegisteredInSCC"];
-    if($BusinessRegisteredInSCC = ""){
-        $BusinessRegisteredInSCC = false;
-    }
+    // if($BusinessRegisteredInSCC = ""){
+    //     $BusinessRegisteredInSCC = false;
+    // }
     $ContactName = $request["ContactName"];
     $JobTitle = $request["JobTitle"];
     $VendorContactPrimary = $request["VendorContactPrimary"];
@@ -791,6 +791,8 @@ $json = file_get_contents('php://input');
     // $BusinessPhone = $request["BusinessPhone"];
     $CreatedUserId = $request["CreatedUserId"];
     $BusinessSize = $request["BusinessSize"];
+
+    $BEClassificationId = $request["BEClassificationId"];
 
 
 
@@ -809,7 +811,7 @@ $json = file_get_contents('php://input');
        $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$obj["AddressTypeId"],'StartDate'=>$obj["StartDate"],'EndDate'=>$obj["EndDate"],'Address1'=>$obj["Address1"],
        'Address2'=>$obj["Address1"],'StateId'=>$obj["StateId"],'DistrictId'=>$obj["DistrictId"],'CityId'=>$obj["CityId"],'Zipcode'=>$obj["Zipcode"],'CountryId'=>$obj["CountryId"],
        'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$CreatedUserId,
-    'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,
+    'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'AddressId'=>$obj["AddressId"]
    );
    
        $result = $this->vendor_model->AddVendorAddress($data2);
@@ -854,11 +856,11 @@ $json = file_get_contents('php://input');
 
     var_dump("if");
 
-    $object["AddtionalContactActive"] = 1;
+    // $object["VendorContactActive"] = 1;
     // $object["ContactId"] = 23;
 
     $data2 = array('VendorId' => $request["VendorId"], 'FirstName' => $object["FirstName"],'BusinessPhone' => $object["Phone"],
-'BusinessEmail' => $object["Email"], 'VendorContactActive' => 1, 'VendorContactPrimary' => $object["VendorContactPrimary"], 'JobTitle' => $object["JobTitleId"]
+'BusinessEmail' => $object["Email"], 'VendorContactActive' => $object["VendorContactActive"], 'VendorContactPrimary' => $object["VendorContactPrimary"], 'JobTitle' => $object["JobTitleId"]
 ,'CreatedDate' => date('Y-m-d'),'CreatedUserId' => $CreatedUserId,'UpdatedDate' => date('Y-m-d'),'UpdatedUserId' => $CreatedUserId
 ,'LastName' => $object["LastName"],
 'MiddleName' => $object["MiddleName"],'ContactId' => $object["ContactId"]
@@ -906,7 +908,7 @@ $json = file_get_contents('php://input');
 
          if($VendorTypeId == "B") {
             $vendordata = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,
-            'EIN_SSN'=>$EIN_SSN,'DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>"",'NAICSCodes'=>$NAICSCodes,'CommodityCodes'=>$CommodityCodes,
+            'EIN_SSN'=>$EIN_SSN,'DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>$BEClassificationId,'NAICSCodes'=>$NAICSCodes,'CommodityCodes'=>$CommodityCodes,
             'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,
               'BusinessIsFranchisee'=>$BusinessIsFranchisee,'Website'=>$Website,'Phone'=>'','Email'=>'','OutreachEmailOptIn'=>$OutreachEmailOptIn,
               'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
