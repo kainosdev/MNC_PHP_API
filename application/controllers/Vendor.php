@@ -222,7 +222,7 @@ if($BusinessRegisteredInDistrict == true){
 else {
     $BusinessRegisteredInDistrict = 0;
 }
-
+$Phone='';
 $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' => $UserStatusId,
 'UserPassword' => $UserPassword, 'EmployeeId' => $EmployeeId,'CreatedDate' => $CreatedDate,
 'CreatedUserId' => $UserId, 'UpdatedDate' => $UpdatedDate,
@@ -230,7 +230,7 @@ $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' =
  'VendorTypeId'=>$VendorTypeId,'LegalName'=>$LastName,'TradeName'=>$FirstName,'AliasName'=>$AliasName,'EIN_SSN'=>$EIN_SSN,
 'BusinessSize'=>$BusinessSize,'BEClassificationId'=>$BEClassificationId,'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,
 'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,'BusinessIsFranchisee'=>$BusinessIsFranchisee,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
-'Email'=>$Email,
+'Email'=>$Email,'Phone'=>$Phone,
 'AddressTypeId'=>$AddressTypeId,'StartDate'=>$AStartDate,'EndDate'=>$AStartDate,'Address1'=>$Address1,'Address2'=>$Address2,
 'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId);
 //var_dump($data);
