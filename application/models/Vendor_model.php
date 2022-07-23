@@ -209,6 +209,7 @@ public function AddMultiVendorContact($data){
             return $query->result_array();
         
     }
+    
     public function GetVendorApprovalList($UserTypeId, $UserStatusId)
 {
     $query = $this->db->query("sGetVendorApproval @UserTypeId='$UserTypeId', @UserStatusId='$UserStatusId'");

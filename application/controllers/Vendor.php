@@ -934,6 +934,14 @@ $json = file_get_contents('php://input');
 //       //var_dump($result);
       $data['success'] = $result;
 }
+public function GetVendorApproval_get()
+{
+    $UserTypeId=$_GET['UserTypeId'];
+    $UserStatusId=$_GET['UserStatusId'];
+    $data['GetVendorApproval']=$this->vendor_model->GetVendorApprovalList($UserTypeId,   $UserStatusId);
+    $this->response($data);
+
+}
 
 }
 
