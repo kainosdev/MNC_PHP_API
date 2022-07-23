@@ -259,7 +259,7 @@ else
     $FirstName = $request["FirstName"];
     $LastName = $request["LastName"];
     $AliasName = $request["AllasName"];
-    $VendorTypeId = 'B';
+    $VendorTypeId = 'I';
     $AddressTypeId = 'C';
     $Address1 = $request["Address1"];
     $Address2 = $request["Address2"];
@@ -269,13 +269,13 @@ else
     $Zipcode = $request["Zipcode"];
     $CountryId = $request["CountryId"];
 
-    $EIN_SSN = $request["business_ssn"];
+    $EIN_SSN = $request["EIN_SSN"];
     //var_dump("before>>>$EIN_SSN");
     $EIN_SSN = str_replace("-","",$EIN_SSN);
     $BusinessSize='';
     $BEClassificationId = '';
     $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
-    $Email=$request["Mailbusiness"];
+    $Email=$request["Mailindividual"];
     if($OutreachEmailOptIn == true){
         $OutreachEmailOptIn = 1;
     }
@@ -287,6 +287,7 @@ else
     $BusinessIsFranchisee = '';
 
     $BusinessRegisteredInDistrict = '';
+    $Phone=$request["phoneindividual"];
 
     $data = array('UserId' => $UserId, 'UserTypeId' => $UserTypeId, 'UserStatusId' => $UserStatusId,
     'UserPassword' => $UserPassword, 'EmployeeId' => $EmployeeId,'CreatedDate' => $CreatedDate,
@@ -295,7 +296,7 @@ else
      'VendorTypeId'=>$VendorTypeId,'LegalName'=>$LastName,'TradeName'=>$FirstName,'AliasName'=>$AliasName,'EIN_SSN'=>$EIN_SSN,
     'BusinessSize'=>$BusinessSize,'BEClassificationId'=>$BEClassificationId,'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,
     'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,'BusinessIsFranchisee'=>$BusinessIsFranchisee,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
-    'Email'=>$Email,
+    'Email'=>$Email,'Phone'=>$Phone,
     'AddressTypeId'=>$AddressTypeId,'StartDate'=>$AStartDate,'EndDate'=>$AStartDate,'Address1'=>$Address1,'Address2'=>$Address2,
     'StateId'=>$StateId,'DistrictId'=>$DistrictId,'CityId'=>$CityId,'Zipcode'=>$Zipcode,'CountryId'=>$CountryId);
     //var_dump($data);
