@@ -172,7 +172,7 @@ public function UpdateVendorContact($data){
 public function AddMultiVendorContact($data){
 
 
-        $sp = "sAddVendorContact ?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+        $sp = "sAddVendorContact ?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
@@ -186,7 +186,7 @@ public function AddMultiVendorContact($data){
     public function UpdateMultiVendorContact($data){
 
 
-        $sp = "sUpdateVendorContact ?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+        $sp = "sUpdateVendorContact ?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
@@ -214,6 +214,42 @@ public function AddMultiVendorContact($data){
     $query = $this->db->query("sGetVendorApproval @UserTypeId='$UserTypeId', @UserStatusId='$UserStatusId'");
     return $query->result_array();
 
+}
+
+
+    public function updatevendorDetailsNew($data){
+
+
+        $sp = "sUpdateVendorNew ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+        //echo $sp;
+
+        //     //No @ needed.  Codeigniter gets it right either way
+        $params =$data;
+
+            $result = $this->db->query($sp,$params);
+
+            // $sp1 = "sUpdateVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+        //echo $sp;
+
+        //     //No @ needed.  Codeigniter gets it right either way
+        // $params1 =$data1;
+
+            // $result = $this->db->query($sp1,$params1);
+
+   }
+
+
+   public function AddVendorAddress($data){
+
+
+    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+
+    //     //No @ needed.  Codeigniter gets it right either way
+    $params =$data;
+        
+        $query = $this->db->query($sp,$params);
+        return $query->result_array();
+    
 }
 
 }

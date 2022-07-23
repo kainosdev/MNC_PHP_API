@@ -413,7 +413,8 @@ public function GetVendorById_get()
 public function GetVendorAddressById_get()
 {
     $VendorId=$_GET['VendorId'];
-    $data=$this->vendor_model->GetVendorAddressById($VendorId);
+    // $data=$this->vendor_model->GetVendorAddressById($VendorId);
+    $data['SingleVendorAddressDetails']=$this->vendor_model->GetVendorAddressById($VendorId);
 // var_dump($data);
 
 // $test = json_decode($data, true);
@@ -813,17 +814,190 @@ public function DeleteVendorContact_post() {
       $result = $this->vendor_model->DeleteVendorContact($data);
 }
 
-public function GetVendorApproval_get()
+public function UpdVendorNew_post() {
+// var_dump("hi");
+$json = file_get_contents('php://input');
+    $request = json_decode($json,true);
+    // var_dump($request);
+
+
+
+    $VendorId = $request["VendorId"];
+    $VendorTypeId = $request["VendorTypeId"];
+    if($VendorTypeId == ""){
+        $VendorTypeId = "B";
+    }
+
+
+    $NAICSCodes = $request["NAICSCodes"];
+    $BusinessRegisteredInDistrict = $request["BusinessRegisteredInDistrict"];
+    if($BusinessRegisteredInDistrict = ""){
+        $BusinessRegisteredInDistrict = false;
+    }
+    $BusinessIsFranchisee = $request["BusinessIsFranchisee"];
+    if($BusinessIsFranchisee = ""){
+        $BusinessIsFranchisee = false;
+    }
+    $DUNS = $request["DUNS"];
+    $CommodityCodes = $request["CommodityCodes"];
+    $Website = $request["Website"];
+    $BusinessRegisteredInSCC = $request["BusinessRegisteredInSCC"];
+    if($BusinessRegisteredInSCC = ""){
+        $BusinessRegisteredInSCC = false;
+    }
+    $ContactName = $request["ContactName"];
+    $JobTitle = $request["JobTitle"];
+    $VendorContactPrimary = $request["VendorContactPrimary"];
+    $VendorContactActive = $request["VendorContactActive"];
+    $Phone = $request["Phone"];
+    $Email = $request["Email"];
+    // $BusinessEmail = $request["BusinessEmail"];
+    // $BusinessPhone = $request["BusinessPhone"];
+    $CreatedUserId = $request["CreatedUserId"];
+    $BusinessSize = $request["BusinessSize"];
+
+
+
+
+    $Address = json_encode($request["Address"],true);
+
+    $AddressFinal = json_decode($Address,true);
+    // var_dump($AddressFinal);
+
+   foreach ($AddressFinal as $obj)
+
+   {
+    $address_type = $obj["address_type"];
+    var_dump($address_type["AddressTypeId"]);
+
+       $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$obj["AddressTypeId"],'StartDate'=>$obj["StartDate"],'EndDate'=>$obj["EndDate"],'Address1'=>$obj["Address1"],
+       'Address2'=>$obj["Address1"],'StateId'=>$obj["StateId"],'DistrictId'=>$obj["DistrictId"],'CityId'=>$obj["CityId"],'Zipcode'=>$obj["Zipcode"],'CountryId'=>$obj["CountryId"],
+       'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$CreatedUserId,
+    'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,
+   );
+
+       $result = $this->vendor_model->AddVendorAddress($data2);
+
+
+      }
+
+
+
+    if($VendorTypeId == "B") {
+         $LegalName = $request["LegalName"];
+        //  if($LegalName == NULL){
+        //     $LegalName = "";
+        //  }
+         $TradeName = $request["TradeName"];
+         $AliasName = $request["AliasName"];
+         $EIN_SSN = $request["EIN_SSN"];
+
+        //  var_dump("before>>>$EIN_SSN");
+         //$EIN_SSN = str_replace("-","",$EIN_SSN);
+        //  var_dump("after>>>$EIN_SSN");
+
+         $OutreachEmailOptIn = false;
+         $Newcontact = $request["Newcontact"];
+
+
+        //  $Newcontact = json_decode($json,true);
+         $Newcontact1 = json_encode($request["Newcontact"],true);
+
+         $Newcontact2 = json_decode($Newcontact1,true);
+        //  var_dump($Newcontact2);
+         foreach ($Newcontact2 as $object)
+
 {
-    $UserTypeId=$_GET['UserTypeId'];
-    $UserStatusId=$_GET['UserStatusId'];
-    $data['GetVendorApproval']=$this->vendor_model->GetVendorApprovalList($UserTypeId, $UserStatusId);
-     $this->response($data);
+//     $jobtitle = $object["JobTitle"];
+
+// $object["AddtionalContactActive"] = 1;
 
 
 
+// if($object["ContactId"] == 0){
+
+    var_dump("if");
+
+    $object["AddtionalContactActive"] = 1;
+    // $object["ContactId"] = 23;
+
+    $data2 = array('VendorId' => $request["VendorId"], 'FirstName' => $object["FirstName"],'BusinessPhone' => $object["Phone"],
+'BusinessEmail' => $object["Email"], 'VendorContactActive' => 1, 'VendorContactPrimary' => $object["VendorContactPrimary"], 'JobTitle' => $object["JobTitleId"]
+,'CreatedDate' => date('Y-m-d'),'CreatedUserId' => $CreatedUserId,'UpdatedDate' => date('Y-m-d'),'UpdatedUserId' => $CreatedUserId
+,'LastName' => $object["LastName"],
+'MiddleName' => $object["MiddleName"],'ContactId' => $object["ContactId"]
+);
+
+    $result = $this->vendor_model->AddMultiVendorContact($data2);
+// }
+// else {
+//     var_dump("else");
+
+//     $data3 = array('VendorId' => $request["VendorId"], 'FirstName' => $object["AddtionalName"], 'JobTitle' => $object["AddtionalTitle"], 'BusinessPhone' => $object["AddtionalBusinessPhone"],
+// 'BusinessEmail' => $object["AddtionalBusinessMail"], 'VendorContactActive' => $object["AddtionalContactActive"], 'VendorContactPrimary' => 0, 'ContactId' => $object["ContactId"]
+// ,'UpdatedDate' => date('Y-m-d'),'UpdatedUserId' => $CreatedUserId,'LastName' => $object["lastname"],
+// 'MiddleName' => $object["middlename"]
+// );
+
+//     $result = $this->vendor_model->UpdateMultiVendorContact($data3);
+// }
+
+   }
+
+
+
+
+
+     }
+    else {
+
+        $TradeName = $request["LastName"];
+        $LegalName = $request["FirstName"];
+        $AliasName = $request["MiddleName"];
+        $EIN_SSN = $request["EIN_SSN"];
+
+        //  var_dump("after>>>$EIN_SSN");
+
+        //  var_dump("before>>>$EIN_SSN");
+         $EIN_SSN = str_replace("-","",$EIN_SSN);
+        //  var_dump("after>>>$EIN_SSN");
+        $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
+
+      }
+
+
+
+
+         if($VendorTypeId == "B") {
+            $vendordata = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,
+            'EIN_SSN'=>$EIN_SSN,'DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>"",'NAICSCodes'=>$NAICSCodes,'CommodityCodes'=>$CommodityCodes,
+            'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,
+              'BusinessIsFranchisee'=>$BusinessIsFranchisee,'Website'=>$Website,'Phone'=>'','Email'=>'','OutreachEmailOptIn'=>$OutreachEmailOptIn,
+              'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
+
+
+
+           );
+          }
+
+
+          else {
+              $vendordata = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,'EIN_SSN'=>$EIN_SSN,
+              'DUNS'=>'','BusinessSize'=>'','BEClassificationId'=>"",'NAICSCodes'=>"",
+              'CommodityCodes'=>"", 'BusinessRegisteredInDistrict'=>"",'BusinessRegisteredInSCC'=>"",'BusinessIsFranchisee'=>'',
+              'Website'=>'','Phone'=>$Phone,'Email'=>$Email,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
+              'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
+
+
+           );
+          }
+
+    //   var_dump($vendordata);
+
+      $result = $this->vendor_model->updatevendorDetailsNew($vendordata);
+//       //var_dump($result);
+      $data['success'] = $result;
 }
-
 
 }
 
