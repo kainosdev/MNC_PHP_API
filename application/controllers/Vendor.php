@@ -739,8 +739,8 @@ var_dump($vendordata);
 public function GetVendorContactById_get()
 {
     $VendorId=$_GET['VendorId'];
-    $VendorContactPrimary=$_GET['VendorContactPrimary'];
-    $data['SingleVendorContactDetails']=$this->vendor_model->GetVendorContactById($VendorId,$VendorContactPrimary);
+    // $VendorContactPrimary=$_GET['VendorContactActive'];
+    $data['SingleVendorContactDetails']=$this->vendor_model->GetVendorContactById($VendorId);
     // if($VendorId == 0) {
     //     $this->response(array($data));
     // }
