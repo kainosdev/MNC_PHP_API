@@ -72,6 +72,7 @@ class Login extends REST_Controller
                        $Middlename = $Vendordetails['AliasName'];
                        }
                        if($UserTypeId  == 'INDIVI' ){
+                      //  var_dump($UserTypeId);
                         $Vendordetails = $this->login_model->get_VendorDetails($UserId);
                         $firstname = $Vendordetails['LegalName'];
                         $lasttname = $Vendordetails['TradeName'];
