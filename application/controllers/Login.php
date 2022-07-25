@@ -41,15 +41,9 @@ class Login extends REST_Controller
         $password = $this->post('Password');
         $IPAddress = $this->post('IPAddress');
 
-
-            $cardential = ['EmployeeId' => $this->input->post('UserId')
-
-                          ];
-
-                     $rowcountuser = $this->login_model->checkuser($UserId);
-
-                    if($rowcountuser != 0)
-                    {
+         $rowcountuser = $this->login_model->checkuser($UserId);
+               if($rowcountuser != 0)
+               {
 
                        $userdetails = $this->login_model->get_user_credential($UserId);
                        $retpassword = $userdetails['UserPassword'];
@@ -72,18 +66,13 @@ class Login extends REST_Controller
                        $Middlename = $Vendordetails['AliasName'];
                        }
                        if($UserTypeId  == 'INDIVI' ){
-                      //  var_dump($UserTypeId);
+
                         $Vendordetails = $this->login_model->get_VendorDetails($UserId);
                         $firstname = $Vendordetails['LegalName'];
                         $lasttname = $Vendordetails['TradeName'];
                         $Middlename = $Vendordetails['AliasName'];
                         }
-                    //    echo $firstname;
-                    //    echo $lasttname;
-                    //    echo $Middlename;
-                    //    $UserTypeId = $userdetails['UserTypeId'];
-                    //    $UserTypeId = $userdetails['UserTypeId'];
-                    //    $UserTypeId = $userdetails['UserTypeId'];
+
 
                        $UserStatusId = $userdetails['UserStatusId'];
 
@@ -96,36 +85,27 @@ class Login extends REST_Controller
                             $jwtToken = $this->applib->generateToken($tokenData);
 
                             $dealerData['token'] = $jwtToken;
-                            // $this->response(
-                            //     array('details' => $dealerData),
-                            //     200,
-
-                            // );
-
-                            // $this->response('', 200, 'success', $dealerData);
-
-                            // var_dump($dealerData);
-
                             $checkUserLogin = $this->login_model->checkUserLoginDetails($UserId);
-    // var_dump($checkUserLogin);
-    if($checkUserLogin == 0){
-    $LoginDate=date('Y-m-d');
-    // $Password=$password;
-    $Successful=1;
-    $IPAddress=$IPAddress;
-    $LoginDetail="Success";
-    $SessionId="";
 
-    $result = $this->login_model->AddUserLogin($UserId,
-    $LoginDate,
-    $password,
-    $Successful,
-    $IPAddress,
-    $LoginDetail,
-    $SessionId
-);
-                $data['success'] = $result;
-}
+                                        if($checkUserLogin == 0)
+                                        {
+                                        $LoginDate=date('Y-m-d');
+                                        // $Password=$password;
+                                        $Successful=1;
+                                        $IPAddress=$IPAddress;
+                                        $LoginDetail="Success";
+                                        $SessionId="";
+
+                                        $result = $this->login_model->AddUserLogin($UserId,
+                                        $LoginDate,
+                                        $password,
+                                        $Successful,
+                                        $IPAddress,
+                                        $LoginDetail,
+                                        $SessionId
+                                    );
+                                                    $data['success'] = $result;
+                                    }
 
 else {
     $LoginDate=date('Y-m-d');
@@ -151,11 +131,10 @@ else {
 
 $data = $jwtToken."VERTEX-LMS".$UserId."VERTEX-LMS".$UserTypeId."VERTEX-LMS".$firstname
 ."VERTEX-LMS".$lasttname;
-// ."VERTEX-LMS".$Middlename;
+
 
 $this->response($data);
 
-// $this->response('', 200, 'success', "test");
 
 
                         }
@@ -167,20 +146,13 @@ $this->response($data);
                         }
                         else if($retpassword == $password &&  $UserStatusId != "A")
                         {
-                            // echo "Inactive User";
-                            // $data = [
-                            //     'ErrorCode' => "Inactive User"
-                            //    ];
+
                             $this->response($data);
-                            // $this->response('', 404, 'fail', "Inactive User");
+
                         }
                         else if($retpassword != $password &&  $UserStatusId == "A")
                         {
-                            // $this->response('', 404, 'fail', "Incorrect Password");
-                            // $data = [
-                            //     'ErrorCode' => "Incorrect Password"
-                            //    ];
-                            // $this->response($data);
+
                             $this->response("Incorrect Password");
                         }
 
@@ -189,11 +161,6 @@ $this->response($data);
                     }
                     else
                     {
-                            // $this->response('', 404, 'fail', "Invalid User");
-                            // $data = [
-                            //     'ErrorCode' => "Invalid User"
-                            //    ];
-                            // $this->response($data);
                             $this->response("Invalid User");
                     }
 

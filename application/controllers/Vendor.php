@@ -1003,9 +1003,9 @@ $json = file_get_contents('php://input');
 }
 public function GetVendorApproval_get()
 {
-    $UserTypeId=$_GET['UserTypeId'];
+    $UserTypeId1=$_GET['UserTypeId1'];
     $UserStatusId=$_GET['UserStatusId'];
-    $data['GetVendorApproval']=$this->vendor_model->GetVendorApprovalList($UserTypeId,   $UserStatusId);
+    $data['GetVendorApproval']=$this->vendor_model->GetVendorApprovalList($UserTypeId1,$UserStatusId);
     $this->response($data);
 
 }

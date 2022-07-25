@@ -176,10 +176,10 @@ public function AddMultiVendorContact($data){
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
-            
+
             $query = $this->db->query($sp,$params);
             return $query->result_array();
-        
+
     }
 
 
@@ -190,10 +190,10 @@ public function AddMultiVendorContact($data){
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
-            
+
             $query = $this->db->query($sp,$params);
             return $query->result_array();
-        
+
     }
 
 
@@ -204,15 +204,15 @@ public function AddMultiVendorContact($data){
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
-            
+
             $query = $this->db->query($sp,$params);
             return $query->result_array();
-        
+
     }
-    
-    public function GetVendorApprovalList($UserTypeId, $UserStatusId)
+
+    public function GetVendorApprovalList($UserTypeId1,$UserStatusId)
 {
-    $query = $this->db->query("sGetVendorApproval @UserTypeId='$UserTypeId', @UserStatusId='$UserStatusId'");
+    $query = $this->db->query("sGetVendorApproval @UserTypeId1='$UserTypeId1', @UserStatusId='$UserStatusId'");
     return $query->result_array();
 
 }
@@ -247,10 +247,10 @@ public function AddMultiVendorContact($data){
 
     //     //No @ needed.  Codeigniter gets it right either way
     $params =$data;
-        
+
         $query = $this->db->query($sp,$params);
         return $query->result_array();
-    
+
 }
 
 }
