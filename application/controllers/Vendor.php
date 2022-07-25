@@ -739,8 +739,8 @@ var_dump($vendordata);
 public function GetVendorContactById_get()
 {
     $VendorId=$_GET['VendorId'];
-    $VendorContactPrimary=$_GET['VendorContactPrimary'];
-    $data['SingleVendorContactDetails']=$this->vendor_model->GetVendorContactById($VendorId,$VendorContactPrimary);
+    // $VendorContactPrimary=$_GET['VendorContactActive'];
+    $data['SingleVendorContactDetails']=$this->vendor_model->GetVendorContactById($VendorId);
     // if($VendorId == 0) {
     //     $this->response(array($data));
     // }
@@ -1000,6 +1000,14 @@ $json = file_get_contents('php://input');
       $result = $this->vendor_model->updatevendorDetailsNew($vendordata);
 //       //var_dump($result);
       $data['success'] = $result;
+}
+public function GetVendorApproval_get()
+{
+    $UserTypeId=$_GET['UserTypeId'];
+    $UserStatusId=$_GET['UserStatusId'];
+    $data['GetVendorApproval']=$this->vendor_model->GetVendorApprovalList($UserTypeId,   $UserStatusId);
+    $this->response($data);
+
 }
 
 }
