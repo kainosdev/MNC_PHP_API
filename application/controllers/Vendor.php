@@ -1078,7 +1078,7 @@ public function UpdVenIndividual_post() {
 
         $vendordata = array('LegalName'=>$request["FirstName"],'TradeName'=>$request["LastName"],'EIN_SSN'=>$EIN_SSN,
         'Phone'=>$request["Phone"],'Email'=>$request["Email"],'OutreachEmailOptIn'=>$request["OutreachEmailOptIn"],
-         'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$request["CreatedUserId"],'VendorId'=>$request["VendorId"],'AliasName'=>$request["MiddleName"],
+        'VendorId'=>$request["VendorId"],'AliasName'=>$request["MiddleName"],
 
        
       );
