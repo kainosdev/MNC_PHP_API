@@ -1043,7 +1043,7 @@ public function AddUpdVendorAddress_post() {
         var_dump($request["CreatedUserId"]);
 
         $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$request["AddressTypeId"],'StartDate'=>$request["StartDate"],'EndDate'=>$request["EndDate"],'Address1'=>$request["Address1"],
-                'Address2'=>$request["Address2"],'StateId'=>$request["StateId"],'DistrictId'=>$request["DistrictId"],'CityId'=>$request["CityId"],'Zipcode'=>$request["Zipcode"],'CountryId'=>$obj["CountryId"],
+                'Address2'=>$request["Address2"],'StateId'=>$request["StateId"],'DistrictId'=>$request["DistrictId"],'CityId'=>$request["CityId"],'Zipcode'=>$request["Zipcode"],'CountryId'=>$request["CountryId"],
                 'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$request["CreatedUserId"],
              'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$request["CreatedUserId"],'AddressId'=>$request["AddressId"],'VendorAddressPrimary'=>$request["VendorAddressPrimary"]
             );
