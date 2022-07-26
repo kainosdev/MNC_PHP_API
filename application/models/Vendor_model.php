@@ -267,4 +267,19 @@ public function UpdateVendorAddress($data){
 
 }
 
+
+
+public function AddUpdateVendorAddress($data){
+
+
+    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+
+    //     //No @ needed.  Codeigniter gets it right either way
+    $params =$data;
+
+        $query = $this->db->query($sp,$params);
+        return $query->result_array();
+
+}
+
 }

@@ -1035,5 +1035,26 @@ public function GetVendorApproval_get()
 
 }
 
+
+public function AddUpdVendorAddress_post() {
+    // var_dump("hi");
+    $json = file_get_contents('php://input');
+        $request = json_decode($json,true);
+        var_dump($request["CreatedUserId"]);
+
+        $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$request["AddressTypeId"],'StartDate'=>$request["StartDate"],'EndDate'=>$request["EndDate"],'Address1'=>$request["Address1"],
+                'Address2'=>$request["Address2"],'StateId'=>$request["StateId"],'DistrictId'=>$request["DistrictId"],'CityId'=>$request["CityId"],'Zipcode'=>$request["Zipcode"],'CountryId'=>$obj["CountryId"],
+                'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$request["CreatedUserId"],
+             'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$request["CreatedUserId"],'AddressId'=>$request["AddressId"],'VendorAddressPrimary'=>$request["VendorAddressPrimary"]
+            );
+         
+                $result = $this->vendor_model->AddUpdateVendorAddress($data2);
+                $data = [
+                    'ErrorCode' => $result
+                   ];
+             
+             $this->response($data);
+}
+
 }
 
