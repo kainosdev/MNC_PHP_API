@@ -934,7 +934,7 @@ public function AddUpdVendorAddress_post() {
         $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$request["AddressTypeId"],'StartDate'=>$request["StartDate"],'EndDate'=>$request["EndDate"],'Address1'=>$request["Address1"],
                 'Address2'=>$request["Address2"],'StateId'=>$request["StateId"],'DistrictId'=>$request["DistrictId"],'CityId'=>$request["CityId"],'Zipcode'=>$request["Zipcode"],'CountryId'=>$request["CountryId"],
                 'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$request["CreatedUserId"],
-             'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$request["CreatedUserId"],'AddressId'=>$request["AddressId"],'VendorAddressPrimary'=>$request["VendorAddressPrimary"]
+             'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$request["CreatedUserId"],'AddressId'=>$request["AddressId"],'VendorAddressPrimary'=>$request["VendorAddressPrimary"],'VendorAddressActive'=>1
             );
          
                 $result = $this->vendor_model->AddUpdateVendorAddress($data2);
@@ -989,6 +989,31 @@ public function AddVendorBusinessContact_post() {
 );
         
       $result1 = $this->vendor_model->AddVendorBusinessContact($data2);
+
+                $this->response($result1,200);
+           
+}
+
+
+
+public function DeleteVendorAddress_get() {
+    // var_dump("hi");
+    $AddressId=$_GET['AddressId'];
+    $data2 = array('AddressId' => $AddressId); 
+        
+      $result1 = $this->vendor_model->DeleteVendorAddress($data2);
+
+                $this->response($result1,200);
+           
+}
+
+
+public function DeleteVendorContact_get() {
+    // var_dump("hi");
+    $AddressId=$_GET['ContactId'];
+    $data2 = array('ContactId' => $AddressId); 
+        
+      $result1 = $this->vendor_model->DeleteVendorContact($data2);
 
                 $this->response($result1,200);
            

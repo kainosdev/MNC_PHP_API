@@ -200,7 +200,7 @@ public function AddMultiVendorContact($data){
     public function DeleteVendorContact($data){
 
 
-        $sp = "sDeleteVendorContact ?,?"; //No exec or call needed
+        $sp = "sDeleteVendorContact ?"; //No exec or call needed
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
@@ -280,7 +280,7 @@ public function GetVendorFavoriteList($vendorId)
 public function AddUpdateVendorAddress($data){
 
 
-    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
     //     //No @ needed.  Codeigniter gets it right either way
     $params =$data;
@@ -317,5 +317,22 @@ public function AddVendorBusinessContact($data){
         return $query->result_array();
 
 }
+
+
+public function DeleteVendorAddress($data){
+
+
+    $sp = "sDeleteVendorAddress ?"; //No exec or call needed
+
+    //     //No @ needed.  Codeigniter gets it right either way
+    $params =$data;
+
+        $query = $this->db->query($sp,$params);
+        return $query->result_array();
+
+}
+
+
+
 
 }
