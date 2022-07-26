@@ -1040,7 +1040,7 @@ public function AddUpdVendorAddress_post() {
     // var_dump("hi");
     $json = file_get_contents('php://input');
         $request = json_decode($json,true);
-        var_dump($request["CreatedUserId"]);
+        // var_dump($request["CreatedUserId"]);
 
         $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$request["AddressTypeId"],'StartDate'=>$request["StartDate"],'EndDate'=>$request["EndDate"],'Address1'=>$request["Address1"],
                 'Address2'=>$request["Address2"],'StateId'=>$request["StateId"],'DistrictId'=>$request["DistrictId"],'CityId'=>$request["CityId"],'Zipcode'=>$request["Zipcode"],'CountryId'=>$request["CountryId"],
@@ -1049,11 +1049,12 @@ public function AddUpdVendorAddress_post() {
             );
          
                 $result = $this->vendor_model->AddUpdateVendorAddress($data2);
-                $data = [
-                    'ErrorCode' => $result
-                   ];
+                $this->response($result,200);
+            //     $data = [
+            //         'ErrorCode' => $result
+            //        ];
              
-             $this->response($data);
+            //  $this->response($data);
 }
 
 }
