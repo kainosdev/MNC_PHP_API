@@ -234,6 +234,8 @@ public function GetVendorFavoriteList($vendorId)
         $params =$data;
 
             $result = $this->db->query($sp,$params);
+            $retVal = $result->result_array();
+            return $retVal;
 
             // $sp1 = "sUpdateVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
         //echo $sp;
