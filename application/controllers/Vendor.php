@@ -1073,11 +1073,12 @@ public function UpdVenIndividual_post() {
     // var_dump("hi");
     $json = file_get_contents('php://input');
         $request = json_decode($json,true);
-        // var_dump($request["CreatedUserId"]);
+        // var_dump($request["FirstName"]);
+        $EIN_SSN = str_replace("-","",$request["EIN_SSN"]);
 
-        $vendordata = array('LegalName'=>$LegalName,'TradeName'=>$TradeName,'EIN_SSN'=>$EIN_SSN,
-        'Phone'=>$Phone,'Email'=>$Email,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
-         'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
+        $vendordata = array('LegalName'=>$request["FirstName"],'TradeName'=>$request["LastName"],'EIN_SSN'=>$EIN_SSN,
+        'Phone'=>$request["Phone"],'Email'=>$request["Email"],'OutreachEmailOptIn'=>$request["OutreachEmailOptIn"],
+         'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$request["CreatedUserId"],'VendorId'=>$request["VendorId"],'AliasName'=>$request["MiddleName"],
 
        
       );
