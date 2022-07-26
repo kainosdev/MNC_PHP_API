@@ -288,4 +288,18 @@ public function AddUpdateVendorAddress($data){
 
 }
 
+
+public function updatevendorIndividual($data){
+
+
+    $sp = "sUpdVendorIndividual ?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+    
+    $params =$data;
+
+        $result = $this->db->query($sp,$params);
+
+    
+
+}
+
 }

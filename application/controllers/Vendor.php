@@ -866,7 +866,7 @@ $json = file_get_contents('php://input');
 
     $AddressFinal = json_decode($Address,true);
     // var_dump($AddressFinal);
-
+    // $VendorTypeId = "I";
     if($VendorTypeId == "B") {
 
 //    foreach ($AddressFinal as $obj)
@@ -997,31 +997,33 @@ $json = file_get_contents('php://input');
 
 
            );
+
+           $result = $this->vendor_model->updatevendorDetailsNew($vendordata);
+           $data['success'] = $result;
           }
 
 
           else {
-              $vendordata = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,'EIN_SSN'=>$EIN_SSN,
-              'DUNS'=>'','BusinessSize'=>'','BEClassificationId'=>"",'NAICSCodes'=>"",
-              'CommodityCodes'=>"", 'BusinessRegisteredInDistrict'=>"",'BusinessRegisteredInSCC'=>"",'BusinessIsFranchisee'=>'',
-              'Website'=>'','Phone'=>$Phone,'Email'=>$Email,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
+              $vendordata = array('LegalName'=>$LegalName,'TradeName'=>$TradeName,'EIN_SSN'=>$EIN_SSN,
+             'Phone'=>$Phone,'Email'=>$Email,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
               'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
 
-
+            
            );
-           var_dump($vendordata);
+           $result = $this->vendor_model->updatevendorIndividual($vendordata);
+           $data['success'] = $result;
+           //var_dump($vendordata);
           }
 
     //   var_dump($vendordata);
 
-      $result = $this->vendor_model->updatevendorDetailsNew($vendordata);
-      $data['success'] = $result;
+     
 //       //var_dump($result);
 // $data = [
 //     'ErrorCode' => $result
 // ]; //        $this->response('', 404, 'Notsuccess')
 
-// $this->response($result,200);
+$this->response($result,200);
     //   $data['success'] = $result;
 
       
@@ -1056,6 +1058,31 @@ public function AddUpdVendorAddress_post() {
             );
          
                 $result = $this->vendor_model->AddUpdateVendorAddress($data2);
+                $this->response($result,200);
+            //     $data = [
+            //         'ErrorCode' => $result
+            //        ];
+             
+            //  $this->response($data);
+}
+
+
+
+
+public function UpdVenIndividual_post() {
+    // var_dump("hi");
+    $json = file_get_contents('php://input');
+        $request = json_decode($json,true);
+        // var_dump($request["CreatedUserId"]);
+
+        $vendordata = array('LegalName'=>$LegalName,'TradeName'=>$TradeName,'EIN_SSN'=>$EIN_SSN,
+        'Phone'=>$Phone,'Email'=>$Email,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
+         'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
+
+       
+      );
+      $result = $this->vendor_model->updatevendorIndividual($vendordata);
+
                 $this->response($result,200);
             //     $data = [
             //         'ErrorCode' => $result
