@@ -297,7 +297,7 @@ public function updatevendorIndividual($data){
     $params =$data;
 
         $result = $this->db->query($sp,$params);
-
+        return $result->result_array();
     
 
 }

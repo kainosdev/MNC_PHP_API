@@ -1073,7 +1073,7 @@ public function UpdVenIndividual_post() {
     // var_dump("hi");
     $json = file_get_contents('php://input');
         $request = json_decode($json,true);
-        // var_dump($request["FirstName"]);
+        
         $EIN_SSN = str_replace("-","",$request["EIN_SSN"]);
 
         $vendordata = array('LegalName'=>$request["FirstName"],'TradeName'=>$request["LastName"],'EIN_SSN'=>$EIN_SSN,
@@ -1082,11 +1082,12 @@ public function UpdVenIndividual_post() {
 
        
       );
-      $result = $this->vendor_model->updatevendorIndividual($vendordata);
+    //   var_dump($vendordata);
+      $result1 = $this->vendor_model->updatevendorIndividual($vendordata);
 
-                $this->response($result,200);
+                $this->response($result1,200);
             //     $data = [
-            //         'ErrorCode' => $result
+            //         'ErrorCode' => $result1
             //        ];
              
             //  $this->response($data);
