@@ -980,8 +980,15 @@ public function AddVendorBusinessContact_post() {
     $json = file_get_contents('php://input');
         $request = json_decode($json,true);
         
+            $data2 = array('VendorId' => $request["VendorId"], 'FirstName' => $request["FirstName"],'Phone' => $request["Phone"],
+'Email' => $request["Email"], 'VendorContactActive' => $request["VendorContactActive"], 'VendorContactPrimary' => $request["VendorContactPrimary"], 
+'JobTitleId' => $request["JobTitleId"]
+,'CreatedDate' => date('Y-m-d'),'CreatedUserId' => $request["CreatedUserId"],'UpdatedDate' => date('Y-m-d'),'UpdatedUserId' => $request["CreatedUserId"]
+,'LastName' => $request["LastName"],
+'MiddleName' => $request["MiddleName"],'ContactId' => $request["ContactId"]
+);
         
-      $result1 = $this->vendor_model->updatevendorIndividual($vendordata);
+      $result1 = $this->vendor_model->AddVendorBusinessContact($data2);
 
                 $this->response($result1,200);
            
