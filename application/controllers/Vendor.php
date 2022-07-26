@@ -1034,6 +1034,13 @@ public function GetVendorApproval_get()
     $this->response($data);
 
 }
+public function GetVendorFavorite_get()
+{
+    $vendorId=$_GET['VendorId'];
+    $data['GetVendorFavorite']=$this->vendor_model->GetVendorFavoriteList($vendorId);
+    $this->response($data);
+
+}
 
 
 public function AddUpdVendorAddress_post() {
@@ -1049,11 +1056,12 @@ public function AddUpdVendorAddress_post() {
             );
          
                 $result = $this->vendor_model->AddUpdateVendorAddress($data2);
-                $data = [
-                    'ErrorCode' => $result
-                   ];
+                $this->response($result,200);
+            //     $data = [
+            //         'ErrorCode' => $result
+            //        ];
              
-             $this->response($data);
+            //  $this->response($data);
 }
 
 }
