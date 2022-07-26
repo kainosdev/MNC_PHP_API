@@ -255,6 +255,7 @@ $route['vendor/DeleteVendorContact']='vendor/DeleteVendorContact';
 $route['vendor/GetVendorApproval']='vendor/GetVendorApproval';
 
 $route['vendor/UpdVendorNew']='vendor/UpdVendorNew';
+$route['vendor/GetVendorFavorite']='vendor/GetVendorFavorite';
 
 //login
 $route['login/insertVendor']='login/insertVendor';

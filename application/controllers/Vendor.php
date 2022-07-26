@@ -1009,6 +1009,13 @@ public function GetVendorApproval_get()
     $this->response($data);
 
 }
+public function GetVendorFavorite_get()
+{
+    $vendorId=$_GET['VendorId'];
+    $data['GetVendorFavorite']=$this->vendor_model->GetVendorFavoriteList($vendorId);
+    $this->response($data);
+
+}
 
 }
 

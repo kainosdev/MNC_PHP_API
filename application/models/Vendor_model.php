@@ -216,6 +216,12 @@ public function AddMultiVendorContact($data){
     return $query->result_array();
 
 }
+public function GetVendorFavoriteList($vendorId)
+{
+    $query = $this->db->query("sGetVendorFavorite @VendorId='$vendorId'");
+    return $query->result_array();
+
+}
 
 
     public function updatevendorDetailsNew($data){
