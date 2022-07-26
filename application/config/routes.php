@@ -256,6 +256,7 @@ $route['vendor/GetVendorApproval']='vendor/GetVendorApproval';
 
 $route['vendor/UpdVendorNew']='vendor/UpdVendorNew';
 $route['vendor/GetVendorFavorite']='vendor/GetVendorFavorite';
+$route['vendor/AddUpdVendorAddress']='vendor/AddUpdVendorAddress';
 
 //login
 $route['login/insertVendor']='login/insertVendor';

@@ -867,26 +867,42 @@ $json = file_get_contents('php://input');
     $AddressFinal = json_decode($Address,true);
     // var_dump($AddressFinal);
 
-   foreach ($AddressFinal as $obj)
-
-   {
-    $address_type = $obj["address_type"];
-    var_dump($address_type["AddressTypeId"]);
-
-       $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$obj["AddressTypeId"],'StartDate'=>$obj["StartDate"],'EndDate'=>$obj["EndDate"],'Address1'=>$obj["Address1"],
-       'Address2'=>$obj["Address1"],'StateId'=>$obj["StateId"],'DistrictId'=>$obj["DistrictId"],'CityId'=>$obj["CityId"],'Zipcode'=>$obj["Zipcode"],'CountryId'=>$obj["CountryId"],
-       'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$CreatedUserId,
-    'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'AddressId'=>$obj["AddressId"]
-   );
-
-       $result = $this->vendor_model->AddVendorAddress($data2);
-
-
-      }
-
-
-
     if($VendorTypeId == "B") {
+
+//    foreach ($AddressFinal as $obj)
+
+//    {
+//     $address_type = $obj["address_type"];
+//     var_dump($obj["AddressId"]);
+
+//     if($obj["AddressId"] == 0){
+//         $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$obj["AddressTypeId"],'StartDate'=>$obj["StartDate"],'EndDate'=>$obj["EndDate"],'Address1'=>$obj["Address1"],
+//         'Address2'=>$obj["Address2"],'StateId'=>$obj["StateId"],'DistrictId'=>$obj["DistrictId"],'CityId'=>$obj["CityId"],'Zipcode'=>$obj["Zipcode"],'CountryId'=>$obj["CountryId"],
+//         'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$CreatedUserId,
+//      'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'AddressId'=>$obj["AddressId"],'VendorAddressPrimary'=>$data["VendorAddressPrimary"]
+//     );
+ 
+//         $result = $this->vendor_model->AddVendorAddress($data2);
+
+//     }
+// else {
+
+//     $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$obj["AddressTypeId"],'StartDate'=>$obj["StartDate"],'EndDate'=>$obj["EndDate"],'Address1'=>$obj["Address1"],
+//     'Address2'=>$obj["Address2"],'StateId'=>$obj["StateId"],'DistrictId'=>$obj["DistrictId"],'CityId'=>$obj["CityId"],'Zipcode'=>$obj["Zipcode"],'CountryId'=>$obj["CountryId"],
+//     'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$CreatedUserId,
+//  'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'AddressId'=>$obj["AddressId"],'VendorAddressPrimary'=>$data["VendorAddressPrimary"]
+// );
+
+//     $result = $this->vendor_model->UpdateVendorAddress($data2);
+       
+
+// }
+
+//       }
+
+
+
+    
          $LegalName = $request["LegalName"];
         //  if($LegalName == NULL){
         //     $LegalName = "";
@@ -993,13 +1009,22 @@ $json = file_get_contents('php://input');
 
 
            );
+           var_dump($vendordata);
           }
 
     //   var_dump($vendordata);
 
       $result = $this->vendor_model->updatevendorDetailsNew($vendordata);
-//       //var_dump($result);
       $data['success'] = $result;
+//       //var_dump($result);
+// $data = [
+//     'ErrorCode' => $result
+// ]; //        $this->response('', 404, 'Notsuccess')
+
+// $this->response($result,200);
+    //   $data['success'] = $result;
+
+      
 }
 public function GetVendorApproval_get()
 {
@@ -1015,6 +1040,27 @@ public function GetVendorFavorite_get()
     $data['GetVendorFavorite']=$this->vendor_model->GetVendorFavoriteList($vendorId);
     $this->response($data);
 
+}
+
+
+public function AddUpdVendorAddress_post() {
+    // var_dump("hi");
+    $json = file_get_contents('php://input');
+        $request = json_decode($json,true);
+        var_dump($request["CreatedUserId"]);
+
+        $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$request["AddressTypeId"],'StartDate'=>$request["StartDate"],'EndDate'=>$request["EndDate"],'Address1'=>$request["Address1"],
+                'Address2'=>$request["Address2"],'StateId'=>$request["StateId"],'DistrictId'=>$request["DistrictId"],'CityId'=>$request["CityId"],'Zipcode'=>$request["Zipcode"],'CountryId'=>$request["CountryId"],
+                'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$request["CreatedUserId"],
+             'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$request["CreatedUserId"],'AddressId'=>$request["AddressId"],'VendorAddressPrimary'=>$request["VendorAddressPrimary"]
+            );
+         
+                $result = $this->vendor_model->AddUpdateVendorAddress($data2);
+                $data = [
+                    'ErrorCode' => $result
+                   ];
+             
+             $this->response($data);
 }
 
 }

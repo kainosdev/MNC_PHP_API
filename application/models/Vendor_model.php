@@ -246,10 +246,39 @@ public function GetVendorFavoriteList($vendorId)
    }
 
 
-   public function AddVendorAddress($data){
+//    public function AddVendorAddress($data){
 
 
-    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+//     $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+
+//     //     //No @ needed.  Codeigniter gets it right either way
+//     $params =$data;
+
+//         $query = $this->db->query($sp,$params);
+//         return $query->result_array();
+
+// }
+
+
+// public function UpdateVendorAddress($data){
+
+
+//     $sp = "sUpdateVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+
+//     //     //No @ needed.  Codeigniter gets it right either way
+//     $params =$data;
+
+//         $query = $this->db->query($sp,$params);
+//         return $query->result_array();
+
+// }
+
+
+
+public function AddUpdateVendorAddress($data){
+
+
+    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
     //     //No @ needed.  Codeigniter gets it right either way
     $params =$data;
