@@ -819,100 +819,45 @@ public function UpdVendorNew_post() {
 // var_dump("hi");
 $json = file_get_contents('php://input');
     $request = json_decode($json,true);
-    // var_dump($request);
-
-
-
+   
     $VendorId = $request["VendorId"];
     $VendorTypeId = $request["VendorTypeId"];
-    if($VendorTypeId == ""){
-        $VendorTypeId = "B";
-    }
-
-
+   
     $NAICSCodes = $request["NAICSCodes"];
     $BusinessRegisteredInDistrict = $request["BusinessRegisteredInDistrict"];
-    // if($BusinessRegisteredInDistrict = ""){
-    //     $BusinessRegisteredInDistrict = false;
-    // }
+   
     $BusinessIsFranchisee = $request["BusinessIsFranchisee"];
-    // if($BusinessIsFranchisee = ""){
-    //     $BusinessIsFranchisee = false;
+   
     // }
     $DUNS = $request["DUNS"];
     $CommodityCodes = $request["CommodityCodes"];
     $Website = $request["Website"];
     $BusinessRegisteredInSCC = $request["BusinessRegisteredInSCC"];
-    // if($BusinessRegisteredInSCC = ""){
-    //     $BusinessRegisteredInSCC = false;
-    // }
+   
     $ContactName = $request["ContactName"];
     $JobTitle = $request["JobTitle"];
     $VendorContactPrimary = $request["VendorContactPrimary"];
     $VendorContactActive = $request["VendorContactActive"];
     $Phone = $request["Phone"];
     $Email = $request["Email"];
-    // $BusinessEmail = $request["BusinessEmail"];
-    // $BusinessPhone = $request["BusinessPhone"];
+   
     $CreatedUserId = $request["CreatedUserId"];
     $BusinessSize = $request["BusinessSize"];
 
     $BEClassificationId = $request["BEClassificationId"];
 
-
-
-
     $Address = json_encode($request["Address"],true);
 
     $AddressFinal = json_decode($Address,true);
-    // var_dump($AddressFinal);
-    // $VendorTypeId = "I";
-    if($VendorTypeId == "B") {
-
-//    foreach ($AddressFinal as $obj)
-
-//    {
-//     $address_type = $obj["address_type"];
-//     var_dump($obj["AddressId"]);
-
-//     if($obj["AddressId"] == 0){
-//         $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$obj["AddressTypeId"],'StartDate'=>$obj["StartDate"],'EndDate'=>$obj["EndDate"],'Address1'=>$obj["Address1"],
-//         'Address2'=>$obj["Address2"],'StateId'=>$obj["StateId"],'DistrictId'=>$obj["DistrictId"],'CityId'=>$obj["CityId"],'Zipcode'=>$obj["Zipcode"],'CountryId'=>$obj["CountryId"],
-//         'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$CreatedUserId,
-//      'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'AddressId'=>$obj["AddressId"],'VendorAddressPrimary'=>$data["VendorAddressPrimary"]
-//     );
- 
-//         $result = $this->vendor_model->AddVendorAddress($data2);
-
-//     }
-// else {
-
-//     $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$obj["AddressTypeId"],'StartDate'=>$obj["StartDate"],'EndDate'=>$obj["EndDate"],'Address1'=>$obj["Address1"],
-//     'Address2'=>$obj["Address2"],'StateId'=>$obj["StateId"],'DistrictId'=>$obj["DistrictId"],'CityId'=>$obj["CityId"],'Zipcode'=>$obj["Zipcode"],'CountryId'=>$obj["CountryId"],
-//     'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$CreatedUserId,
-//  'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'AddressId'=>$obj["AddressId"],'VendorAddressPrimary'=>$data["VendorAddressPrimary"]
-// );
-
-//     $result = $this->vendor_model->UpdateVendorAddress($data2);
-       
-
-// }
-
-//       }
-
-
-
-    
+   
          $LegalName = $request["LegalName"];
-        //  if($LegalName == NULL){
-        //     $LegalName = "";
-        //  }
+       
          $TradeName = $request["TradeName"];
          $AliasName = $request["AliasName"];
          $EIN_SSN = $request["EIN_SSN"];
 
         //  var_dump("before>>>$EIN_SSN");
-         //$EIN_SSN = str_replace("-","",$EIN_SSN);
+         $EIN_SSN = str_replace("-","",$EIN_SSN);
         //  var_dump("after>>>$EIN_SSN");
 
          $OutreachEmailOptIn = false;
@@ -924,70 +869,26 @@ $json = file_get_contents('php://input');
 
          $Newcontact2 = json_decode($Newcontact1,true);
         //  var_dump($Newcontact2);
-         foreach ($Newcontact2 as $object)
-
-{
-//     $jobtitle = $object["JobTitle"];
-
-// $object["AddtionalContactActive"] = 1;
 
 
+//          foreach ($Newcontact2 as $object)
 
-// if($object["ContactId"] == 0){
+// {
 
-    var_dump("if");
-
-    // $object["VendorContactActive"] = 1;
-    // $object["ContactId"] = 23;
-
-    $data2 = array('VendorId' => $request["VendorId"], 'FirstName' => $object["FirstName"],'BusinessPhone' => $object["Phone"],
-'BusinessEmail' => $object["Email"], 'VendorContactActive' => $object["VendorContactActive"], 'VendorContactPrimary' => $object["VendorContactPrimary"], 'JobTitle' => $object["JobTitleId"]
-,'CreatedDate' => date('Y-m-d'),'CreatedUserId' => $CreatedUserId,'UpdatedDate' => date('Y-m-d'),'UpdatedUserId' => $CreatedUserId
-,'LastName' => $object["LastName"],
-'MiddleName' => $object["MiddleName"],'ContactId' => $object["ContactId"]
-);
-
-    $result = $this->vendor_model->AddMultiVendorContact($data2);
-// }
-// else {
-//     var_dump("else");
-
-//     $data3 = array('VendorId' => $request["VendorId"], 'FirstName' => $object["AddtionalName"], 'JobTitle' => $object["AddtionalTitle"], 'BusinessPhone' => $object["AddtionalBusinessPhone"],
-// 'BusinessEmail' => $object["AddtionalBusinessMail"], 'VendorContactActive' => $object["AddtionalContactActive"], 'VendorContactPrimary' => 0, 'ContactId' => $object["ContactId"]
-// ,'UpdatedDate' => date('Y-m-d'),'UpdatedUserId' => $CreatedUserId,'LastName' => $object["lastname"],
-// 'MiddleName' => $object["middlename"]
+//     $data2 = array('VendorId' => $request["VendorId"], 'FirstName' => $object["FirstName"],'BusinessPhone' => $object["Phone"],
+// 'BusinessEmail' => $object["Email"], 'VendorContactActive' => $object["VendorContactActive"], 'VendorContactPrimary' => $object["VendorContactPrimary"], 'JobTitle' => $object["JobTitleId"]
+// ,'CreatedDate' => date('Y-m-d'),'CreatedUserId' => $CreatedUserId,'UpdatedDate' => date('Y-m-d'),'UpdatedUserId' => $CreatedUserId
+// ,'LastName' => $object["LastName"],
+// 'MiddleName' => $object["MiddleName"],'ContactId' => $object["ContactId"]
 // );
 
-//     $result = $this->vendor_model->UpdateMultiVendorContact($data3);
-// }
-
-   }
+//     $result = $this->vendor_model->AddMultiVendorContact($data2);
 
 
+//    }
 
 
 
-     }
-    else {
-
-        $TradeName = $request["LastName"];
-        $LegalName = $request["FirstName"];
-        $AliasName = $request["MiddleName"];
-        $EIN_SSN = $request["EIN_SSN"];
-
-        //  var_dump("after>>>$EIN_SSN");
-
-        //  var_dump("before>>>$EIN_SSN");
-         $EIN_SSN = str_replace("-","",$EIN_SSN);
-        //  var_dump("after>>>$EIN_SSN");
-        $OutreachEmailOptIn = $request["OutreachEmailOptIn"];
-
-      }
-
-
-
-
-         if($VendorTypeId == "B") {
             $vendordata = array('VendorTypeId'=>$VendorTypeId,'LegalName'=>$LegalName,'TradeName'=>$TradeName,
             'EIN_SSN'=>$EIN_SSN,'DUNS'=>$DUNS,'BusinessSize'=>$BusinessSize,'BEClassificationId'=>$BEClassificationId,'NAICSCodes'=>$NAICSCodes,'CommodityCodes'=>$CommodityCodes,
             'BusinessRegisteredInDistrict'=>$BusinessRegisteredInDistrict,'BusinessRegisteredInSCC'=>$BusinessRegisteredInSCC,
@@ -999,31 +900,10 @@ $json = file_get_contents('php://input');
            );
 
            $result = $this->vendor_model->updatevendorDetailsNew($vendordata);
-           $data['success'] = $result;
-          }
+        //    $data['success'] = $result;
+         
 
-
-          else {
-              $vendordata = array('LegalName'=>$LegalName,'TradeName'=>$TradeName,'EIN_SSN'=>$EIN_SSN,
-             'Phone'=>$Phone,'Email'=>$Email,'OutreachEmailOptIn'=>$OutreachEmailOptIn,
-              'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$CreatedUserId,'VendorId'=>$VendorId,'AliasName'=>$AliasName,
-
-            
-           );
-           $result = $this->vendor_model->updatevendorIndividual($vendordata);
-           $data['success'] = $result;
-           //var_dump($vendordata);
-          }
-
-    //   var_dump($vendordata);
-
-     
-//       //var_dump($result);
-// $data = [
-//     'ErrorCode' => $result
-// ]; //        $this->response('', 404, 'Notsuccess')
-
-$this->response($result,200);
+            $this->response($result,200);
     //   $data['success'] = $result;
 
       
@@ -1091,6 +971,20 @@ public function UpdVenIndividual_post() {
             //        ];
              
             //  $this->response($data);
+}
+
+
+
+public function AddVendorBusinessContact_post() {
+    // var_dump("hi");
+    $json = file_get_contents('php://input');
+        $request = json_decode($json,true);
+        
+        
+      $result1 = $this->vendor_model->updatevendorIndividual($vendordata);
+
+                $this->response($result1,200);
+           
 }
 
 }

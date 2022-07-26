@@ -302,4 +302,18 @@ public function updatevendorIndividual($data){
 
 }
 
+
+public function AddVendorBusinessContact($data){
+
+
+    $sp = "sAddVendorContact ?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+
+    //     //No @ needed.  Codeigniter gets it right either way
+    $params =$data;
+
+        $query = $this->db->query($sp,$params);
+        return $query->result_array();
+
+}
+
 }

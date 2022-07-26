@@ -258,6 +258,7 @@ $route['vendor/UpdVendorNew']='vendor/UpdVendorNew';
 $route['vendor/GetVendorFavorite']='vendor/GetVendorFavorite';
 $route['vendor/AddUpdVendorAddress']='vendor/AddUpdVendorAddress';
 $route['vendor/UpdVenIndividual']='vendor/UpdVenIndividual';
+$route['vendor/AddVendorBusinessContact']='vendor/AddVendorBusinessContact';
 
 //login
 $route['login/insertVendor']='login/insertVendor';
