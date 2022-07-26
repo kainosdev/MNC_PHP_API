@@ -240,32 +240,32 @@ public function AddMultiVendorContact($data){
    }
 
 
-   public function AddVendorAddress($data){
+//    public function AddVendorAddress($data){
 
 
-    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+//     $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
-    //     //No @ needed.  Codeigniter gets it right either way
-    $params =$data;
+//     //     //No @ needed.  Codeigniter gets it right either way
+//     $params =$data;
 
-        $query = $this->db->query($sp,$params);
-        return $query->result_array();
+//         $query = $this->db->query($sp,$params);
+//         return $query->result_array();
 
-}
-
-
-public function UpdateVendorAddress($data){
+// }
 
 
-    $sp = "sUpdateVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+// public function UpdateVendorAddress($data){
 
-    //     //No @ needed.  Codeigniter gets it right either way
-    $params =$data;
 
-        $query = $this->db->query($sp,$params);
-        return $query->result_array();
+//     $sp = "sUpdateVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
-}
+//     //     //No @ needed.  Codeigniter gets it right either way
+//     $params =$data;
+
+//         $query = $this->db->query($sp,$params);
+//         return $query->result_array();
+
+// }
 
 
 
