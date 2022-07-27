@@ -280,11 +280,11 @@ public function GetVendorFavoriteList($vendorId)
 public function AddUpdateVendorAddress($data){
 
 
-    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
     //     //No @ needed.  Codeigniter gets it right either way
     $params =$data;
-
+var_dump($data);
         $query = $this->db->query($sp,$params);
         return $query->result_array();
 
