@@ -802,18 +802,18 @@ $this->response($data);
 }
 
 
-public function DeleteVendorContact_post() {
-    $json = file_get_contents('php://input');
-    // $Newcontact2 = json_encode($Newcontact1,true);
-        //  var_dump($Newcontact2);
+// public function DeleteVendorContact_post() {
+//     $json = file_get_contents('php://input');
+//     // $Newcontact2 = json_encode($Newcontact1,true);
+//         //  var_dump($Newcontact2);
 
-    $request = json_decode($json,true);
-    // var_dump($request["ContactId"]);
+//     $request = json_decode($json,true);
+//     // var_dump($request["ContactId"]);
 
-    $data = array('VendorId'=>$request["VendorId"],'ContactId'=>$request["ContactId"]);
+//     $data = array('VendorId'=>$request["VendorId"],'ContactId'=>$request["ContactId"]);
 
-      $result = $this->vendor_model->DeleteVendorContact($data);
-}
+//       $result = $this->vendor_model->DeleteVendorContact($data);
+// }
 
 public function UpdVendorNew_post() {
 // var_dump("hi");
