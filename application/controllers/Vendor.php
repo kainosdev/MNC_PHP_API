@@ -509,7 +509,7 @@ public function UpdateVendor_post(){
          $Newcontact1 = json_encode($request["Newcontact"],true);
 
          $Newcontact2 = json_decode($Newcontact1,true);
-         var_dump($Newcontact2);
+        //  var_dump($Newcontact2);
          foreach ($Newcontact2 as $object)
 
 {
@@ -517,7 +517,7 @@ public function UpdateVendor_post(){
     if($object["AddtionalContactActive"] == NULL){
         $object["AddtionalContactActive"] = 0;
     }
-    var_dump($object["ContactId"]);
+    // var_dump($object["ContactId"]);
 
 if($object["ContactId"] == 0){
 
