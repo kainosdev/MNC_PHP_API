@@ -284,7 +284,7 @@ public function AddUpdateVendorAddress($data){
 
     //     //No @ needed.  Codeigniter gets it right either way
     $params =$data;
-var_dump($data);
+
         $query = $this->db->query($sp,$params);
         return $query->result_array();
 
