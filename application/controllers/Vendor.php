@@ -511,7 +511,7 @@ public function UpdateVendor_post(){
          $Newcontact1 = json_encode($request["Newcontact"],true);
 
          $Newcontact2 = json_decode($Newcontact1,true);
-         var_dump($Newcontact2);
+        //  var_dump($Newcontact2);
          foreach ($Newcontact2 as $object)
 
 {
@@ -519,7 +519,7 @@ public function UpdateVendor_post(){
     if($object["AddtionalContactActive"] == NULL){
         $object["AddtionalContactActive"] = 0;
     }
-    var_dump($object["ContactId"]);
+    // var_dump($object["ContactId"]);
 
 if($object["ContactId"] == 0){
 
@@ -932,11 +932,17 @@ public function AddUpdVendorAddress_post() {
     $json = file_get_contents('php://input');
         $request = json_decode($json,true);
         // var_dump($request["CreatedUserId"]);
+    // echo $request["StartDate"];
+    // echo "<br>";
+        $date = new DateTime($request["StartDate"]);
+        $date->modify('-1 day');
+    //     echo $date->format('Y-m-d');
+    $prevDate = $date->format('Y-m-d');
 
         $data2 = array('VendorId' => $request["VendorId"],'AddressTypeId'=>$request["AddressTypeId"],'StartDate'=>$request["StartDate"],'EndDate'=>$request["EndDate"],'Address1'=>$request["Address1"],
                 'Address2'=>$request["Address2"],'StateId'=>$request["StateId"],'DistrictId'=>$request["DistrictId"],'CityId'=>$request["CityId"],'Zipcode'=>$request["Zipcode"],'CountryId'=>$request["CountryId"],
                 'CreatedDate'=>date('Y-m-d'),'CreatedUserId'=>$request["CreatedUserId"],
-             'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$request["CreatedUserId"],'AddressId'=>$request["AddressId"],'VendorAddressPrimary'=>$request["VendorAddressPrimary"]
+             'UpdatedDate'=>date('Y-m-d'),'UpdatedUserId'=>$request["CreatedUserId"],'AddressId'=>$request["AddressId"],'VendorAddressPrimary'=>$request["VendorAddressPrimary"],'PrevDate'=>$prevDate
             );
 
             // var_dump($data2);
