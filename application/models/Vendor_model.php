@@ -176,10 +176,10 @@ public function AddMultiVendorContact($data){
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
-            
+
             $query = $this->db->query($sp,$params);
             return $query->result_array();
-        
+
     }
 
 
@@ -190,29 +190,35 @@ public function AddMultiVendorContact($data){
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
-            
+
             $query = $this->db->query($sp,$params);
             return $query->result_array();
-        
+
     }
 
 
     public function DeleteVendorContact($data){
 
 
-        $sp = "sDeleteVendorContact ?,?"; //No exec or call needed
+        $sp = "sDeleteVendorContact ?"; //No exec or call needed
 
         //     //No @ needed.  Codeigniter gets it right either way
         $params =$data;
-            
+
             $query = $this->db->query($sp,$params);
             return $query->result_array();
-        
+
     }
-    
-    public function GetVendorApprovalList($UserTypeId, $UserStatusId)
+
+    public function GetVendorApprovalList($UserTypeId1,$UserStatusId)
 {
-    $query = $this->db->query("sGetVendorApproval @UserTypeId='$UserTypeId', @UserStatusId='$UserStatusId'");
+    $query = $this->db->query("sGetVendorApproval @UserTypeId1='$UserTypeId1', @UserStatusId='$UserStatusId'");
+    return $query->result_array();
+
+}
+public function GetVendorFavoriteList($vendorId)
+{
+    $query = $this->db->query("sGetVendorFavorite @VendorId='$vendorId'");
     return $query->result_array();
 
 }
@@ -228,6 +234,8 @@ public function AddMultiVendorContact($data){
         $params =$data;
 
             $result = $this->db->query($sp,$params);
+            $retVal = $result->result_array();
+            return $retVal;
 
             // $sp1 = "sUpdateVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
         //echo $sp;
@@ -240,17 +248,91 @@ public function AddMultiVendorContact($data){
    }
 
 
-   public function AddVendorAddress($data){
+//    public function AddVendorAddress($data){
 
 
-    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+//     $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+
+//     //     //No @ needed.  Codeigniter gets it right either way
+//     $params =$data;
+
+//         $query = $this->db->query($sp,$params);
+//         return $query->result_array();
+
+// }
+
+
+// public function UpdateVendorAddress($data){
+
+
+//     $sp = "sUpdateVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+
+//     //     //No @ needed.  Codeigniter gets it right either way
+//     $params =$data;
+
+//         $query = $this->db->query($sp,$params);
+//         return $query->result_array();
+
+// }
+
+
+
+public function AddUpdateVendorAddress($data){
+
+
+    $sp = "sAddVendorAddress ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
 
     //     //No @ needed.  Codeigniter gets it right either way
     $params =$data;
-        
+
         $query = $this->db->query($sp,$params);
         return $query->result_array();
-    
+
 }
+
+
+public function updatevendorIndividual($data){
+
+
+    $sp = "sUpdVendorIndividual ?,?,?,?,?,?,?,?"; //No exec or call needed
+    
+    $params =$data;
+
+        $result = $this->db->query($sp,$params);
+        return $result->result_array();
+    
+
+}
+
+
+public function AddVendorBusinessContact($data){
+
+
+    $sp = "sAddVendorContact ?,?,?,?,?,?,?,?,?,?,?,?,?,?"; //No exec or call needed
+
+    //     //No @ needed.  Codeigniter gets it right either way
+    $params =$data;
+
+        $query = $this->db->query($sp,$params);
+        return $query->result_array();
+
+}
+
+
+public function DeleteVendorAddress($data){
+
+
+    $sp = "sDeleteVendorAddress ?"; //No exec or call needed
+
+    //     //No @ needed.  Codeigniter gets it right either way
+    $params =$data;
+
+        $query = $this->db->query($sp,$params);
+        return $query->result_array();
+
+}
+
+
+
 
 }

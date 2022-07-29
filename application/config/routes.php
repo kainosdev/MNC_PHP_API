@@ -255,6 +255,12 @@ $route['vendor/DeleteVendorContact']='vendor/DeleteVendorContact';
 $route['vendor/GetVendorApproval']='vendor/GetVendorApproval';
 
 $route['vendor/UpdVendorNew']='vendor/UpdVendorNew';
+$route['vendor/GetVendorFavorite']='vendor/GetVendorFavorite';
+$route['vendor/AddUpdVendorAddress']='vendor/AddUpdVendorAddress';
+$route['vendor/UpdVenIndividual']='vendor/UpdVenIndividual';
+$route['vendor/AddVendorBusinessContact']='vendor/AddVendorBusinessContact';
+$route['vendor/DeleteVendorAddress']='vendor/DeleteVendorAddress';
+// $route['vendor/DeleteVendorContact']='vendor/DeleteVendorContact';
 
 //login
 $route['login/insertVendor']='login/insertVendor';
