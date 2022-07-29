@@ -178,6 +178,12 @@ return $query->result_array();
             return $query->result_array();
 
         }
+        public function Updateemplyeestatus($Id,$UserStatusId,$UpdatedUserId,$UpdatedDate)
+        {
+            $query = $this->db->query("sUpdateEmployeeStatus @Id='$Id',@UserStatusId='$UserStatusId',@UpdatedUserId = '$UpdatedUserId',@UpdatedDate='$UpdatedDate'");
+            return $query->result_array();
+
+        }
 
 
 

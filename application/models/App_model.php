@@ -611,6 +611,11 @@ public function getAllcity()
 $query = $this->db->get('vCity');
 return $query->result_array();
 }
+public function SelectBidResponseStatus()
+{
+$query = $this->db->get('VBidResponseStatus');
+return $query->result_array();
+}
 
 public function getselectAllDistricts()
 {
