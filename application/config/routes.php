@@ -313,6 +313,8 @@ $route['employee/GetDirectReport']='employee/GetDirectReport';
 $route['employee/GetEmployeeApproval']='employee/GetEmployeeApproval';
 $route['bid/GetBidOpenandDraft']='bid/GetBidOpenandDraft';
 $route['bid/GetConAwardByUser']='bid/GetConAwardByUser';
+$route['bid/AddBid']='bid/AddBid';
+
 
 $route['bid/GetBidResponseSubmittedByVendor']='bid/GetBidResponseSubmittedByVendor';
 $route['bid/GetBidResponseNotSubmittedByVendor']='bid/GetBidResponseNotSubmittedByVendor';

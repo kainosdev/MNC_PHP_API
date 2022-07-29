@@ -143,5 +143,51 @@ public function GetBidResponseNotSubmittedByVendor_get()
     $this->response($data);
 
 }
+public function AddBid_post()
+{
+    $json = file_get_contents('php://input');
+    $request = json_decode($json,true);
 
-    }
+    $BidNumber=$request["BidNumber"];
+    $Title=$request["Title"];
+    $BidStatusId=$request["BidStatusId"];
+
+    $Description=$request["Description"];
+    $SolicitationTypeId=$request["SolicitationTypeId"];
+    $FundingSourceId=$request["FundingSourceId"];
+
+    $COTRUserId=$request["COTRUserId"];
+    $BidPostedDate=$request["BidPostedDate"];
+    $BidBudgetAmount=$request["BidBudgetAmount"];
+
+    $Phone=$request["Phone"];
+    $QandADueDate=$request["QandADueDate"];
+    $SetAsideTypeId=$request["SetAsideTypeId"];
+
+    $Email=$request["Email"];
+    $BidResponseDueDate=$request["BidResponseDueDate"];
+    $ContractVehicleId=$request["ContractVehicleId"];
+
+    $CreatedDate=$request["CreatedDate"];
+    $CreatedUserId=$request["CreatedUserId"];
+    $UpdatedDate=$request["UpdatedDate"];
+
+    $UpdatedUserId=$request["UpdatedUserId"];
+    $ContractNumber=NULL;
+    $ContractVendorId=NULL;
+
+  $data=array('BidNumber' => $BidNumber,'Title' => $Title,'BidStatusId' => $BidStatusId,
+  'Description' => $Description, 'SolicitationTypeId' => $SolicitationTypeId, 
+  'FundingSourceId' => $FundingSourceId, 'COTRUserId' => $COTRUserId, 
+  'BidPostedDate' => $BidPostedDate,'BidBudgetAmount' => $BidBudgetAmount, 
+  'Phone' => $Phone,'QandADueDate' => $QandADueDate,'SetAsideTypeId' => $SetAsideTypeId, 'Email' => $Email, 
+  'BidResponseDueDate' => $BidResponseDueDate, 'ContractVehicleId' => $ContractVehicleId, 
+  'CreatedDate' => $CreatedDate, 'CreatedUserId' => $CreatedUserId, 'UpdatedDate' => $UpdatedDate,
+  'UpdatedUserId' => $UpdatedUserId,'ContractNumber' => $ContractNumber,
+  'ContractVendorId' => $ContractVendorId);
+
+  $result = $this->bid_model->AddBidData($data);
+  $this->response($result,'200');
+}
+
+    } 

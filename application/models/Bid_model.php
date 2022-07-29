@@ -86,6 +86,14 @@ public function GetBidResponseNotSubmittedByVendor($VendorId)
     return $query->result_array();
 
 }
+public function AddBidData($data)
+{
+    $sp = "sAddBid ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+    $params =$data;
+        $result = $this->db->query($sp,$params);
+        $retVal = $result->result_array();
+        return $retVal;
+}
 
 
 }
