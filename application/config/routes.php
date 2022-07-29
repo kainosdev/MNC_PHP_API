@@ -311,7 +311,7 @@ $route['bid/UpdateClin']='bid/UpdateClin';
 
 $route['employee/GetDirectReport']='employee/GetDirectReport';
 $route['employee/GetEmployeeApproval']='employee/GetEmployeeApproval';
-// $route['employee/Updateemplyeestatus']='employee/Updateemplyeestatus';
+
 $route['bid/GetBidOpenandDraft']='bid/GetBidOpenandDraft';
 $route['bid/GetConAwardByUser']='bid/GetConAwardByUser';
 
@@ -320,3 +320,4 @@ $route['bid/GetBidResponseNotSubmittedByVendor']='bid/GetBidResponseNotSubmitted
 
 $route['contract/GetVendorActiveContracts']='contract/GetVendorActiveContracts';
 $route['app/SelectBidResponseStatus']='app/SelectBidResponseStatus';
+$route['employee/Updateemplyeestatus']='employee/Updateemplyeestatus';
