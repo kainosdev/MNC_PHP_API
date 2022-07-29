@@ -107,9 +107,8 @@ public function Updateemplyeestatus_get()
 {
     $Id=$_GET['Id'];
     $UserStatusId=$_GET['UserStatusId'];
-    $UserStatusId=$_GET['UserStatusId'];
     $UpdatedUserId=$_GET['UpdatedUserId'];
-    $UpdatedDate=$_GET['UpdatedDate'];
+    $UpdatedDate=date('Y-m-d  H:i:s');
     $data['Emplyeestatus']=$this->employee_model->Updateemplyeestatus($Id,$UserStatusId,$UpdatedUserId,$UpdatedDate);
     $this->response($data);
 
