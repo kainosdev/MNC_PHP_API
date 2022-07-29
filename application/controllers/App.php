@@ -806,6 +806,11 @@ public function selectAllcity_get()
     $data['citydetails']=$this->app_model->getAllcity();
     $this->response($data);
 }
+public function SelectBidResponseStatus_get()
+{
+    $data['BidResponseStatus']=$this->app_model->SelectBidResponseStatus();
+    $this->response($data);
+}
 
 public function selectAllDistricts_get()
 {
