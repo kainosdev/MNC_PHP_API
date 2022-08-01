@@ -723,6 +723,9 @@ public function GetContractingofficerByJobtitle($JobTitleDesc)
     return $query->result_array();
 
 }
-
+public function GetfundingSource(){
+    $query = $this->db->get('vFundingSource');
+    return $query->result_array();
+ }
 
 }

@@ -938,6 +938,11 @@ public function getVContactNotPrimary_get()
 
 }
 
+public function GetfundingSource_get(){
+    $data['FundingSourcelist']=$this->app_model->GetfundingSource();
+    $this->response($data);
+}
+
 
 
 }
