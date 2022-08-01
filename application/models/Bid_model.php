@@ -114,5 +114,13 @@ public function AddSubContractPlanDetail($data)
         $retVal = $result->result_array();
         return $retVal;
 }
+public function AddClinItemDetail($data)
+{
+    $sp = "sAddClin ?,?,?,?";
+    $params =$data;
+        $result = $this->db->query($sp,$params);
+        $retVal = $result->result_array();
+        return $retVal;
+}
 
 }

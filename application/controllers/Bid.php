@@ -251,7 +251,19 @@ public function GetVendorViewbid_get()
     $this->response($data);
 
 }
+public function AddClinItem_post(){
+    $json = file_get_contents('php://input');
+    $request = json_decode($json,true);
+    $BidNumber=$request["BidNumber"];
+    $ClinId=$request["ClinId"];
+    $BidClinCustomDesc=$request["BidClinCustomDesc"];
+    $ServiceTypeId=$request["ServiceTypeId"];
+    $data=array('BidNumber' => $BidNumber, 'ClinId' =>$ClinId,
+    'BidClinCustomDesc'=>$BidClinCustomDesc, 'ServiceTypeId'=>$ServiceTypeId);
+    $result = $this->bid_model->AddClinItemDetail($data);
+    $this->response($result,'200');
 
+}
 
 }
    
