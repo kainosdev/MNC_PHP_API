@@ -112,9 +112,17 @@ public function GetReviewerNameList()
     return $query->result_array();
 
 }
+public function AddReviewerData($data)
+{
+    $sp = "sAddReviewer ?,?,?,?,?,?";
+    $params =$data;
+        $result = $this->db->query($sp,$params);
+        $retVal = $result->result_array();
+        return $retVal;
+}
 public function AddSubContractPlanDetail($data)
 {
-    $sp = "sAddSubContractingPlan ?,?,?,?";
+    $sp = "sAddSubContractingPlan ?,?,?,?,?,?,?,?";
     $params =$data;
         $result = $this->db->query($sp,$params);
         $retVal = $result->result_array();
@@ -123,7 +131,7 @@ public function AddSubContractPlanDetail($data)
 
 public function AddClinItemDetail($data)
 {
-    $sp = "sAddClin ?,?,?,?";
+    $sp = "sAddClin ?,?,?,?,?,?,?,?";
     $params =$data;
         $result = $this->db->query($sp,$params);
         $retVal = $result->result_array();

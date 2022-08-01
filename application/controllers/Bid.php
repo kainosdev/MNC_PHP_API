@@ -216,8 +216,14 @@ public function AddSubContractPlan_post(){
     $BEClassificationId=$request["BEClassificationId"];
     $ContractPercent=$request["ContractPercent"];
     $ContractAmount=$request["ContractAmount"];
+    $CreatedDate=date('Y-m-d');
+    $CreatedUserId=$request["CreatedUserId"];
+    $UpdatedDate=date('Y-m-d');
+    $UpdatedUserId=$request["UpdatedUserId"];
     $data=array('BidNumber' => $BidNumber,'BEClassificationId'=>$BEClassificationId,
-'ContractPercent'=>$ContractPercent, 'ContractAmount' =>$ContractAmount);
+'ContractPercent'=>$ContractPercent, 'ContractAmount' =>$ContractAmount,
+'CreatedDate' =>$CreatedDate,'CreatedUserId'=>$CreatedUserId,'UpdatedDate' => $UpdatedDate,
+   'UpdatedUserId' => $UpdatedUserId);
     $result = $this->bid_model->AddSubContractPlanDetail($data);
     $this->response($result,'200');
 } 
@@ -258,8 +264,13 @@ public function AddClinItem_post(){
     $ClinId=$request["ClinId"];
     $BidClinCustomDesc=$request["BidClinCustomDesc"];
     $ServiceTypeId=$request["ServiceTypeId"];
+    $CreatedDate=date('Y-m-d');
+    $CreatedUserId=$request["CreatedUserId"];
+    $UpdatedDate=date('Y-m-d');
+    $UpdatedUserId=$request["UpdatedUserId"];
     $data=array('BidNumber' => $BidNumber, 'ClinId' =>$ClinId,
-    'BidClinCustomDesc'=>$BidClinCustomDesc, 'ServiceTypeId'=>$ServiceTypeId);
+    'BidClinCustomDesc'=>$BidClinCustomDesc, 'ServiceTypeId'=>$ServiceTypeId,'CreatedDate' =>$CreatedDate,'CreatedUserId'=>$CreatedUserId,'UpdatedDate' => $UpdatedDate,
+    'UpdatedUserId' => $UpdatedUserId);
     $result = $this->bid_model->AddClinItemDetail($data);
     $this->response($result,'200');
 
