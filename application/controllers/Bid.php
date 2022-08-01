@@ -208,6 +208,17 @@ public function AddReviewer_post(){
    'UpdatedUserId' => $UpdatedUserId);
     $result = $this->bid_model->AddReviewerData($data);
     $this->response($result,'200');
-
+}
+public function AddSubContractPlan_post(){
+    $json = file_get_contents('php://input');
+    $request = json_decode($json,true);
+    $BidNumber=$request["BidNumber"];
+    $BEClassificationId=$request["BEClassificationId"];
+    $ContractPercent=$request["ContractPercent"];
+    $ContractAmount=$request["ContractAmount"];
+    $data=array('BidNumber' => $BidNumber,'BEClassificationId'=>$BEClassificationId,
+'ContractPercent'=>$ContractPercent, 'ContractAmount' =>$ContractAmount);
+    $result = $this->bid_model->AddSubContractPlanDetail($data);
+    $this->response($result,'200');
 }
     } 

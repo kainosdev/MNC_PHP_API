@@ -317,6 +317,7 @@ $route['bid/GetConAwardByUser']='bid/GetConAwardByUser';
 $route['bid/AddBid']='bid/AddBid';
 $route['bid/GetReviewerName']='bid/GetReviewerName';
 $route['bid/AddReviewer']='bid/AddReviewer';
+$route['bid/AddSubContractPlan']='bid/AddSubContractPlan';
 
 
 $route['bid/GetBidResponseSubmittedByVendor']='bid/GetBidResponseSubmittedByVendor';

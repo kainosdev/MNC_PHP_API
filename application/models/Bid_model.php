@@ -100,5 +100,13 @@ public function GetEmplyeeViewbid($BidStatusId,$SolicitationTypeId,$SetAsideType
     $query = $this->db->query("sGetEmployeeViewBid @BidStatusId='$BidStatusId',@SolicitationTypeId='$SolicitationTypeId',@SetAsideTypeId = '$SetAsideTypeId', @COTRUserId = '$COTRUserId' ");
     return $query->result_array();
 }
+public function AddSubContractPlanDetail($data)
+{
+    $sp = "sAddSubContractingPlan ?,?,?,?";
+    $params =$data;
+        $result = $this->db->query($sp,$params);
+        $retVal = $result->result_array();
+        return $retVal;
+}
 
 }
