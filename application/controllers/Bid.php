@@ -172,7 +172,7 @@ public function AddBid_post()
     $CreatedUserId=$request["CreatedUserId"];
     $UpdatedDate=date('Y-m-d');
 
-    $UpdatedUserId=$request["UpdatedUserId"];
+    $UpdatedUserId=$request["CreatedUserId"];
     $ContractNumber=NULL;
     $ContractVendorId=NULL;
 
