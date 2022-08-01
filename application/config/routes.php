@@ -325,3 +325,5 @@ $route['bid/GetBidResponseNotSubmittedByVendor']='bid/GetBidResponseNotSubmitted
 $route['contract/GetVendorActiveContracts']='contract/GetVendorActiveContracts';
 $route['app/SelectBidResponseStatus']='app/SelectBidResponseStatus';
 $route['employee/Updateemplyeestatus']='employee/Updateemplyeestatus';
+$route['bid/GetEmplyeeViewbid']='bid/GetEmplyeeViewbid';
+

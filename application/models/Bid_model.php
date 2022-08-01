@@ -94,18 +94,11 @@ public function AddBidData($data)
         $retVal = $result->result_array();
         return $retVal;
 }
-public function GetReviewerNameList()
+
+public function GetEmplyeeViewbid($BidStatusId,$SolicitationTypeId,$SetAsideTypeId, $COTRUserId)
 {
-$query = $this->db->query('sGetReviewerName');
-return $query->result_array();
-}
-public function AddReviewerData($data)
-{
-    $sp = "sAddReviewer ?,?,?,?,?,?";
-    $params =$data;
-        $result = $this->db->query($sp,$params);
-        $retVal = $result->result_array();
-        return $retVal;
+    $query = $this->db->query("sGetEmployeeViewBid @BidStatusId='$BidStatusId',@SolicitationTypeId='$SolicitationTypeId',@SetAsideTypeId = '$SetAsideTypeId', @COTRUserId = '$COTRUserId' ");
+    return $query->result_array();
 }
 
 }
