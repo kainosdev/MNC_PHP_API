@@ -208,19 +208,38 @@ public function AddReviewer_post(){
    'UpdatedUserId' => $UpdatedUserId);
     $result = $this->bid_model->AddReviewerData($data);
     $this->response($result,'200');
+} 
 
 public function GetEmplyeeViewbid_get()
+
 {
     $BidStatusId=$_GET['BidStatusId'];
     $SolicitationTypeId=$_GET['SolicitationTypeId'];
     $SetAsideTypeId=$_GET['SetAsideTypeId'];
-    $COTRUserId=$_GET['COTRUserId'];
+    // $COTRUserId=$_GET['COTRUserId'];
+    // $Budgetamountover=$_GET['Budgetamountover'];
 
-    $data['ViewbidEmplyee']=$this->bid_model->GetEmplyeeViewbid($BidStatusId,$SolicitationTypeId,$SetAsideTypeId, $COTRUserId);
+
+    $data['ViewbidEmplyee']=$this->bid_model->GetEmplyeeViewbid($BidStatusId,$SolicitationTypeId,$SetAsideTypeId);
+    $this->response($data);
+
+}
+
+public function GetVendorViewbid_get()
+
+{
+    $BidStatusId=$_GET['BidStatusId'];
+    $SolicitationTypeId=$_GET['SolicitationTypeId'];
+    $SetAsideTypeId=$_GET['SetAsideTypeId'];
+    // $COTRUserId=$_GET['COTRUserId'];
+    // $Budgetamountover=$_GET['Budgetamountover'];
+
+
+    $data['ViewbidVendor']=$this->bid_model->GetVendorViewbid($BidStatusId,$SolicitationTypeId,$SetAsideTypeId);
     $this->response($data);
 
 }
 
 
-
-    } 
+}
+   
