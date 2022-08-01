@@ -168,13 +168,13 @@ public function AddBid_post()
     $BidResponseDueDate=$request["BidResponseDueDate"];
     $ContractVehicleId=$request["ContractVehicleId"];
 
-    $CreatedDate=$request["CreatedDate"];
+    $CreatedDate=date('Y-m-d');
     $CreatedUserId=$request["CreatedUserId"];
-    $UpdatedDate=$request["UpdatedDate"];
+    $UpdatedDate=date('Y-m-d');
 
-    $UpdatedUserId=$request["UpdatedUserId"];
-    $ContractNumber=NULL;
-    $ContractVendorId=NULL;
+    $UpdatedUserId=$request["CreatedUserId"];
+    $ContractNumber='';
+    $ContractVendorId='';
 
   $data=array('BidNumber' => $BidNumber,'Title' => $Title,'BidStatusId' => $BidStatusId,
   'Description' => $Description, 'SolicitationTypeId' => $SolicitationTypeId, 
@@ -189,6 +189,25 @@ public function AddBid_post()
   $result = $this->bid_model->AddBidData($data);
   $this->response($result,'200');
 }
+public function GetReviewerName_get()
+{
+    $data['ReviewerNameList']=$this->bid_model->GetReviewerNameList();
+    $this->response($data);
+}
+public function AddReviewer_post(){
+    $json = file_get_contents('php://input');
+    $request = json_decode($json,true);
+    $BidNumber=$request["BidNumber"];
+    $ReviewerUserId=$request["ReviewerUserId"];
+    $CreatedDate=$request["CreatedDate"];
+    $CreatedUserId=$request["CreatedUserId"];
+    $UpdatedDate=$request["UpdatedDate"];
+    $UpdatedUserId=$request["UpdatedUserId"];
+    $data=array('BidNumber' => $BidNumber,'ReviewerUserId'=> $ReviewerUserId,
+  'CreatedDate' =>$CreatedDate,'CreatedUserId'=>$CreatedUserId,'UpdatedDate' => $UpdatedDate,
+   'UpdatedUserId' => $UpdatedUserId);
+    $result = $this->bid_model->AddReviewerData($data);
+    $this->response($result,'200');
 
 public function GetEmplyeeViewbid_get()
 {
