@@ -99,5 +99,13 @@ public function GetReviewerNameList()
 $query = $this->db->query('sGetReviewerName');
 return $query->result_array();
 }
+public function AddReviewerData($data)
+{
+    $sp = "sAddReviewer ?,?,?,?,?,?";
+    $params =$data;
+        $result = $this->db->query($sp,$params);
+        $retVal = $result->result_array();
+        return $retVal;
+}
 
 }
