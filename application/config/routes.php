@@ -328,3 +328,5 @@ $route['employee/Updateemplyeestatus']='employee/Updateemplyeestatus';
 $route['bid/GetEmplyeeViewbid']='bid/GetEmplyeeViewbid';
 $route['bid/GetVendorViewbid']='bid/GetVendorViewbid';
 
+$route['app/GetfundingSource']='app/GetfundingSource';
+
