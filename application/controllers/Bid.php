@@ -202,25 +202,12 @@ public function AddReviewer_post(){
     $CreatedDate=date('Y-m-d');
     $CreatedUserId=$request["CreatedUserId"];
     $UpdatedDate=date('Y-m-d');
-    $UpdatedUserId='';
+    $UpdatedUserId=$request["UpdatedUserId"];
     $data=array('BidNumber' => $BidNumber,'ReviewerUserId'=> $ReviewerUserId,
   'CreatedDate' =>$CreatedDate,'CreatedUserId'=>$CreatedUserId,'UpdatedDate' => $UpdatedDate,
    'UpdatedUserId' => $UpdatedUserId);
     $result = $this->bid_model->AddReviewerData($data);
     $this->response($result,'200');
 
-public function GetEmplyeeViewbid_get()
-{
-    $BidStatusId=$_GET['BidStatusId'];
-    $SolicitationTypeId=$_GET['SolicitationTypeId'];
-    $SetAsideTypeId=$_GET['SetAsideTypeId'];
-    $COTRUserId=$_GET['COTRUserId'];
-
-    $data['ViewbidEmplyee']=$this->bid_model->GetEmplyeeViewbid($BidStatusId,$SolicitationTypeId,$SetAsideTypeId, $COTRUserId);
-    $this->response($data);
-
 }
-
-
-
     } 
