@@ -168,11 +168,11 @@ public function AddBid_post()
     $BidResponseDueDate=$request["BidResponseDueDate"];
     $ContractVehicleId=$request["ContractVehicleId"];
 
-    $CreatedDate=$request["CreatedDate"];
+    $CreatedDate=date('Y-m-d');
     $CreatedUserId=$request["CreatedUserId"];
-    $UpdatedDate=$request["UpdatedDate"];
+    $UpdatedDate=date('Y-m-d');
 
-    $UpdatedUserId=$request["UpdatedUserId"];
+    $UpdatedUserId=$request["CreatedUserId"];
     $ContractNumber=NULL;
     $ContractVendorId=NULL;
 
