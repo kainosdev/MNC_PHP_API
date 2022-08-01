@@ -189,5 +189,10 @@ public function AddBid_post()
   $result = $this->bid_model->AddBidData($data);
   $this->response($result,'200');
 }
+public function GetReviewerName_get()
+{
+    $data['ReviewerNameList']=$this->bid_model->GetReviewerNameList();
+    $this->response($data);
+}
 
     } 

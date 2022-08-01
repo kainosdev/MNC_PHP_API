@@ -94,6 +94,10 @@ public function AddBidData($data)
         $retVal = $result->result_array();
         return $retVal;
 }
-
+public function GetReviewerNameList()
+{
+$query = $this->db->query('sGetReviewerName');
+return $query->result_array();
+}
 
 }
