@@ -194,5 +194,20 @@ public function GetReviewerName_get()
     $data['ReviewerNameList']=$this->bid_model->GetReviewerNameList();
     $this->response($data);
 }
+public function AddReviewer_post(){
+    $json = file_get_contents('php://input');
+    $request = json_decode($json,true);
+    $BidNumber=$request["BidNumber"];
+    $ReviewerUserId=$request["ReviewerUserId"];
+    $CreatedDate=$request["CreatedDate"];
+    $CreatedUserId=$request["CreatedUserId"];
+    $UpdatedDate=$request["UpdatedDate"];
+    $UpdatedUserId=$request["UpdatedUserId"];
+    $data=array('BidNumber' => $BidNumber,'ReviewerUserId'=> $ReviewerUserId,
+  'CreatedDate' =>$CreatedDate,'CreatedUserId'=>$CreatedUserId,'UpdatedDate' => $UpdatedDate,
+   'UpdatedUserId' => $UpdatedUserId);
+    $result = $this->bid_model->AddReviewerData($data);
+    $this->response($result,'200');
 
+}
     } 
