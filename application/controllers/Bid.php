@@ -198,10 +198,10 @@ public function AddReviewer_post(){
     $json = file_get_contents('php://input');
     $request = json_decode($json,true);
     $BidNumber=$request["BidNumber"];
-    $ReviewerUserId=$request["ReviewerUserId"];
-    $CreatedDate=$request["CreatedDate"];
+    $ReviewerUserId=$request["BidResponseReviewerUserId"];
+    $CreatedDate=date('Y-m-d');
     $CreatedUserId=$request["CreatedUserId"];
-    $UpdatedDate=$request["UpdatedDate"];
+    $UpdatedDate=date('Y-m-d');
     $UpdatedUserId=$request["UpdatedUserId"];
     $data=array('BidNumber' => $BidNumber,'ReviewerUserId'=> $ReviewerUserId,
   'CreatedDate' =>$CreatedDate,'CreatedUserId'=>$CreatedUserId,'UpdatedDate' => $UpdatedDate,
