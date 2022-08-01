@@ -190,4 +190,18 @@ public function AddBid_post()
   $this->response($result,'200');
 }
 
+public function GetEmplyeeViewbid_get()
+{
+    $BidStatusId=$_GET['BidStatusId'];
+    $SolicitationTypeId=$_GET['SolicitationTypeId'];
+    $SetAsideTypeId=$_GET['SetAsideTypeId'];
+    $COTRUserId=$_GET['COTRUserId'];
+
+    $data['ViewbidEmplyee']=$this->bid_model->GetEmplyeeViewbid($BidStatusId,$SolicitationTypeId,$SetAsideTypeId, $COTRUserId);
+    $this->response($data);
+
+}
+
+
+
     } 

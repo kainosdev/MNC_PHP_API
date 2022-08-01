@@ -95,5 +95,10 @@ public function AddBidData($data)
         return $retVal;
 }
 
+public function GetEmplyeeViewbid($BidStatusId,$SolicitationTypeId,$SetAsideTypeId, $COTRUserId)
+{
+    $query = $this->db->query("sGetEmployeeViewBid @BidStatusId='$BidStatusId',@SolicitationTypeId='$SolicitationTypeId',@SetAsideTypeId = '$SetAsideTypeId', @COTRUserId = '$COTRUserId' ");
+    return $query->result_array();
+}
 
 }
