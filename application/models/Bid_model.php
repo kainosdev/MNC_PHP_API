@@ -106,6 +106,12 @@ public function GetVendorViewbid($BidStatusId,$SolicitationTypeId,$SetAsideTypeI
     $query = $this->db->query("sGetEmployeeViewBid @BidStatusId='$BidStatusId',@SolicitationTypeId='$SolicitationTypeId',@SetAsideTypeId = '$SetAsideTypeId' ");
     return $query->result_array();
 }
+public function GetReviewerNameList()
+{
+    $query = $this->db->query("sGetReviewerName");
+    return $query->result_array();
+
+}
 public function AddSubContractPlanDetail($data)
 {
     $sp = "sAddSubContractingPlan ?,?,?,?";
@@ -114,6 +120,7 @@ public function AddSubContractPlanDetail($data)
         $retVal = $result->result_array();
         return $retVal;
 }
+
 public function AddClinItemDetail($data)
 {
     $sp = "sAddClin ?,?,?,?";
@@ -122,5 +129,10 @@ public function AddClinItemDetail($data)
         $retVal = $result->result_array();
         return $retVal;
 }
+public function GetReviewerDetail()
+{
+    $query = $this->db->query("sGetReviewer");
+    return $query->result_array();
 
+}
 }

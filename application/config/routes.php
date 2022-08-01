@@ -319,7 +319,7 @@ $route['bid/GetReviewerName']='bid/GetReviewerName';
 $route['bid/AddReviewer']='bid/AddReviewer';
 $route['bid/AddSubContractPlan']='bid/AddSubContractPlan';
 $route['bid/AddClinItem']='bid/AddClinItem';
-
+$route['bid/GetReviewer']='bid/GetReviewer';
 
 $route['bid/GetBidResponseSubmittedByVendor']='bid/GetBidResponseSubmittedByVendor';
 $route['bid/GetBidResponseNotSubmittedByVendor']='bid/GetBidResponseNotSubmittedByVendor';

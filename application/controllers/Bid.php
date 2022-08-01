@@ -264,6 +264,11 @@ public function AddClinItem_post(){
     $this->response($result,'200');
 
 }
+public function GetReviewer_get()
+{
+    $data['ReviewerDetail']=$this->bid_model->GetReviewerDetail();
+    $this->response($data);
+}
 
 }
    
